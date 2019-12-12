@@ -8,7 +8,6 @@
 CC = gcc
 
 SRC = 	src/main.c	\
-		src/game_loop.c	\
 		src/handle_event.c	\
 		src/game_object.c	\
 		src/parallax.c	\
