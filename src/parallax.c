@@ -9,11 +9,12 @@
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 
-void update_parallax(game_object_t *object, game_t *game)
+bool update_parallax(game_object_t *object, game_t *game)
 {
     move_object(object);
     if (object->pos.x < - object->box.width)
         object->pos.x = object->box.width + object->move.x;
+    return (true);
 }
 
 game_object_t *init_paralax(game_object_t *last, int z_index, char *path, \
@@ -34,9 +35,6 @@ game_object_t *init_background(game_object_t *last)
 {
     last = init_paralax(last, FRONT, "templates/parallax/8.png", - 20);
     last = init_paralax(last, FRONT, "templates/parallax/8.png", - 20);
-    last->pos.x += last->box.width;
-    last = init_paralax(last, PLAYER_GROUND, "templates/parallax/9.png", - 15);
-    last = init_paralax(last, PLAYER_GROUND, "templates/parallax/9.png", - 15);
     last->pos.x += last->box.width;
     last = init_paralax(last, PARALLAX1, "templates/parallax/6.png", - 10);
     last = init_paralax(last, PARALLAX1, "templates/parallax/6.png", - 10);
