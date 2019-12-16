@@ -14,7 +14,10 @@ SRC = 	src/main.c	\
 		src/scene.c	\
 		src/player.c	\
 		src/frames.c	\
-		src/jump.c
+		src/jump.c	\
+		src/map.c	\
+		src/player_ground.c	\
+		src/physics.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -36,6 +39,7 @@ make_lib :
 
 clean :
 	rm -f src/*.o
+	rm -f vgcore.*
 	rm -f lib/my_graph/*.o
 
 fclean : clean

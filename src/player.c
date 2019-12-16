@@ -8,12 +8,18 @@
 #include "my_runner.h"
 #include <stdlib.h>
 
-void player_update(game_object_t *player, game_t *game)
+bool player_update(game_object_t *player, game_t *game)
 {
     update_game_object_frame(player);
-    if (player->state != RUNNING && game->jump != NULL)
-        compute_jump(player, &game->jump);
+    if (player->state != RUNNING && player->delta_t != NULL)
+        compute_jump(player);
     move_object(player);
+    update_physics(player, game->scene_list[GAME_SCENE]);
+    if (player->move.y > 0 && player->state != FALLING)
+        update_game_object_state(player, FALLING);
+    if (player->move.y == 0 && player->state != RUNNING)
+        update_game_object_state(player, RUNNING);
+    return (true);
 }
 
 anim_t *init_player_anim(void)
@@ -48,6 +54,7 @@ game_object_t *init_player(game_object_t *last)
     player->state = RUNNING;
     player->z_index = PLAYER_GROUND;
     player->anim = init_player_anim();
+    player->delta_t = NULL;
     if (player->anim == NULL)
         return (NULL);
     init_game_object_frame(player);

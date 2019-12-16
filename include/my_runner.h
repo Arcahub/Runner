@@ -16,7 +16,7 @@
 #include "player.h"
 #include "game_object.h"
 
-struct game;
+typedef struct game_object game_object_t;
 
 typedef enum {
     JUMP_KEY = sfKeySpace
@@ -50,20 +50,6 @@ typedef struct anim {
     int restart_id;
 } anim_t;
 
-typedef struct game_object {
-    sfTexture *texture;
-    sfSprite *sprite;
-    sfVector2f pos;
-    int z_index;
-    sfIntRect box;
-    sfVector2f move;
-    anim_t *anim;
-    int state;
-    object_type type;
-    void (*update)(struct game_object *, struct game *);
-    struct game_object *next;
-} game_object_t;
-
 typedef struct scene {
     void (*handle_event)(struct game *, sfRenderWindow *);
     game_object_t *objects_list;
@@ -75,17 +61,16 @@ typedef struct game {
     window_t *window;
     scene_t **scene_list;
     game_object_t *player;
-    sfClock *jump;
 }game_t;
 
 game_object_t *init_background(game_object_t *);
 void handle_event_game(game_t *, sfRenderWindow *);
 void game_loop(scene_t *, game_t *, sfRenderWindow *);
 void display_scene(scene_t *, sfRenderWindow *);
-void update_objects(game_object_t *, game_t *);
-void update_parallax(game_object_t *, game_t *);
-void draw_objects(game_object_t *, sfRenderWindow *, int);
-void init_scenes(game_t *);
-void move_object(game_object_t *);
+bool update_parallax(game_object_t *, game_t *);
+void init_scenes(game_t *, char *);
+game_object_t *init_player_ground(game_object_t *, char *);
+char *read_map(char *);
+void update_physics(game_object_t *, scene_t *);
 
 #endif /* !MY_RUNNER_H_ */

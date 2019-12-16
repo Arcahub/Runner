@@ -7,6 +7,7 @@
 
 #include "my_runner.h"
 #include <stdlib.h>
+#include <stdbool.h>
 
 game_object_t *create_game_object(game_object_t *last, char *sprite_path, \
 sfVector2f pos, object_type type)
@@ -30,19 +31,44 @@ sfVector2f pos, object_type type)
     return (object);
 }
 
+void destroy_game_object(scene_t *scene, game_object_t *prev, game_object_t *object)
+{
+    if (prev == NULL)
+        scene->objects_list = object->next;
+    else
+        prev->next = object->next;
+    sfSprite_destroy(object->sprite);
+    sfTexture_destroy(object->texture);
+    free(object->anim);
+    free(object);
+}
 
 void move_object(game_object_t *object)
 {
+    object->last_pos = object->pos;
     object->pos.x += object->move.x;
     object->pos.y += object->move.y;
+    object->box.left = object->pos.x;
+    object->box.top = object->pos.y;
     sfSprite_setPosition(object->sprite, object->pos);
 }
 
-void update_objects(game_object_t *object, game_t *game)
+void update_objects(scene_t *scene, game_object_t *object, game_t *game)
 {
+    game_object_t *prev = NULL;
+    bool ret = true;
+
     while (object) {
-        object->update(object, game);
-        object = object->next;
+        if (object->update != NULL)
+            ret = object->update(object, game);
+        if (ret == false) {
+            destroy_game_object(scene, prev, object);
+        } else
+            prev = object;
+        if (prev != NULL)
+            object = prev->next;
+        else
+            object = prev;
     }
 }
 

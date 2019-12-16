@@ -17,7 +17,7 @@ void handle_event_game(game_t *game, sfRenderWindow *window)
             sfRenderWindow_close(window);
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeySpace && \
         game->player->move.y == 0 && game->player->state == RUNNING) {
-            game->jump = sfClock_create();
+            game->player->delta_t = sfClock_create();
             game->player->move.y = - JUMP_SPEED;
             update_game_object_state(game->player, JUMPING);
         }

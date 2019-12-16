@@ -11,7 +11,7 @@
 #define CONST_H
 
 static const unsigned short int WINDOW_WIDTH = 1920;
-static const unsigned short int WINDOW_HEIGHT = 1080;
+static const unsigned short int WINDOW_HEIGHT = 1000;
 static const unsigned char WINDOW_BITS_PER_PIXEL = 32;
 static const unsigned char WINDOW_FRAMERATE = 60;
 static const char *WINDOW_NAME = "My Runner";
@@ -19,7 +19,7 @@ static const char *WINDOW_NAME = "My Runner";
 static const sfColor GAME_BACKGROUND_COLOR = {66, 98, 116, 0};
 
 static const unsigned int PLAYER_START_X = 100;
-static const unsigned int PLAYER_START_Y = 850;
+static const unsigned int PLAYER_START_Y = 800;
 static const unsigned char PLAYER_SPEED_X = 0;
 static const unsigned char PLAYER_SPEED_Y = 0;
 static const char *PLAYER_SPRITE_PATH = "templates/mobs/player/knight_sprite_sheets.png";
@@ -52,7 +52,7 @@ static const sfIntRect *PLAYER_FALLING_FRAME_KEYS[] = {
     NULL};
 
 static const float JUMP_SPEED = 35.0;
-static const float JUMP_SPEED_MIN = 15.0;
+static const float JUMP_SPEED_MIN = 5.0;
 static const float FALLING_MAX_SPEED = 25.0;
-static const float GRAVITY = 10.0;
+static const float GRAVITY = 2.0;
 #endif

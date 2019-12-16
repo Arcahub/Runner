@@ -12,6 +12,6 @@
 struct game_object;
 
 struct game_object *init_player(struct game_object *);
-void compute_jump(struct game_object *, sfClock **);
+void compute_jump(struct game_object *);
 
 #endif /* !PLAYER_H_ */
