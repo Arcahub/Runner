@@ -8,13 +8,13 @@
 #include "my_runner.h"
 #include <stdlib.h>
 
-bool player_update(game_object_t *player, game_t *game)
+bool player_update(game_object_t *player, scene_t *scene)
 {
     update_game_object_frame(player);
     if (player->state != RUNNING && player->delta_t != NULL)
         compute_jump(player);
     move_object(player);
-    update_physics(player, game->scene_list[GAME_SCENE]);
+    update_physics(player, scene);
     if (player->move.y > 0 && player->state != FALLING)
         update_game_object_state(player, FALLING);
     if (player->move.y == 0 && player->state != RUNNING)

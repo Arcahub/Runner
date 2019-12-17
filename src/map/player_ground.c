@@ -8,7 +8,7 @@
 #include "my_runner.h"
 #include <SFML/Graphics.h>
 
-bool update_ground(game_object_t *object, game_t *game)
+bool update_ground(game_object_t *object, scene_t *scene)
 {
     move_object(object);
     if (object->pos.x < - (float)object->box.width)

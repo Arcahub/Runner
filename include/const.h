@@ -51,6 +51,36 @@ static const sfIntRect *PLAYER_FALLING_FRAME_KEYS[] = {
     &(sfIntRect){270, 260, 90, 130},
     NULL};
 
+static const sfIntRect *BUTTON_UNSELECTED_FRAME_KEYS[] = {
+    &(sfIntRect){0, 792, 413, 72},
+    &(sfIntRect){0, 720, 413, 72},
+    &(sfIntRect){0, 648, 413, 72},
+    &(sfIntRect){0, 576, 413, 72},
+    &(sfIntRect){0, 504, 413, 72},
+    &(sfIntRect){0, 432, 413, 72},
+    &(sfIntRect){0, 360, 413, 72},
+    &(sfIntRect){0, 288, 413, 72},
+    &(sfIntRect){0, 216, 413, 72},
+    &(sfIntRect){0, 144, 413, 72},
+    &(sfIntRect){0, 72, 413, 72},
+    &(sfIntRect){0, 0, 413, 72},
+    NULL};
+
+static const sfIntRect *BUTTON_SELECTED_FRAME_KEYS[] = {
+    &(sfIntRect){0, 0, 413, 72},
+    &(sfIntRect){0, 72, 413, 72},
+    &(sfIntRect){0, 144, 413, 72},
+    &(sfIntRect){0, 216, 413, 72},
+    &(sfIntRect){0, 288, 413, 72},
+    &(sfIntRect){0, 360, 413, 72},
+    &(sfIntRect){0, 432, 413, 72},
+    &(sfIntRect){0, 504, 413, 72},
+    &(sfIntRect){0, 576, 413, 72},
+    &(sfIntRect){0, 648, 413, 72},
+    &(sfIntRect){0, 720, 413, 72},
+    &(sfIntRect){0, 792, 413, 72},
+    NULL};
+
 static const float JUMP_SPEED = 35.0;
 static const float JUMP_SPEED_MIN = 5.0;
 static const float FALLING_MAX_SPEED = 25.0;

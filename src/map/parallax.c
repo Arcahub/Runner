@@ -9,7 +9,7 @@
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 
-bool update_parallax(game_object_t *object, game_t *game)
+bool update_parallax(game_object_t *object, scene_t *scene)
 {
     move_object(object);
     if (object->pos.x < - object->box.width)

@@ -27,12 +27,3 @@ void display_scene(scene_t *scene, sfRenderWindow *window)
     sfRenderWindow_clear(window, scene->background_color);
     draw_objects(scene->objects_list, window, scene->z_index_deepth);
 }
-
-void init_scenes(game_t *game, char *map)
-{
-    scene_t **scene_list = malloc(sizeof(scene_t *) * 2);
-
-    scene_list[NULL_SCENE] = NULL;
-    scene_list[GAME_SCENE] = init_game_scene(game, map);
-    game->scene_list = scene_list;
-}

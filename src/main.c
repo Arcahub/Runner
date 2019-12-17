@@ -8,6 +8,7 @@
 #include "my_graph.h"
 #include "my_runner.h"
 #include <SFML/Graphics.h>
+#include <SFML/Audio.h>
 #include <stdlib.h>
 
 window_t *init_window(void)
@@ -32,9 +33,11 @@ game_t *init_game(char *map)
     if (game == NULL || map == NULL)
         return (NULL);
     game->window = init_window();
+    game->map = map;
     if (game->window == NULL)
         return (NULL);
-    init_scenes(game, map);
+    game->scene_loop[0] = &main_menu_loop;
+    game->scene_loop[1] = &game_loop;
     return(game);
 }
 
@@ -43,21 +46,20 @@ int my_runner(int argc, char **argv)
     char *map = read_map(argv[1]);
     game_t *game = init_game(map);
     sfRenderWindow *window = NULL;
-    int frames = 0;
+    sfMusic *music = sfMusic_createFromFile("templates/sounds/Hollow_Knight_Ambience_Main_Menu_Theme.ogg");
+    int display = 0;
 
+    if (music == NULL)
+        return (123);
+    sfMusic_setLoop(music, sfTrue);
+    sfMusic_play(music);
     if (game == NULL)
         return (84);
     window  = game->window->window;
     while (sfRenderWindow_isOpen(window)) {
-        game->scene_list[0]->handle_event(game, window);
-        frames += 1;
-        if (frames >= (game->window->framerate / 30.0)) {
-            update_objects(game->scene_list[0], game->scene_list[0]->objects_list, game);
-            frames -= game->window->framerate / 30.0;
-        }
-        display_scene(game->scene_list[0], window);
-        sfRenderWindow_display(window);
+        display = game->scene_loop[display](game, window);
     }
+    sfMusic_destroy(music);
 }
 
 int main(int argc, char **argv, char **env)

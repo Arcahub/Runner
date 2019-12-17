@@ -15,10 +15,18 @@ typedef struct game game_t;
 typedef struct scene scene_t;
 typedef struct anim anim_t;
 
+typedef struct anim {
+    sfIntRect **frames_key;
+    bool loop;
+    int frame_id;
+    int restart_id;
+} anim_t;
+
 typedef enum {
     PLAYER,
     PARALLAX,
     SOLID,
+    BUTTON,
     EFFECT,
 } object_type;
 
@@ -34,7 +42,8 @@ typedef struct game_object {
     int state;
     object_type type;
     sfClock *delta_t;
-    bool (*update)(struct game_object *, struct game *);
+    bool (*update)(struct game_object *, struct scene *);
+    void (*callback)(struct game_object *, void *);
     struct game_object *next;
 } game_object_t;
 

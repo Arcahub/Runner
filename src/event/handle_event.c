@@ -8,7 +8,19 @@
 #include "my_runner.h"
 #include <SFML/Graphics.h>
 
-void handle_event_game(game_t *game, sfRenderWindow *window)
+void handle_event_main_menu(scene_t *scene, game_t *game, sfRenderWindow *window)
+{
+    sfEvent event;
+
+    while (sfRenderWindow_pollEvent(window, &event)) {
+        if (event.type == sfEvtClosed)
+            sfRenderWindow_close(window);
+        if (event.type == sfEvtMouseButtonPressed)
+            is_click_on_button(scene, event.mouseButton, game);
+    }
+}
+
+void handle_event_game(scene_t *scene, game_t *game, sfRenderWindow *window)
 {
     sfEvent event;
 

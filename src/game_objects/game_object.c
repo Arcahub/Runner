@@ -23,11 +23,13 @@ sfVector2f pos, object_type type)
     object->box = (sfIntRect) {0, 0, 0, 0};
     object->type = type;
     object->update = NULL;
+    object->callback = NULL;
     object->anim = NULL;
     object->move = (sfVector2f) {0, 0};
     object->state = 0;
     object->z_index = 0;
     object->next = last;
+    sfSprite_setPosition(object->sprite, object->pos);
     return (object);
 }
 
@@ -60,7 +62,7 @@ void update_objects(scene_t *scene, game_object_t *object, game_t *game)
 
     while (object) {
         if (object->update != NULL)
-            ret = object->update(object, game);
+            ret = object->update(object, scene);
         if (ret == false) {
             destroy_game_object(scene, prev, object);
         } else
