@@ -39,6 +39,7 @@ make_lib :
 	make -C ./lib/my_graph
 
 clean :
+	rm -f $(wildcard src/*/*.o)
 	rm -f src/*.o
 	rm -f vgcore.*
 	rm -f lib/my_graph/*.o
