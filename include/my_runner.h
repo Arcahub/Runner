@@ -19,8 +19,10 @@
 typedef struct game_object game_object_t;
 
 typedef enum {
-    JUMP_KEY = sfKeySpace
-} player_input;
+    JUMP_KEY = sfKeySpace,
+    RELEASED = sfEvtKeyReleased,
+    PRESSED = sfEvtKeyPressed,
+} event;
 
 typedef enum {
     RUNNING,

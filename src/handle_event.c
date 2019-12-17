@@ -20,12 +20,12 @@ void handle_event_game(game_t *game, sfRenderWindow *window)
             game->player->delta_t = sfClock_create();
             game->player->move.y = - JUMP_SPEED;
             update_game_object_state(game->player, JUMPING);
-        }
-        if (event.type == sfEvtKeyReleased &&  event.key.code == sfKeySpace && \
-        game->player->state == JUMPING) {
+        } else if (event.type == sfEvtKeyReleased &&  event.key.code == \
+        sfKeySpace && game->player->state == JUMPING) {
             if (game->player->move.y < JUMP_SPEED_MIN)
             game->player->move.y = - JUMP_SPEED_MIN;
             update_game_object_state(game->player, FALLING);
         }
+        handle_joystick(event, game);
     }
 }
