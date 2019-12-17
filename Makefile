@@ -18,7 +18,11 @@ SRC = 	src/main.c	\
 		src/map/map.c	\
 		src/map/player_ground.c	\
 		src/physics/physics.c	\
-		src/joystick/joystick.c
+		src/joystick/joystick.c	\
+		src/menu/main_menu.c	\
+		src/menu/buttons.c	\
+		src/menu/main_menu_button_fonctions.c	\
+		src/loop/loop.c
 
 OBJ = $(SRC:.c=.o)
 
@@ -26,7 +30,7 @@ NAME = my_runner
 
 CFLAGS = $(LIB) $(HEADER) -g3
 
-LIB = -L./lib -lmy_graph -lcsfml-graphics -lcsfml-window -lcsfml-system
+LIB = -L./lib -lmy_graph -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
 
 HEADER = -I./include
 
