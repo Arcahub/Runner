@@ -17,8 +17,6 @@ sfBool check_joystick_button_pressed(int button)
 
 void handle_joystick(sfEvent event, game_t *game)
 {
-    if (event.type == sfEvtJoystickButtonPressed)
-        printf("%d\n", event.joystickButton.button);
     if (event.type == sfEvtJoystickButtonPressed && event.joystickButton.button\
      == 0 && game->player->move.y == 0 && game->player->state == RUNNING) {
         game->player->delta_t = sfClock_create();

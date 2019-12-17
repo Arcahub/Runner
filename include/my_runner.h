@@ -74,5 +74,7 @@ void init_scenes(game_t *, char *);
 game_object_t *init_player_ground(game_object_t *, char *);
 char *read_map(char *);
 void update_physics(game_object_t *, scene_t *);
+sfBool check_joystick_button_pressed(int);
+void handle_joystick(sfEvent, game_t *);
 
 #endif /* !MY_RUNNER_H_ */
