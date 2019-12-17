@@ -8,16 +8,17 @@
 CC = gcc
 
 SRC = 	src/main.c	\
-		src/handle_event.c	\
-		src/game_object.c	\
-		src/parallax.c	\
-		src/scene.c	\
-		src/player.c	\
-		src/frames.c	\
-		src/jump.c	\
-		src/map.c	\
-		src/player_ground.c	\
-		src/physics.c
+		src/event/handle_event.c	\
+		src/game_objects/game_object.c	\
+		src/map/parallax.c	\
+		src/scenes/scene.c	\
+		src/player/player.c	\
+		src/frames/frames.c	\
+		src/player/jump.c	\
+		src/map/map.c	\
+		src/map/player_ground.c	\
+		src/physics/physics.c	\
+		src/joystick/joystick.c
 
 OBJ = $(SRC:.c=.o)
 
