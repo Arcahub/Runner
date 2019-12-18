@@ -47,7 +47,8 @@ typedef enum {
 
 typedef enum {
     GAME_SCENE,
-    MENU_SCENE,
+    MAIN_MENU_SCENE,
+    OPTION_SCENE,
     NULL_SCENE,
 } scene_index;
 
@@ -85,13 +86,15 @@ game_object_t *init_player_ground(game_object_t *, char *);
 char *read_map(char *);
 void update_physics(game_object_t *, scene_t *);
 sfBool check_joystick_button_pressed(int);
-void handle_joystick(sfEvent, game_t *);
+void handle_joystick_game(sfEvent, game_t *);
+void handle_joystick_menu(sfEvent, game_t *, scene_t *);
 scene_t *init_game_scene(game_t *, char *);
 game_object_t *create_button(game_object_t *, char *, sfVector2f);
 void is_click_on_button(scene_t *, sfMouseButtonEvent, game_t *);
 int main_menu_loop(game_t *, sfRenderWindow *);
 scene_t *create_main_menu(void);
 void play_button_function(game_object_t *, void *);
+void exit_button_function(game_object_t *, void *);
 void increase_score(game_t *);
 void init_score(game_t *);
 

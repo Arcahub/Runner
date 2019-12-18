@@ -12,8 +12,9 @@
 void is_click_on_button(scene_t *scene, sfMouseButtonEvent mouse_button, game_t *game)
 {
     game_object_t *object = scene->objects_list;
-    int x = mouse_button.x;
-    int y = mouse_button.y;
+    sfVector2i pos = sfMouse_getPositionRenderWindow(game->window->window);
+    int x = pos.x;
+    int y = pos.y;
 
     if (mouse_button.button != sfMouseLeft)
         return;

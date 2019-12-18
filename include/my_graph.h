@@ -22,6 +22,7 @@ typedef struct window_s {
 typedef struct cursor {
     sfSprite *sprite;
     sfTexture *texture;
+    sfBool displayed;
     int width;
     int height;
 } cursor_t;

@@ -22,6 +22,12 @@ scene_t *init_game_scene(game_t * game, char *map)
     return (scene);
 }
 
+void destroy_scene(scene_t *scene)
+{
+    destroy_object_list(scene);
+    free(scene);
+}
+
 void display_scene(scene_t *scene, sfRenderWindow *window)
 {
     sfRenderWindow_clear(window, scene->background_color);

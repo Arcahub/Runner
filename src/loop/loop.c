@@ -11,10 +11,11 @@ int main_menu_loop(game_t *game, sfRenderWindow *window)
 {
     int frames = 0;
     scene_t *scene = create_main_menu();
-    scene->display = 0;
+    scene->display = MAIN_MENU_SCENE;
+    scene_index display = MAIN_MENU_SCENE;
 
     scene->window = window;
-    while (sfRenderWindow_isOpen(window) && scene->display == 0) {
+    while (sfRenderWindow_isOpen(window) && scene->display == MAIN_MENU_SCENE) {
         scene->handle_event(scene, game, window);
         frames += 1;
         if (frames >= (game->window->framerate / 30.0)) {
@@ -22,18 +23,22 @@ int main_menu_loop(game_t *game, sfRenderWindow *window)
             frames -= game->window->framerate / 30.0;
         }
         display_scene(scene, window);
-        draw_cursor(game->cursor, window);
+        draw_cursor(game->cursor, scene->window);
         sfRenderWindow_display(window);
     }
-    return (scene->display);
+    display = scene->display;
+    destroy_scene(scene);
+    return (display);
 }
 
 int game_loop(game_t *game, sfRenderWindow *window)
 {
     int frames = 0;
     scene_t *scene = init_game_scene(game, game->map);
+    scene->display = GAME_SCENE;
+    int display = GAME_SCENE;
 
-    while (sfRenderWindow_isOpen(window)) {
+    while (sfRenderWindow_isOpen(window) && scene->display == GAME_SCENE) {
         scene->handle_event(scene, game, window);
         frames += 1;
         if (frames >= (game->window->framerate / 30.0)) {
@@ -45,5 +50,7 @@ int game_loop(game_t *game, sfRenderWindow *window)
         sfRenderWindow_drawText(window, game->score->text, NULL);
         sfRenderWindow_display(window);
     }
-    return (0);
+    display = scene->display;
+    destroy_scene(scene);
+    return (display);
 }

@@ -10,6 +10,7 @@
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #include <stdlib.h>
+#include <unistd.h>
 
 window_t *init_window(void)
 {
@@ -22,25 +23,8 @@ window_t *init_window(void)
     window->bits = WINDOW_BITS_PER_PIXEL;
     window->framerate = WINDOW_FRAMERATE;
     window->name = (char *)WINDOW_NAME;
-    window->window = make_window(window, sfClose);
+    window->window = make_window(window, sfFullscreen);
     return (window);
-}
-
-game_t *init_game(char *map)
-{
-    game_t *game = malloc(sizeof(game_t));
-
-    if (game == NULL || map == NULL)
-        return (NULL);
-    game->window = init_window();
-    game->map = map;
-    init_score(game);
-    game->cursor = init_cursor((char *)CURSOR_PATH);
-    if (game->window == NULL || game->score == NULL)
-        return (NULL);
-    game->scene_loop[0] = &main_menu_loop;
-    game->scene_loop[1] = &game_loop;
-    return(game);
 }
 
 int my_runner(int argc, char **argv)
@@ -49,7 +33,7 @@ int my_runner(int argc, char **argv)
     game_t *game = init_game(map);
     sfRenderWindow *window = NULL;
     sfMusic *music = sfMusic_createFromFile("templates/sounds/Hollow_Knight_Ambience_Main_Menu_Theme.ogg");
-    int display = 0;
+    int display = MAIN_MENU_SCENE;
 
     if (music == NULL || game == NULL)
         return (84);
@@ -60,10 +44,15 @@ int my_runner(int argc, char **argv)
     while (sfRenderWindow_isOpen(window)) {
         display = game->scene_loop[display](game, window);
     }
+    destroy_game(game);
     sfMusic_destroy(music);
 }
 
 int main(int argc, char **argv, char **env)
 {
+    if (argc > 1 && argv[1][0] == '-' && argv[1][1] == 'h') {
+        write(1, "DESCRIPTION:\n\t./my_runner MAP\n\nUSAGE:\n\tMAP : path to the map in tile mapping\n", 78);
+        return (0);
+    }
     return (my_runner(argc, argv));
 }

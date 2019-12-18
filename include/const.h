@@ -52,34 +52,47 @@ static const sfIntRect *PLAYER_FALLING_FRAME_KEYS[] = {
     NULL};
 
 static const sfIntRect *BUTTON_UNSELECTED_FRAME_KEYS[] = {
-    &(sfIntRect){0, 792, 413, 72},
-    &(sfIntRect){0, 720, 413, 72},
-    &(sfIntRect){0, 648, 413, 72},
-    &(sfIntRect){0, 576, 413, 72},
-    &(sfIntRect){0, 504, 413, 72},
-    &(sfIntRect){0, 432, 413, 72},
-    &(sfIntRect){0, 360, 413, 72},
-    &(sfIntRect){0, 288, 413, 72},
-    &(sfIntRect){0, 216, 413, 72},
-    &(sfIntRect){0, 144, 413, 72},
-    &(sfIntRect){0, 72, 413, 72},
-    &(sfIntRect){0, 0, 413, 72},
+    &(sfIntRect){0, 792, 533, 72},
+    &(sfIntRect){0, 720, 533, 72},
+    &(sfIntRect){0, 648, 533, 72},
+    &(sfIntRect){0, 576, 533, 72},
+    &(sfIntRect){0, 504, 533, 72},
+    &(sfIntRect){0, 432, 533, 72},
+    &(sfIntRect){0, 360, 533, 72},
+    &(sfIntRect){0, 288, 533, 72},
+    &(sfIntRect){0, 216, 533, 72},
+    &(sfIntRect){0, 144, 533, 72},
+    &(sfIntRect){0, 72, 533, 72},
+    &(sfIntRect){0, 0, 533, 72},
     NULL};
 
 static const sfIntRect *BUTTON_SELECTED_FRAME_KEYS[] = {
-    &(sfIntRect){0, 0, 413, 72},
-    &(sfIntRect){0, 72, 413, 72},
-    &(sfIntRect){0, 144, 413, 72},
-    &(sfIntRect){0, 216, 413, 72},
-    &(sfIntRect){0, 288, 413, 72},
-    &(sfIntRect){0, 360, 413, 72},
-    &(sfIntRect){0, 432, 413, 72},
-    &(sfIntRect){0, 504, 413, 72},
-    &(sfIntRect){0, 576, 413, 72},
-    &(sfIntRect){0, 648, 413, 72},
-    &(sfIntRect){0, 720, 413, 72},
-    &(sfIntRect){0, 792, 413, 72},
+    &(sfIntRect){0, 0, 533, 72},
+    &(sfIntRect){0, 72, 533, 72},
+    &(sfIntRect){0, 144, 533, 72},
+    &(sfIntRect){0, 216, 533, 72},
+    &(sfIntRect){0, 288, 533, 72},
+    &(sfIntRect){0, 360, 533, 72},
+    &(sfIntRect){0, 432, 533, 72},
+    &(sfIntRect){0, 504, 533, 72},
+    &(sfIntRect){0, 576, 533, 72},
+    &(sfIntRect){0, 648, 533, 72},
+    &(sfIntRect){0, 720, 533, 72},
+    &(sfIntRect){0, 792, 533, 72},
     NULL};
+
+static const unsigned short PLAY_BUTTON_X = (WINDOW_WIDTH - 413) / 2;
+static const unsigned short PLAY_BUTTON_Y = 300;
+static const unsigned short OPTION_BUTTON_X = (WINDOW_WIDTH - 533) / 2;
+static const unsigned short OPTION_BUTTON_Y = 500;
+static const unsigned short EXIT_BUTTON_X = (WINDOW_WIDTH - 393) / 2;
+static const unsigned short EXIT_BUTTON_Y = 700;
+
+static sfVector2i MAIN_MENU_COORDS[] = {
+    (const sfVector2i){960, 336},
+    (const sfVector2i){960, 536},
+    (const sfVector2i){960, 736}
+};
 
 static const float JUMP_SPEED = 35.0;
 static const float JUMP_SPEED_MIN = 5.0;

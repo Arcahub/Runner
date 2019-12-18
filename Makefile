@@ -10,7 +10,9 @@ CC = gcc
 SRC = 	src/main.c	\
 		src/game_logic/handle_event.c	\
 		src/game_logic/score.c	\
+		src/game_logic/game.c	\
 		src/game_objects/game_object.c	\
+		src/game_objects/free_objects.c	\
 		src/map/parallax.c	\
 		src/scenes/scene.c	\
 		src/player/player.c	\

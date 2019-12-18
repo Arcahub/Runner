@@ -33,18 +33,6 @@ sfVector2f pos, object_type type)
     return (object);
 }
 
-void destroy_game_object(scene_t *scene, game_object_t *prev, game_object_t *object)
-{
-    if (prev == NULL)
-        scene->objects_list = object->next;
-    else
-        prev->next = object->next;
-    sfSprite_destroy(object->sprite);
-    sfTexture_destroy(object->texture);
-    free(object->anim);
-    free(object);
-}
-
 void move_object(game_object_t *object)
 {
     object->last_pos = object->pos;
