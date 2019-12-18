@@ -34,7 +34,9 @@ game_t *init_game(char *map)
         return (NULL);
     game->window = init_window();
     game->map = map;
-    if (game->window == NULL)
+    init_score(game);
+    game->cursor = init_cursor((char *)CURSOR_PATH);
+    if (game->window == NULL || game->score == NULL)
         return (NULL);
     game->scene_loop[0] = &main_menu_loop;
     game->scene_loop[1] = &game_loop;
@@ -49,13 +51,12 @@ int my_runner(int argc, char **argv)
     sfMusic *music = sfMusic_createFromFile("templates/sounds/Hollow_Knight_Ambience_Main_Menu_Theme.ogg");
     int display = 0;
 
-    if (music == NULL)
-        return (123);
+    if (music == NULL || game == NULL)
+        return (84);
     sfMusic_setLoop(music, sfTrue);
     sfMusic_play(music);
-    if (game == NULL)
-        return (84);
     window  = game->window->window;
+    sfRenderWindow_setMouseCursorVisible(window, sfFalse);
     while (sfRenderWindow_isOpen(window)) {
         display = game->scene_loop[display](game, window);
     }

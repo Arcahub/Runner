@@ -22,6 +22,7 @@ int main_menu_loop(game_t *game, sfRenderWindow *window)
             frames -= game->window->framerate / 30.0;
         }
         display_scene(scene, window);
+        draw_cursor(game->cursor, window);
         sfRenderWindow_display(window);
     }
     return (scene->display);
@@ -37,9 +38,11 @@ int game_loop(game_t *game, sfRenderWindow *window)
         frames += 1;
         if (frames >= (game->window->framerate / 30.0)) {
             update_objects(scene, scene->objects_list, game);
+            increase_score(game);
             frames -= game->window->framerate / 30.0;
         }
         display_scene(scene, window);
+        sfRenderWindow_drawText(window, game->score->text, NULL);
         sfRenderWindow_display(window);
     }
     return (0);

@@ -60,11 +60,18 @@ typedef struct scene {
     sfRenderWindow *window;
 } scene_t;
 
+typedef struct score {
+    unsigned long long int score;
+    sfText *text;
+} score_t;
+
 typedef struct game {
     window_t *window;
     char *map;
     int (*scene_loop[2]) (game_t *, sfRenderWindow *);
     game_object_t *player;
+    score_t *score;
+    cursor_t cursor;
 }game_t;
 
 game_object_t *init_background(game_object_t *);
@@ -85,5 +92,7 @@ void is_click_on_button(scene_t *, sfMouseButtonEvent, game_t *);
 int main_menu_loop(game_t *, sfRenderWindow *);
 scene_t *create_main_menu(void);
 void play_button_function(game_object_t *, void *);
+void increase_score(game_t *);
+void init_score(game_t *);
 
 #endif /* !MY_RUNNER_H_ */

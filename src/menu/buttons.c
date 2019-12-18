@@ -57,7 +57,6 @@ game_object_t *create_button(game_object_t *last, char *path, sfVector2f pos)
 {
     game_object_t *object = create_game_object(last, path, pos, BUTTON);
 
-    object->pos.x -= object->box.width / 2;
     object->anim = create_button_anim();
     object->update = &update_button;
     object->state = UNSELECTED;

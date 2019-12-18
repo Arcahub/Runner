@@ -10,10 +10,14 @@
 cursor_t init_cursor(char *path)
 {
     cursor_t cursor;
+    sfFloatRect rect;
 
     cursor.texture = sfTexture_createFromFile(path, NULL);
     cursor.sprite = sfSprite_create();
-    sfSprite_setTexture(cursor.sprite, cursor.texture, sfFalse);
+    sfSprite_setTexture(cursor.sprite, cursor.texture, sfTrue);
+    rect = sfSprite_getLocalBounds(cursor.sprite);
+    cursor.width = (int)rect.width;
+    cursor.height = (int)rect.height;
     return (cursor);
 }
 

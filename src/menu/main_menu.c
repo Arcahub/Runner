@@ -12,7 +12,7 @@ game_object_t *create_main_menu_buttons(void)
 {
     game_object_t *object = NULL;
 
-    object = create_button(object, "templates/menu/play.png", (sfVector2f) {0, 0});
+    object = create_button(object, "templates/menu/play.png", (sfVector2f) {(WINDOW_WIDTH - 413) / 2, 400});
     object->callback = &play_button_function;
     return (object);
 }

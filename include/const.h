@@ -85,4 +85,7 @@ static const float JUMP_SPEED = 35.0;
 static const float JUMP_SPEED_MIN = 5.0;
 static const float FALLING_MAX_SPEED = 25.0;
 static const float GRAVITY = 2.0;
+
+static const char *FONT_PATH= "templates/font/arial.ttf";
+static const char *CURSOR_PATH = "templates/menu/Cursor.png";
 #endif
