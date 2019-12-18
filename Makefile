@@ -8,7 +8,8 @@
 CC = gcc
 
 SRC = 	src/main.c	\
-		src/event/handle_event.c	\
+		src/game_logic/handle_event.c	\
+		src/game_logic/score.c	\
 		src/game_objects/game_object.c	\
 		src/map/parallax.c	\
 		src/scenes/scene.c	\
@@ -28,9 +29,9 @@ OBJ = $(SRC:.c=.o)
 
 NAME = my_runner
 
-CFLAGS = $(LIB) $(HEADER) -g3
+CFLAGS = $(LIB) $(HEADER)
 
-LIB = -L./lib -lmy_graph -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
+LIB = -L./lib -lmy_graph -lmy -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
 
 HEADER = -I./include
 
@@ -41,15 +42,18 @@ $(NAME) : make_lib $(OBJ)
 
 make_lib :
 	make -C ./lib/my_graph
+	make -C ./lib/my
 
 clean :
 	rm -f $(wildcard src/*/*.o)
 	rm -f src/*.o
 	rm -f vgcore.*
 	rm -f lib/my_graph/*.o
+	rm -f lib/my/*.o
 
 fclean : clean
 	rm -f $(NAME)
 	rm -f lib/libmy_graph.a
+	rm -f lib/libmy.a
 
 re : fclean all
