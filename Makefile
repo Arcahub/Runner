@@ -7,55 +7,56 @@
 
 CC = gcc
 
-SRC = 	src/main.c	\
-		src/game_logic/handle_event.c	\
-		src/game_logic/score.c	\
-		src/game_logic/game.c	\
-		src/game_objects/game_object.c	\
-		src/game_objects/free_objects.c	\
-		src/map/parallax.c	\
-		src/scenes/scene.c	\
-		src/player/player.c	\
-		src/frames/frames.c	\
-		src/player/jump.c	\
-		src/map/map.c	\
-		src/map/player_ground.c	\
-		src/physics/physics.c	\
-		src/joystick/joystick.c	\
-		src/menu/main_menu.c	\
-		src/menu/buttons.c	\
-		src/menu/main_menu_button_fonctions.c	\
-		src/loop/loop.c
+SRC = 	$(shell find ./src/ -iname "*.c")
 
 OBJ = $(SRC:.c=.o)
 
+RMD_FILES = $(OBJ) vgcore.* lib/my_graph/*.o lib/my/*.o
+
 NAME = my_runner
 
-CFLAGS = $(LIB) $(HEADER)
+CFLAGS = $(LDFLAGS) $(HEADER)
 
-LIB = -L./lib -lmy_graph -lmy -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
+LDFLAGS = -L./lib -lmy_graph -lmy -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
 
 HEADER = -I./include
 
 all : $(NAME)
 
-$(NAME) : make_lib $(OBJ)
-	$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
+debug:
+	$(CFLAGS += -g3)
+	@printf "[DEBUG]\n"
+	@make -s fclean $(NAME)
+
+%.o:%.c
+	@$(CC) $(CFLAGS) $< -c  -o $@
+	@printf "[compiled] % 50s\n" $(notdir $<) | tr ' ' '.'
+
+$(NAME) : start_compil make_lib $(OBJ)
+	@$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
+	@printf "[END compil]\n"
+
+start_compil:
+	@printf "[START compil]\n"
 
 make_lib :
-	make -C ./lib/my_graph
-	make -C ./lib/my
+	@printf "[START libs compil]\n"
+	@make -sC ./lib/my_graph
+	@printf "[compiled] % 50s\n" "libmy_graph.a" | tr ' ' '.'
+	@make -sC ./lib/my
+	@printf "[compiled] % 50s\n" "libmy.a" | tr ' ' '.'
+	@printf "[END libs compil]\n"
 
 clean :
-	rm -f $(wildcard src/*/*.o)
-	rm -f src/*.o
-	rm -f vgcore.*
-	rm -f lib/my_graph/*.o
-	rm -f lib/my/*.o
+	@printf "[START clean]\n"
+	@rm -f $(RMD_FILES)
+	@printf "[removed] % 50s\n" $(notdir $(OBJ)) | tr ' ' '.'
+	@printf "[END clean]\n"
 
 fclean : clean
-	rm -f $(NAME)
-	rm -f lib/libmy_graph.a
-	rm -f lib/libmy.a
+	@printf "[START fclean]\n"
+	@rm -f $(NAME) lib/libmy_graph.a lib/libmy.a
+	@printf "[removed] % 50s\n" $(notdir $(NAME)) | tr ' ' '.'
+	@printf "[END fclean]\n"
 
 re : fclean all

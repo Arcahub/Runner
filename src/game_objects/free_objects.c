@@ -6,6 +6,7 @@
 */
 
 #include "my_runner.h"
+#include <stdlib.h>
 
 void destroy_game_object(scene_t *scene, game_object_t *prev, game_object_t *object)
 {

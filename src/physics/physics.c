@@ -12,14 +12,19 @@ void collision_objects(game_object_t *actual, game_object_t *object)
     sfIntRect intersect;
 
     if (sfIntRect_intersects(&actual->box, &object->box, NULL)) {
-        if (actual->last_pos.y < object->pos.y) {
+        if (actual->last_pos.y + actual->box.height <= object->pos.y) {
             actual->move.y = 0;
             actual->pos.y = object->pos.y - actual->box.height;
             actual->box.top = actual->pos.y;
             sfSprite_setPosition(actual->sprite, actual->pos);
-        } else if (actual->last_pos.y > object->pos.y) {
+        } else if (actual->last_pos.y >= object->pos.y + object->box.height) {
             actual->move.y = GRAVITY;
             actual->pos.y = object->pos.y + object->box.height;
+            actual->box.top = actual->pos.y;
+            sfSprite_setPosition(actual->sprite, actual->pos);
+        } else if (actual->last_pos.x < object->pos.x) {
+            actual->move.x = 0;
+            actual->pos.x = object->pos.x - actual->box.width;
             actual->box.top = actual->pos.y;
             sfSprite_setPosition(actual->sprite, actual->pos);
         }

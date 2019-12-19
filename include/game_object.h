@@ -27,6 +27,8 @@ typedef enum {
     PARALLAX,
     SOLID,
     BUTTON,
+    BAR,
+    DECOR,
     EFFECT,
 } object_type;
 
@@ -54,6 +56,6 @@ void update_game_object_frame(struct game_object *);
 void move_object(game_object_t *);
 void draw_objects(game_object_t *, sfRenderWindow *, int);
 void update_objects(scene_t *, game_object_t *, game_t *);
-
+void destroy_game_object(scene_t *, game_object_t *, game_object_t *);
 
 #endif /* !GAME_OBJECT_H_ */

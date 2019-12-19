@@ -58,6 +58,7 @@ typedef struct scene {
     sfColor background_color;
     int z_index_deepth;
     int display;
+    int joystick_coord_id;
     sfRenderWindow *window;
 } scene_t;
 
@@ -89,13 +90,18 @@ sfBool check_joystick_button_pressed(int);
 void handle_joystick_game(sfEvent, game_t *);
 void handle_joystick_menu(sfEvent, game_t *, scene_t *);
 scene_t *init_game_scene(game_t *, char *);
-game_object_t *create_button(game_object_t *, char *, sfVector2f);
-void is_click_on_button(scene_t *, sfMouseButtonEvent, game_t *);
+game_object_t *create_text_button(game_object_t *, char *, sfVector2f);
+void is_click_on_object(scene_t *, sfMouseButtonEvent, game_t *);
 int main_menu_loop(game_t *, sfRenderWindow *);
 scene_t *create_main_menu(void);
 void play_button_function(game_object_t *, void *);
 void exit_button_function(game_object_t *, void *);
 void increase_score(game_t *);
 void init_score(game_t *);
-
+void destroy_scene(scene_t *);
+void destroy_object_list(scene_t *);
+void handle_joystick_main_menu(sfEvent, game_t *, scene_t *);
+window_t *init_window(void);
+void destroy_game(game_t *);
+game_t *init_game(char *);
 #endif /* !MY_RUNNER_H_ */

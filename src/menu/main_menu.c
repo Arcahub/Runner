@@ -12,11 +12,11 @@ game_object_t *create_main_menu_buttons(void)
 {
     game_object_t *object = NULL;
 
-    object = create_button(object, "templates/menu/play.png", (sfVector2f) {PLAY_BUTTON_X, PLAY_BUTTON_Y});
+    object = create_text_button(object, "templates/menu/play.png", (sfVector2f) {PLAY_BUTTON_X, PLAY_BUTTON_Y});
     object->callback = &play_button_function;
-    object = create_button(object, "templates/menu/option.png", (sfVector2f) {OPTION_BUTTON_X, OPTION_BUTTON_Y});
+    object = create_text_button(object, "templates/menu/option.png", (sfVector2f) {OPTION_BUTTON_X, OPTION_BUTTON_Y});
     object->callback = &exit_button_function;
-    object = create_button(object, "templates/menu/exit.png", (sfVector2f) {EXIT_BUTTON_X, EXIT_BUTTON_Y});
+    object = create_text_button(object, "templates/menu/exit.png", (sfVector2f) {EXIT_BUTTON_X, EXIT_BUTTON_Y});
     object->callback = &exit_button_function;
     return (object);
 }

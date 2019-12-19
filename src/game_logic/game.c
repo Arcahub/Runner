@@ -6,6 +6,8 @@
 */
 
 #include "my_runner.h"
+#include <stdlib.h>
+#include <SFML/Audio.h>
 
 game_t *init_game(char *map)
 {
@@ -29,7 +31,7 @@ void destroy_game(game_t *game)
     sfRenderWindow_destroy(game->window->window);
     free(game->window);
     free(game->map);
-    sfFont_destroy(sfText_getFont(game->score->text));
+    sfFont_destroy((sfFont *)sfText_getFont(game->score->text));
     sfText_destroy(game->score->text);
     free(game->score);
     sfSprite_destroy(game->cursor.sprite);

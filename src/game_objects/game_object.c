@@ -51,13 +51,15 @@ void update_objects(scene_t *scene, game_object_t *object, game_t *game)
     while (object) {
         if (object->update != NULL)
             ret = object->update(object, scene);
-        if (ret == false) {
-            destroy_game_object(scene, prev, object);
-        } else
-            prev = object;
-        if (prev != NULL)
-            object = prev->next;
         else
+            object = object->next;
+        if (object->update != NULL && ret == false) {
+            destroy_game_object(scene, prev, object);
+        } else if (object->update != NULL)
+            prev = object;
+        if (object->update != NULL && prev != NULL)
+            object = prev->next;
+        else if (object->update != NULL)
             object = prev;
     }
 }
@@ -75,5 +77,20 @@ int z_index_max)
             object = tmp;
             i--;
         }
+    }
+}
+
+void is_click_on_object(scene_t *scene, sfMouseButtonEvent mouse_button, game_t *game)
+{
+    game_object_t *object = scene->objects_list;
+    sfVector2i pos = sfMouse_getPositionRenderWindow(game->window->window);
+    int x = pos.x;
+    int y = pos.y;
+
+    if (mouse_button.button != sfMouseLeft)
+        return;
+    for (; object; object = object->next) {
+        if (object->type == BUTTON && sfIntRect_contains(&object->box, x, y))
+            object->callback(object, scene);
     }
 }

@@ -17,7 +17,7 @@ void handle_event_main_menu(scene_t *scene, game_t *game, sfRenderWindow *window
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
         if (event.type == sfEvtMouseButtonPressed)
-            is_click_on_button(scene, event.mouseButton, game);
+            is_click_on_object(scene, event.mouseButton, game);
         else if (event.type == sfEvtJoystickMoved)
             joymoved = true;
         if ((event.type == sfEvtMouseMoved && joymoved == false) || \
