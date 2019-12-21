@@ -46,6 +46,7 @@ int my_runner(int argc, char **argv)
         display = game->scene_loop[display](game, window);
     }
     destroy_game(game);
+    sfMusic_stop(music);
     sfMusic_destroy(music);
     return (0);
 }
