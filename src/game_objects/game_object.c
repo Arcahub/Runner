@@ -80,7 +80,8 @@ int z_index_max)
     }
 }
 
-void is_click_on_object(scene_t *scene, sfMouseButtonEvent mouse_button, game_t *game)
+void is_click_on_object(scene_t *scene, sfMouseButtonEvent mouse_button, \
+game_t *game, object_type type)
 {
     game_object_t *object = scene->objects_list;
     sfVector2i pos = sfMouse_getPositionRenderWindow(game->window->window);
@@ -90,7 +91,7 @@ void is_click_on_object(scene_t *scene, sfMouseButtonEvent mouse_button, game_t 
     if (mouse_button.button != sfMouseLeft)
         return;
     for (; object; object = object->next) {
-        if (object->type == BUTTON && sfIntRect_contains(&object->box, x, y))
+        if (object->type == type && sfIntRect_contains(&object->box, x, y))
             object->callback(object, scene);
     }
 }
