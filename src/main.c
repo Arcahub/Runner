@@ -7,6 +7,7 @@
 
 #include "my_graph.h"
 #include "my_runner.h"
+#include "my.h"
 #include <SFML/Graphics.h>
 #include <SFML/Audio.h>
 #include <stdlib.h>
@@ -46,10 +47,18 @@ int my_runner(int argc, char **argv)
     }
     destroy_game(game);
     sfMusic_destroy(music);
+    return (0);
 }
 
 int main(int argc, char **argv, char **env)
 {
+    bool has_display = false;
+
+    for (int i = 0; env[i] != NULL; i++)
+        if (my_strcmp(env[i], "DISPLAY"))
+            has_display = true;
+    if (has_display == false)
+        return (84);
     if (argc > 1 && argv[1][0] == '-' && argv[1][1] == 'h') {
         write(1, "DESCRIPTION:\n\t./my_runner MAP\n\nUSAGE:\n\tMAP : path to the map in tile mapping\n", 78);
         return (0);
