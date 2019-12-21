@@ -12,6 +12,7 @@ game_object_t *create_main_menu_buttons(void)
 {
     game_object_t *object = NULL;
 
+    object = create_game_object(object, "templates/menu/title.png", (sfVector2f) {TITLE_X, TITLE_Y}, DECOR);
     object = create_text_button(object, "templates/menu/play.png", (sfVector2f) {PLAY_BUTTON_X, PLAY_BUTTON_Y});
     object->callback = &play_button_function;
     object = create_text_button(object, "templates/menu/option.png", (sfVector2f) {OPTION_BUTTON_X, OPTION_BUTTON_Y});
