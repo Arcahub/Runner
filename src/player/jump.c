@@ -11,11 +11,10 @@ void compute_jump(game_object_t *player)
 {
     sfTime time;
     sfClock **jump = &player->delta_t;
-    float seconds = sfClock_getElapsedTime(*jump).microseconds / 1000000.0;
 
     if (player->move.y > FALLING_MAX_SPEED)
         player->move.y = FALLING_MAX_SPEED;
-    if (player->state == JUMPING && (seconds >= 0.75 || player->move.y > 0)) {
+    if (player->state == JUMPING && player->move.y > 0) {
         update_game_object_state(player, FALLING);
     }
     else if (player->state == JUMPING && (!sfKeyboard_isKeyPressed(JUMP_KEY) &&\
