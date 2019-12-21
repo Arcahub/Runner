@@ -8,7 +8,8 @@
 SRC	=	my_nbr_to_str.c	\
 		my_strdup.c	\
 		my_strlen.c	\
-		my_strcat.c
+		my_strcat.c	\
+		my_strcmp.c
 
 MAIN = src/main.c
 
