@@ -17,12 +17,26 @@ void handle_event_main_menu(scene_t *scene, game_t *game, sfRenderWindow *window
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
         if (event.type == sfEvtMouseButtonPressed)
-            is_click_on_object(scene, event.mouseButton, game);
+            is_click_on_object(scene, event.mouseButton, game, BUTTON);
         else if (event.type == sfEvtJoystickMoved)
             joymoved = true;
         if ((event.type == sfEvtMouseMoved && joymoved == false) || \
         event.type != sfEvtMouseMoved)
             handle_joystick_main_menu(event, game, scene);
+    }
+}
+
+void handle_event_options(scene_t *scene, game_t *game, sfRenderWindow *window)
+{
+    sfEvent event;
+
+    while (sfRenderWindow_pollEvent(window, &event)) {
+        if (event.type == sfEvtClosed)
+            sfRenderWindow_close(window);
+        if (event.type == sfEvtMouseButtonPressed)
+            is_click_on_object(scene, event.mouseButton, game, BAR);
+        if (event.type == sfEvtKeyPressed && event.key.code == sfKeyEscape)
+            scene->display = MAIN_MENU_SCENE;
     }
 }
 
@@ -33,12 +47,9 @@ void handle_event_game(scene_t *scene, game_t *game, sfRenderWindow *window)
     while (sfRenderWindow_pollEvent(window, &event)) {
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
-        if (event.type == sfEvtKeyPressed && event.key.code == sfKeySpace && \
-        game->player->move.y == 0 && game->player->state == RUNNING) {
-            game->player->delta_t = sfClock_create();
-            game->player->move.y = - JUMP_SPEED;
-            update_game_object_state(game->player, JUMPING);
-        } else if (event.type == sfEvtKeyReleased &&  event.key.code == \
+        if (event.type == sfEvtKeyPressed)
+            handle_key_pressed_game(game, event.key.code);
+        else if (event.type == sfEvtKeyReleased &&  event.key.code == \
         sfKeySpace && game->player->state == JUMPING) {
             if (game->player->move.y < JUMP_SPEED_MIN)
             game->player->move.y = - JUMP_SPEED_MIN;
