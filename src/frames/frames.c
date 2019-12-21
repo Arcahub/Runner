@@ -9,9 +9,6 @@
 
 void update_sound_effect(game_object_t *game_object, int state)
 {
-    static i = 0;
-
-    i++;
     if (game_object->sound_effect != NULL) {
         if (game_object->anim->sound_loop == true)
             sfSound_setLoop(game_object->sound_effect, sfTrue);
