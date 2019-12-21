@@ -70,7 +70,7 @@ typedef struct score {
 typedef struct game {
     window_t *window;
     char *map;
-    int (*scene_loop[2]) (game_t *, sfRenderWindow *);
+    int (*scene_loop[3]) (game_t *, sfRenderWindow *);
     game_object_t *player;
     score_t *score;
     cursor_t cursor;
@@ -79,6 +79,7 @@ typedef struct game {
 game_object_t *init_background(game_object_t *);
 void handle_event_game(scene_t *, game_t *, sfRenderWindow *);
 void handle_event_main_menu(scene_t *, game_t *, sfRenderWindow *);
+void handle_event_options(scene_t *, game_t *, sfRenderWindow *);
 int game_loop(game_t *, sfRenderWindow *);
 void display_scene(scene_t *, sfRenderWindow *);
 bool update_parallax(game_object_t *, scene_t *);
@@ -91,7 +92,7 @@ void handle_joystick_game(sfEvent, game_t *);
 void handle_joystick_menu(sfEvent, game_t *, scene_t *);
 scene_t *init_game_scene(game_t *, char *);
 game_object_t *create_text_button(game_object_t *, char *, sfVector2f);
-void is_click_on_object(scene_t *, sfMouseButtonEvent, game_t *);
+void is_click_on_object(scene_t *, sfMouseButtonEvent, game_t *, object_type);
 int main_menu_loop(game_t *, sfRenderWindow *);
 scene_t *create_main_menu(void);
 void play_button_function(game_object_t *, void *);
@@ -104,4 +105,14 @@ void handle_joystick_main_menu(sfEvent, game_t *, scene_t *);
 window_t *init_window(void);
 void destroy_game(game_t *);
 game_t *init_game(char *);
+scene_t *init_options_scene(game_t *);
+game_object_t *create_indicator(game_object_t *, char *, sfVector2f);
+game_object_t *create_bar(game_object_t *, char *, sfVector2f);
+int options_loop(game_t *, sfRenderWindow *);
+void options_button_function(game_object_t *, void *);
+void handle_key_pressed_game(game_t *, sfKeyCode);
+void draw_main_menu(scene_t *, game_t *, sfRenderWindow *);
+void draw_options(scene_t *, game_t *, sfRenderWindow *);
+void draw_game(scene_t *, game_t *, sfRenderWindow *);
+void handle_framerate(sfClock *, scene_t *, game_t *);
 #endif /* !MY_RUNNER_H_ */

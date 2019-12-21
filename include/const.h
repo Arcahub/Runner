@@ -10,6 +10,8 @@
 #ifndef CONST_H
 #define CONST_H
 
+// WINDOW
+
 static const unsigned short int WINDOW_WIDTH = 1920;
 static const unsigned short int WINDOW_HEIGHT = 1000;
 static const unsigned char WINDOW_BITS_PER_PIXEL = 32;
@@ -17,6 +19,14 @@ static const unsigned char WINDOW_FRAMERATE = 60;
 static const char *WINDOW_NAME = "My Runner";
 
 static const sfColor GAME_BACKGROUND_COLOR = {66, 98, 116, 0};
+
+// FRAMERATE
+
+static const float MAX_FRAME_RANGE = 0.25;
+static const float DELAY_BETWEEN_UPDATE = 1 / 30.0;
+static const float SECOND_IN_MICRO = 1000000.0;
+
+// PLAYER
 
 static const unsigned int PLAYER_START_X = 100;
 static const unsigned int PLAYER_START_Y = 800;
@@ -50,6 +60,8 @@ static const sfIntRect *PLAYER_FALLING_FRAME_KEYS[] = {
     &(sfIntRect){270, 260, 90, 130},
     &(sfIntRect){270, 260, 90, 130},
     NULL};
+
+// MAIN MENU
 
 static const sfIntRect *BUTTON_UNSELECTED_FRAME_KEYS[] = {
     &(sfIntRect){0, 792, 533, 72},
@@ -94,10 +106,30 @@ static sfVector2i MAIN_MENU_COORDS[] = {
     (const sfVector2i){960, 736}
 };
 
+// PHYSICS
+
 static const float JUMP_SPEED = 35.0;
 static const float JUMP_SPEED_MIN = 5.0;
 static const float FALLING_MAX_SPEED = 25.0;
 static const float GRAVITY = 2.0;
+
+// OPTIONS
+static const char *BAR_PATH = "templates/menu/bar.png";
+static const char *BAR_BACKGROUND_PATH = "templates/menu/bar_background.png";
+static const unsigned short VOLUME_BAR_Y = 400;
+static const unsigned short VOLUME_BAR_X = 600;
+static const unsigned short BAR_WIDTH = 500;
+static const unsigned short BAR_HEIGHT = 10;
+static const unsigned char BAR_BOX_OFFSET = 20;
+
+static const unsigned char VOLUME_UNIT = 10;
+static const unsigned char MAX_VOLUME = 100;
+static const unsigned char MIN_VOLUME = 0;
+
+static const char *INDICATOR_PATH = "templates/menu/scrollbar_fleur_new.png";
+static const unsigned short INDICATOR_WIDTH = 107;
+static const unsigned short INDICATOR_X = 600;
+static const unsigned short INDICATOR_Y = 400 - 25;
 
 static const char *FONT_PATH= "templates/font/arial.ttf";
 static const char *CURSOR_PATH = "templates/menu/Cursor.png";
