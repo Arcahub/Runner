@@ -13,6 +13,8 @@
 #ifndef MY_RUNNER_H_
 #define MY_RUNNER_H_
 
+#define ABS(x)  x = (x < 0) ? - x : x
+
 #include "player.h"
 #include "game_object.h"
 
@@ -28,6 +30,9 @@ typedef enum {
     RUNNING,
     JUMPING,
     FALLING,
+    DASHING,
+    ATTACKING_RIGHT,
+    DOUBLE_JUMPING
 } player_state;
 
 typedef enum {

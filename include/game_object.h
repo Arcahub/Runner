@@ -6,6 +6,7 @@
 */
 
 #include <SFML/Graphics.h>
+#include <SFML/Audio.h>
 #include <stdbool.h>
 
 #ifndef GAME_OBJECT_H_
@@ -17,6 +18,8 @@ typedef struct anim anim_t;
 
 typedef struct anim {
     sfIntRect **frames_key;
+    sfSoundBuffer *sound_buffer;
+    bool sound_loop;
     bool loop;
     int frame_id;
     int restart_id;
@@ -35,6 +38,7 @@ typedef enum {
 typedef struct game_object {
     sfTexture *texture;
     sfSprite *sprite;
+    sfSound *sound_effect;
     sfVector2f pos;
     sfVector2f last_pos;
     int z_index;
