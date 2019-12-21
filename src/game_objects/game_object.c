@@ -25,6 +25,7 @@ sfVector2f pos, object_type type)
     object->update = NULL;
     object->callback = NULL;
     object->anim = NULL;
+    object->sound_effect = NULL;
     object->move = (sfVector2f) {0, 0};
     object->state = 0;
     object->z_index = 0;
@@ -51,15 +52,17 @@ void update_objects(scene_t *scene, game_object_t *object, game_t *game)
     while (object) {
         if (object->update != NULL)
             ret = object->update(object, scene);
-        else
+        else {
             object = object->next;
-        if (object->update != NULL && ret == false) {
+            continue;
+        }
+        if (ret == false) {
             destroy_game_object(scene, prev, object);
-        } else if (object->update != NULL)
+        } else
             prev = object;
-        if (object->update != NULL && prev != NULL)
+        if (prev != NULL)
             object = prev->next;
-        else if (object->update != NULL)
+        else
             object = prev;
     }
 }
