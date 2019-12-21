@@ -8,6 +8,16 @@
 #include "my_runner.h"
 #include <stdlib.h>
 
+void check_player_pos_x(game_object_t *player)
+{
+    if (player->pos.x != PLAYER_START_X)
+        player->move.x = player->pos.x - PLAYER_START_X;
+    else
+        player->move.x = 0;
+    if (ABS(player->move.x) > PLAYER_MAX_SPEED_X)
+        player->move.x = PLAYER_MAX_SPEED_X;
+}
+
 bool player_update(game_object_t *player, scene_t *scene)
 {
     update_game_object_frame(player);
@@ -19,6 +29,7 @@ bool player_update(game_object_t *player, scene_t *scene)
         update_game_object_state(player, FALLING);
     if (player->move.y == 0 && player->state != RUNNING)
         update_game_object_state(player, RUNNING);
+    check_player_pos_x(player);
     return (true);
 }
 
