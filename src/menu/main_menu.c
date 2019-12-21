@@ -15,10 +15,17 @@ game_object_t *create_main_menu_buttons(void)
     object = create_text_button(object, "templates/menu/play.png", (sfVector2f) {PLAY_BUTTON_X, PLAY_BUTTON_Y});
     object->callback = &play_button_function;
     object = create_text_button(object, "templates/menu/option.png", (sfVector2f) {OPTION_BUTTON_X, OPTION_BUTTON_Y});
-    object->callback = &exit_button_function;
+    object->callback = &options_button_function;
     object = create_text_button(object, "templates/menu/exit.png", (sfVector2f) {EXIT_BUTTON_X, EXIT_BUTTON_Y});
     object->callback = &exit_button_function;
     return (object);
+}
+
+void draw_main_menu(scene_t *scene, game_t *game, sfRenderWindow *window)
+{
+    display_scene(scene, window);
+    draw_cursor(game->cursor, scene->window);
+    sfRenderWindow_display(window);
 }
 
 scene_t *create_main_menu(void)

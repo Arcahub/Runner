@@ -48,5 +48,6 @@ game_object_t *create_text_button(game_object_t *last, char *path, sfVector2f po
     object->state = UNSELECTED;
     object->anim[object->state].frame_id = object->anim[object->state].restart_id;
     init_game_object_frame(object);
+    return(object);
 }
 

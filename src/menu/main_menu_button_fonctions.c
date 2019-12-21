@@ -14,7 +14,7 @@ void play_button_function(game_object_t *object, void *pt)
     scene->display = GAME_SCENE;
 }
 
-void optins_button_funtion(game_object_t *object, void *pt)
+void options_button_function(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *)pt;
 
