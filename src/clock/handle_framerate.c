@@ -9,9 +9,7 @@
 
 void handle_framerate(sfClock *clock, scene_t *scene, game_t *game)
 {
-    static float current_time = 0.0;
     static float frame = 0.0;
-    static float new_time = 0.0;
     static float accumulator = 0.0;
 
     frame = sfClock_getElapsedTime(clock).microseconds / SECOND_IN_MICRO;

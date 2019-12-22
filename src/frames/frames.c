@@ -38,8 +38,6 @@ void init_game_object_frame(game_object_t *game_object)
 
 void update_game_object_state(game_object_t *game_object, int state)
 {
-    int last_state = game_object->state;
-
     update_sound_effect(game_object, state);
     game_object->state = state;
     anim_t *anim = game_object->anim;

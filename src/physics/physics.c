@@ -9,8 +9,6 @@
 
 void collision_objects(game_object_t *actual, game_object_t *object)
 {
-    sfIntRect intersect;
-
     if (sfIntRect_intersects(&actual->box, &object->box, NULL)) {
         if (actual->last_pos.y + actual->box.height <= object->pos.y) {
             actual->move.y = 0;

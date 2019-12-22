@@ -17,7 +17,7 @@ void check_player_pos_x(game_object_t *player)
     else
         player->move.x = 0;
     tmp = player->move.x;
-    if (ABS(player->move.x) > PLAYER_MAX_SPEED_X)
+    if ((ABS(player->move.x)) > PLAYER_MAX_SPEED_X)
         if (tmp < 0)
             player->move.x = - PLAYER_MAX_SPEED_X;
         else

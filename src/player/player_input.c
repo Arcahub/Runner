@@ -38,7 +38,7 @@ void player_input_x(game_t *game)
     }
 }
 
-void player_input(game_t *game, sfKeyCode key)
+void player_input(game_t *game, int key)
 {
     switch (key) {
     case sfKeySpace:
