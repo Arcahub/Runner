@@ -24,18 +24,23 @@ bool update_text_button(game_object_t *button, scene_t *scene)
 
 anim_t *create_text_button_anim(void)
 {
-    anim_t *anims = malloc(sizeof(anim_t) * 2);
+    anim_t *anims = malloc(sizeof(anim_t) * 3);
 
     if (anims == NULL)
         return (NULL);
+    anims[2].sound_buffer = NULL;
     anims[UNSELECTED].frames_key = (sfIntRect **)BUTTON_UNSELECTED_FRAME_KEYS;
     anims[UNSELECTED].loop = true;
     anims[UNSELECTED].frame_id = 0;
     anims[UNSELECTED].restart_id = 11;
+    anims[UNSELECTED].sound_buffer = NULL;
+    anims[UNSELECTED].sound_loop = false;
     anims[SELECTED].frames_key = (sfIntRect **)BUTTON_SELECTED_FRAME_KEYS;
     anims[SELECTED].loop = true;
     anims[SELECTED].frame_id = 0;
     anims[SELECTED].restart_id = 11;
+    anims[SELECTED].sound_buffer = sfSoundBuffer_createFromFile(BUTTON_SOUND_PATH);
+    anims[SELECTED].sound_loop = false;
     return (anims);
 }
 
@@ -44,6 +49,7 @@ game_object_t *create_text_button(game_object_t *last, char *path, sfVector2f po
     game_object_t *object = create_game_object(last, path, pos, BUTTON);
 
     object->anim = create_text_button_anim();
+    object->sound_effect = sfSound_create();
     object->update = &update_text_button;
     object->state = UNSELECTED;
     object->anim[object->state].frame_id = object->anim[object->state].restart_id;
