@@ -15,7 +15,7 @@ RMD_FILES = $(OBJ) vgcore.* lib/my_graph/*.o lib/my/*.o
 
 NAME = my_runner
 
-CFLAGS = $(LDFLAGS) $(HEADER)
+CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wno-unused-parameter -Wextra -pedantic
 
 LDFLAGS = -L./lib -lmy_graph -lmy -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
 
