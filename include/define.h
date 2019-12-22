@@ -12,6 +12,14 @@
 
 #include <SFML/Graphics.h>
 
+// ENV
+
+const char *ENV_DISPLAY = "DISPLAY";
+
+// USAGE
+
+const char *USAGE = "DESCRIPTION:\n\t./my_runner MAP\n\nUSAGE:\n\tMAP : path to the map in tile mapping\n";
+
 // WINDOW
 
 const unsigned short int WINDOW_WIDTH = 1920;
@@ -21,6 +29,14 @@ const unsigned char WINDOW_FRAMERATE = 60;
 const char *WINDOW_NAME = "My Runner";
 
 const sfColor GAME_BACKGROUND_COLOR = {66, 98, 116, 0};
+
+// MUSIC
+
+const char *MENU_MUSIC_PATH = "templates/sounds/Hollow_Knight_Ambience_Main_Menu_Theme.ogg";
+
+// SCORE
+
+const char *BASE_SCORE = "Score :";
 
 // FRAMERATE
 
@@ -106,6 +122,8 @@ const char *PLAYER_DOUBLE_JUMPING_SOUND_PATH = "templates/sounds/hero_wings.ogg"
 
 const unsigned short TITLE_X = (WINDOW_WIDTH - 1274) / 2;
 const unsigned short TITLE_Y = 0;
+const char *TITLE_PATH = "templates/menu/title.png";
+
 
 const sfIntRect *BUTTON_UNSELECTED_FRAME_KEYS[] = {
     &(sfIntRect){0, 396, 267, 36},
@@ -137,12 +155,18 @@ const sfIntRect *BUTTON_SELECTED_FRAME_KEYS[] = {
     &(sfIntRect){0, 396, 267, 36},
     NULL};
 
+const char *BUTTON_SOUND_PATH = "templates/sounds/ui_change_selection.ogg";
+
 const unsigned short PLAY_BUTTON_X = (WINDOW_WIDTH - 206) / 2;
 const unsigned short PLAY_BUTTON_Y = 700;
+const char *PLAY_BUTTON_PATH = "templates/menu/play.png";
 const unsigned short OPTION_BUTTON_X = (WINDOW_WIDTH - 267) / 2;
 const unsigned short OPTION_BUTTON_Y = 800;
+const char *OPTION_BUTTON_PATH = "templates/menu/option.png";
 const unsigned short EXIT_BUTTON_X = (WINDOW_WIDTH - 196) / 2;
 const unsigned short EXIT_BUTTON_Y = 900;
+const char *EXIT_BUTTON_PATH = "templates/menu/exit.png";
+
 
 const sfVector2i MAIN_MENU_COORDS[] = {
     {960, 718},
@@ -177,5 +201,9 @@ const unsigned short INDICATOR_Y = 400 - 25;
 
 const char *FONT_PATH= "templates/font/arial.ttf";
 const char *CURSOR_PATH = "templates/menu/Cursor.png";
+
+// LEVEL DESIGN
+
+const char *GROUND_PATH = "templates/env/white_palace/ground/_0037_white.png";
 
 #endif /* !DEFINE_H_ */

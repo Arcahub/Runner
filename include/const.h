@@ -10,6 +10,14 @@
 #ifndef CONST_H
 #define CONST_H
 
+// ENV
+
+extern const char *ENV_DISPLAY;
+
+// USAGE
+
+extern const char *USAGE;
+
 // WINDOW
 
 extern const unsigned short int WINDOW_WIDTH;
@@ -19,6 +27,14 @@ extern const unsigned char WINDOW_FRAMERATE;
 extern const char *WINDOW_NAME;
 
 extern const sfColor GAME_BACKGROUND_COLOR;
+
+// MUSIC
+
+extern const char *MENU_MUSIC_PATH;
+
+// SCORE
+
+extern const char *BASE_SCORE;
 
 // FRAMERATE
 
@@ -57,17 +73,22 @@ extern const char *PLAYER_DOUBLE_JUMPING_SOUND_PATH;
 
 extern const unsigned short TITLE_X;
 extern const unsigned short TITLE_Y;
+extern const char *TITLE_PATH;
 
 extern const sfIntRect *BUTTON_UNSELECTED_FRAME_KEYS[];
-
 extern const sfIntRect *BUTTON_SELECTED_FRAME_KEYS[];
+
+extern const char *BUTTON_SOUND_PATH;
 
 extern const unsigned short PLAY_BUTTON_X;
 extern const unsigned short PLAY_BUTTON_Y;
+extern const char *PLAY_BUTTON_PATH;
 extern const unsigned short OPTION_BUTTON_X;
 extern const unsigned short OPTION_BUTTON_Y;
+extern const char *OPTION_BUTTON_PATH;
 extern const unsigned short EXIT_BUTTON_X;
 extern const unsigned short EXIT_BUTTON_Y;
+extern const char *EXIT_BUTTON_PATH;
 
 extern const sfVector2i MAIN_MENU_COORDS[];
 
@@ -98,4 +119,8 @@ extern const unsigned short INDICATOR_Y;
 
 extern const char *FONT_PATH;
 extern const char *CURSOR_PATH;
+
+// LEVEL DESIGN
+
+extern const char *GROUND_PATH;
 #endif
