@@ -13,8 +13,9 @@ void player_input_space(game_t *game)
         game->player->move.y = - JUMP_SPEED;
         update_game_object_state(game->player, JUMPING);
     }
-    if (game->player->state == FALLING) {
+    if (game->player->state == FALLING && game->player->delta_t == NULL) {
         game->player->move.y = - JUMP_SPEED;
+        game->player->delta_t = sfClock_create();
         game->player->pos.x -= PLAYER_DOUBLE_JUMPING_OFFSET;
         update_game_object_state(game->player, DOUBLE_JUMPING);
     }

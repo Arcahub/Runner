@@ -47,8 +47,13 @@ bool player_update(game_object_t *player, scene_t *scene)
     update_physics(player, scene);
     if (player->move.y > 0 && (player->state == JUMPING || player->state == RUNNING))
         update_game_object_state(player, FALLING);
-    if (player->move.y == 0 && player->state == FALLING)
+    if (player->move.y == 0 && player->state == FALLING) {
         update_game_object_state(player, RUNNING);
+        if (player->delta_t != NULL) {
+            sfClock_destroy(player->delta_t);
+            player->delta_t = NULL;
+        }
+    }
     check_player_pos_x(player);
     return (true);
 }
