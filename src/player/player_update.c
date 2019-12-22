@@ -22,9 +22,10 @@ void check_player_pos_x(game_object_t *player)
             player->move.x = - PLAYER_MAX_SPEED_X;
         else
             player->move.x = PLAYER_MAX_SPEED_X;
-    else
-        if (tmp > 0)
-            player->move.x = tmp ;
+    else {
+        player->move.x = 0;
+        player->pos.x = PLAYER_START_X;
+    }
 }
 
 void update_player_state(game_object_t *player)

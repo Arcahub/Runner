@@ -23,7 +23,7 @@ void player_input_space(game_t *game)
 
 void player_input_a(game_t *game)
 {
-    if (game->player->pos.x == PLAYER_START_X) {
+    if (game->player->pos.x <= PLAYER_START_X && game->player->delta_t == NULL) {
         game->player->move.x += 50;
         update_game_object_state(game->player, DASHING);
     }
@@ -31,7 +31,7 @@ void player_input_a(game_t *game)
 
 void player_input_x(game_t *game)
 {
-    if (game->player->state != ATTACKING_RIGHT) {
+    if (game->player->state != ATTACKING_RIGHT && game->player->state != DOUBLE_JUMPING) {
         game->player->pos.x -= PLAYER_ATTACKING_RIGHT_OFFSET;
         sfSprite_setPosition(game->player->sprite, game->player->pos);
         update_game_object_state(game->player, ATTACKING_RIGHT);
