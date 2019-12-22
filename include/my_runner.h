@@ -5,8 +5,6 @@
 ** my_runner
 */
 
-#include "const.h"
-#include "my_graph.h"
 #include <SFML/Graphics.h>
 #include <stdbool.h>
 
@@ -17,6 +15,8 @@
 
 #include "player.h"
 #include "game_object.h"
+#include "const.h"
+#include "my_graph.h"
 
 typedef struct game_object game_object_t;
 

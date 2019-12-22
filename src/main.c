@@ -5,6 +5,7 @@
 ** main
 */
 
+#include "define.h"
 #include "my_graph.h"
 #include "my_runner.h"
 #include "my.h"
