@@ -20,7 +20,7 @@ game_object_t *create_ground(game_object_t *last, sfVector2f pos)
 {
     sfFloatRect rect;
 
-    last = create_game_object(last, "templates/env/white_palace/ground/_0037_white.png", pos, SOLID);
+    last = create_game_object(last, (char *)GROUND_PATH, pos, SOLID);
     last->move = (sfVector2f) {-15, 0};
     rect = sfSprite_getLocalBounds(last->sprite);
     last->box = (sfIntRect) {(int)rect.left, (int)rect.top, (int)rect.width, (int)rect.height};

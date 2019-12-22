@@ -20,12 +20,14 @@ void init_score(game_t *game)
     if (score == NULL)
         return;
     score->score = 0;
-    score->text = init_text("Score : 0", 0, 0, (char *) FONT_PATH);
+    score->text = \
+    init_text( my_strcat((char *)BASE_SCORE, my_nbr_to_str(0)), 0, \
+    0, (char *) FONT_PATH);
 }
 
 void increase_score(game_t *game)
 {
     game->score->score += 1;
     sfText_setString(game->score->text, \
-    my_strcat("Score : ", my_nbr_to_str(game->score->score)));
+    my_strcat((char *)BASE_SCORE, my_nbr_to_str(game->score->score)));
 }
