@@ -43,6 +43,7 @@ typedef enum {
 typedef enum {
     FRONT,
     PLAYER_GROUND,
+    PLAYER_DISPLAY,
     PARALLAX1,
     PARALLAX2,
     PARALLAX3,
@@ -120,4 +121,5 @@ void draw_main_menu(scene_t *, game_t *, sfRenderWindow *);
 void draw_options(scene_t *, game_t *, sfRenderWindow *);
 void draw_game(scene_t *, game_t *, sfRenderWindow *);
 void handle_framerate(sfClock *, scene_t *, game_t *);
+game_object_t *create_effect(game_object_t *, char *, sfVector2f, sfIntRect **);
 #endif /* !MY_RUNNER_H_ */

@@ -99,9 +99,22 @@ const char *PLAYER_ATTACKING_SOUND_PATH = "templates/sounds/sword_1.ogg";
 const sfIntRect *PLAYER_ATTACKING_RIGHT_FRAME_KEYS[] = {
     &(sfIntRect){0, 390, 130, 130},
     &(sfIntRect){0, 390, 130, 130},
-    &(sfIntRect){0, 390, 130, 130},
-    &(sfIntRect){0, 390, 130, 130},
+    &(sfIntRect){130, 390, 130, 130},
+    &(sfIntRect){130, 390, 130, 130},
+    &(sfIntRect){260, 390, 130, 130},
+    &(sfIntRect){260, 390, 130, 130},
+    &(sfIntRect){390, 390, 130, 130},
+    &(sfIntRect){390, 390, 130, 130},
     NULL
+};
+const char *RIGHT_ATTACK_EFFECT_PATH = "templates/effects/attack.png";
+const sfIntRect *RIGHT_ATTACK_EFFECT_FRAME_KEYS[] = {
+    &(sfIntRect){0, 0, 245, 130},
+    &(sfIntRect){0, 0, 245, 130},
+    &(sfIntRect){245, 0, 245, 130},
+    &(sfIntRect){245, 0, 245, 130},
+    NULL
+
 };
 
 const unsigned char PLAYER_DOUBLE_JUMPING_OFFSET = 55;

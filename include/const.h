@@ -64,6 +64,8 @@ extern const sfIntRect *PLAYER_DASHING_FRAME_KEYS[];
 extern const unsigned char PLAYER_ATTACKING_RIGHT_OFFSET;
 extern const char *PLAYER_ATTACKING_SOUND_PATH;
 extern const sfIntRect *PLAYER_ATTACKING_RIGHT_FRAME_KEYS[];
+extern const char *RIGHT_ATTACK_EFFECT_PATH;
+extern const sfIntRect *RIGHT_ATTACK_EFFECT_FRAME_KEYS[];
 
 extern const unsigned char PLAYER_DOUBLE_JUMPING_OFFSET;
 extern const sfIntRect *PLAYER_DOUBLE_JUMPING_FRAME_KEYS[];
