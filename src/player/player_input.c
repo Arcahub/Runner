@@ -25,6 +25,7 @@ void player_input_a(game_t *game)
 {
     if (game->player->pos.x <= PLAYER_START_X && game->player->delta_t == NULL) {
         game->player->move.x += 50;
+        game->player->pos.x += PLAYER_DASH_OFFSET;
         update_game_object_state(game->player, DASHING);
     }
 }
@@ -38,7 +39,22 @@ void player_input_x(game_t *game)
     }
 }
 
-void player_input(game_t *game, int key)
+void player_input_joystick(game_t *game, int button)
+{
+    switch (button) {
+    case 0:
+        player_input_space(game);
+        break;
+    case 1:
+        player_input_a(game);
+        break;
+    case 2:
+        player_input_x(game);
+        break;
+    }
+}
+
+void player_input_keyboard(game_t *game, int key)
 {
     switch (key) {
     case sfKeySpace:

@@ -73,7 +73,7 @@ game_object_t *init_player(game_object_t *last)
     player->update = &player_update;
     player->move = (sfVector2f){PLAYER_SPEED_X, PLAYER_SPEED_Y};
     player->state = RUNNING;
-    player->z_index = PLAYER_GROUND;
+    player->z_index = PLAYER_DISPLAY;
     player->anim = init_player_anim();
     player->delta_t = NULL;
     player->sound_effect = sfSound_create();
