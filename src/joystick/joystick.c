@@ -43,15 +43,6 @@ void handle_joystick_main_menu(sfEvent event, game_t *game, scene_t *scene)
 
 void handle_joystick_game(sfEvent event, game_t *game)
 {
-    if (event.type == sfEvtJoystickButtonPressed && event.joystickButton.button\
-     == 0 && game->player->move.y == 0 && game->player->state == RUNNING) {
-        game->player->delta_t = sfClock_create();
-        game->player->move.y = - JUMP_SPEED;
-        update_game_object_state(game->player, JUMPING);
-    } else if (event.type == sfEvtJoystickButtonReleased &&  \
-    event.joystickButton.button == 0 && game->player->state == JUMPING) {
-        if (game->player->move.y < JUMP_SPEED_MIN)
-        game->player->move.y = - JUMP_SPEED_MIN;
-        update_game_object_state(game->player, FALLING);
-    }
+    if (event.type == sfEvtJoystickButtonPressed)
+        player_input_joystick(game, event.joystickButton.button);
 }
