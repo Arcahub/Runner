@@ -51,7 +51,7 @@ const unsigned int PLAYER_START_Y = 800;
 const unsigned char PLAYER_SPEED_X = 0;
 const unsigned char PLAYER_MAX_SPEED_X = 2;
 const unsigned char PLAYER_SPEED_Y = 0;
-const char *PLAYER_SPRITE_PATH = "templates/mobs/player/knight_sprite_sheets_test.png";
+const char *PLAYER_SPRITE_PATH = "templates/mobs/player/knight_sprite_sheets.png";
 const sfIntRect *PLAYER_RUNNING_FRAME_KEYS[] = {
     &(sfIntRect){0, 0, 75, 130},
     &(sfIntRect){0, 0, 75, 130},
