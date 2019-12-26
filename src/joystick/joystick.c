@@ -36,8 +36,8 @@ void handle_joystick_main_menu(sfEvent event, game_t *game, scene_t *scene)
             sfMouse_setPositionRenderWindow(MAIN_MENU_COORDS[id], NULL);
         }
     }
-    if (event.type == sfEvtJoystickButtonPressed && event.joystickButton.button\
-     == 0)
+    if (event.type == sfEvtJoystickButtonPressed && \
+    event.joystickButton.button == 0)
         is_click_on_object(scene, event.mouseButton, game, BUTTON);
 }
 

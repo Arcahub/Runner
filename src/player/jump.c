@@ -14,8 +14,8 @@ void compute_jump(game_object_t *player)
     if (player->state == JUMPING && player->move.y > 0) {
         update_game_object_state(player, FALLING);
     }
-    else if (player->state == JUMPING && (!sfKeyboard_isKeyPressed(JUMP_KEY) &&\
-    (check_joystick_button_pressed(0)))) {
+    else if (player->state == JUMPING && (!sfKeyboard_isKeyPressed(JUMP_KEY) \
+    && (check_joystick_button_pressed(0)))) {
         if (player->move.y < JUMP_SPEED_MIN)
             player->move.y = - JUMP_SPEED_MIN;
         update_game_object_state(player, FALLING);

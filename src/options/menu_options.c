@@ -12,10 +12,14 @@ static game_object_t *create_game_object_list(void)
 {
     game_object_t *object = NULL;
 
-    object = create_indicator(object, (char *)INDICATOR_PATH, (sfVector2f) {INDICATOR_X, INDICATOR_Y});
-    object = create_bar(object, (char *) BAR_PATH, (sfVector2f) {VOLUME_BAR_X, VOLUME_BAR_Y});
-    object->box = (sfIntRect) {VOLUME_BAR_X - BAR_BOX_OFFSET / 2, VOLUME_BAR_Y, BAR_WIDTH, BAR_HEIGHT + BAR_BOX_OFFSET};
-    object = create_game_object(object, (char *) BAR_BACKGROUND_PATH, (sfVector2f) {VOLUME_BAR_X, VOLUME_BAR_Y}, DECOR);
+    object = create_indicator(object, (char *)INDICATOR_PATH, \
+    (sfVector2f) {INDICATOR_X, INDICATOR_Y});
+    object = create_bar(object, (char *) BAR_PATH, \
+    (sfVector2f) {VOLUME_BAR_X, VOLUME_BAR_Y});
+    object->box = (sfIntRect) {VOLUME_BAR_X - BAR_BOX_OFFSET / 2, \
+    VOLUME_BAR_Y, BAR_WIDTH, BAR_HEIGHT + BAR_BOX_OFFSET};
+    object = create_game_object(object, (char *) BAR_BACKGROUND_PATH, \
+    (sfVector2f) {VOLUME_BAR_X, VOLUME_BAR_Y}, DECOR);
     return (object);
 }
 

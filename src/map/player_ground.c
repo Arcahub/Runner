@@ -23,7 +23,8 @@ game_object_t *create_ground(game_object_t *last, sfVector2f pos)
     last = create_game_object(last, (char *)GROUND_PATH, pos, SOLID);
     last->move = (sfVector2f) {-15, 0};
     rect = sfSprite_getLocalBounds(last->sprite);
-    last->box = (sfIntRect) {(int)rect.left, (int)rect.top, (int)rect.width, (int)rect.height};
+    last->box = (sfIntRect) {(int)rect.left, (int)rect.top, (int)rect.width, \
+    (int)rect.height};
     last->z_index = PLAYER_GROUND;
     last->update = &update_ground;
     return (last);

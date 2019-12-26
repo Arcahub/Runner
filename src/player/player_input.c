@@ -23,7 +23,6 @@ static void player_input_space(game_t *game)
 
 static void player_input_a(game_t *game)
 {
-    printf("%f\n", game->player->pos.x);
     if (game->player->pos.x <= PLAYER_START_X && game->player->state != \
     DOUBLE_JUMPING) {
         game->player->move.x += 50;
@@ -43,7 +42,7 @@ static void player_input_x(game_t *game)
         game->player->pos.x -= PLAYER_ATTACKING_DOWN_OFFSET;
         sfSprite_setPosition(game->player->sprite, game->player->pos);
         update_game_object_state(game->player, ATTACKING_DOWN);
-    } else if(sfKeyboard_isKeyPressed(sfKeyUp)) {
+    } else if (sfKeyboard_isKeyPressed(sfKeyUp)) {
         game->player->pos.x -= PLAYER_ATTACKING_TOP_OFFSET;
         sfSprite_setPosition(game->player->sprite, game->player->pos);
         update_game_object_state(game->player, ATTACKING_TOP);

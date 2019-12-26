@@ -12,12 +12,16 @@ game_object_t *create_main_menu_buttons(void)
 {
     game_object_t *object = NULL;
 
-    object = create_game_object(object, (char *)TITLE_PATH, (sfVector2f) {TITLE_X, TITLE_Y}, DECOR);
-    object = create_text_button(object, (char *)PLAY_BUTTON_PATH, (sfVector2f) {PLAY_BUTTON_X, PLAY_BUTTON_Y});
+    object = create_game_object(object, (char *)TITLE_PATH, \
+    (sfVector2f) {TITLE_X, TITLE_Y}, DECOR);
+    object = create_text_button(object, (char *)PLAY_BUTTON_PATH, \
+    (sfVector2f) {PLAY_BUTTON_X, PLAY_BUTTON_Y});
     object->callback = &play_button_function;
-    object = create_text_button(object, (char *)OPTION_BUTTON_PATH, (sfVector2f) {OPTION_BUTTON_X, OPTION_BUTTON_Y});
+    object = create_text_button(object, (char *)OPTION_BUTTON_PATH, \
+    (sfVector2f) {OPTION_BUTTON_X, OPTION_BUTTON_Y});
     object->callback = &options_button_function;
-    object = create_text_button(object, (char *)EXIT_BUTTON_PATH, (sfVector2f) {EXIT_BUTTON_X, EXIT_BUTTON_Y});
+    object = create_text_button(object, (char *)EXIT_BUTTON_PATH, \
+    (sfVector2f) {EXIT_BUTTON_X, EXIT_BUTTON_Y});
     object->callback = &exit_button_function;
     return (object);
 }

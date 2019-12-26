@@ -8,7 +8,8 @@
 #include "my_runner.h"
 #include <SFML/Graphics.h>
 
-void handle_event_main_menu(scene_t *scene, game_t *game, sfRenderWindow *window)
+void handle_event_main_menu(scene_t *scene, game_t *game, \
+sfRenderWindow *window)
 {
     sfEvent event;
     sfBool joymoved = false;

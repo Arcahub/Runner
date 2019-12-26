@@ -30,11 +30,14 @@ void player_attacking_update(game_object_t *player, int state, scene_t *scene)
         update_game_object_state(player, RUNNING);
     } else if (player->anim[state].frame_id == 2) {
         if (state == ATTACKING_DOWN)
-            scene->objects_list = create_down_attack_effect(scene->objects_list, player->pos);
+            scene->objects_list = \
+            create_down_attack_effect(scene->objects_list, player->pos);
         else if (state == ATTACKING_TOP)
-            scene->objects_list = create_top_attack_effect(scene->objects_list, player->pos);
+            scene->objects_list = \
+            create_top_attack_effect(scene->objects_list, player->pos);
         else if (state == ATTACKING_RIGHT)
-            scene->objects_list = create_right_attack_effect(scene->objects_list, player->pos);
+            scene->objects_list = \
+            create_right_attack_effect(scene->objects_list, player->pos);
     }
 }
 

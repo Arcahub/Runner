@@ -10,13 +10,16 @@
 
 bool update_effect(game_object_t *object, scene_t *scene)
 {
+    int frame_id = object->anim[object->state].frame_id + 1;
+
     update_game_object_frame(object);
-    if (object->anim[object->state].frames_key[object->anim[object->state].frame_id + 1] == NULL)
+    if (object->anim[object->state].frames_key[frame_id] == NULL)
         return (false);
     return (true);
 }
 
-game_object_t *create_effect(game_object_t *last, char *PATH, sfVector2f pos, sfIntRect **KEY_FRAME)
+game_object_t *create_effect(game_object_t *last, char *PATH, sfVector2f pos, \
+sfIntRect **KEY_FRAME)
 {
     game_object_t *object = create_game_object(last, PATH, pos, EFFECT);
 

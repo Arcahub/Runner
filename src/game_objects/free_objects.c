@@ -8,7 +8,8 @@
 #include "my_runner.h"
 #include <stdlib.h>
 
-void destroy_game_object(scene_t *scene, game_object_t *prev, game_object_t *object)
+void destroy_game_object(scene_t *scene, game_object_t *prev, \
+game_object_t *object)
 {
     if (prev == NULL)
         scene->objects_list = object->next;

@@ -24,7 +24,7 @@ game_t *init_game(char *map)
     game->scene_loop[MAIN_MENU_SCENE] = &main_menu_loop;
     game->scene_loop[GAME_SCENE] = &game_loop;
     game->scene_loop[OPTION_SCENE] = &options_loop;
-    return(game);
+    return (game);
 }
 
 void destroy_game(game_t *game)

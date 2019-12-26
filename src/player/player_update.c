@@ -34,11 +34,11 @@ void update_player_state(game_object_t *player, scene_t *scene)
         compute_jump(player);
     if (player->state == DASHING)
         player_dash_update(player);
-    if(player->state == ATTACKING_RIGHT)
+    if (player->state == ATTACKING_RIGHT)
         player_attacking_update(player, ATTACKING_RIGHT, scene);
-    if(player->state == ATTACKING_TOP)
+    if (player->state == ATTACKING_TOP)
         player_attacking_update(player, ATTACKING_TOP, scene);
-    if(player->state == ATTACKING_DOWN)
+    if (player->state == ATTACKING_DOWN)
         player_attacking_update(player, ATTACKING_DOWN, scene);
     if (player->state == DOUBLE_JUMPING)
         player_double_jump_update(player);
@@ -50,7 +50,8 @@ bool player_update(game_object_t *player, scene_t *scene)
     update_player_state(player, scene);
     move_object(player);
     update_physics(player, scene);
-    if (player->move.y > 0 && (player->state == JUMPING || player->state == RUNNING))
+    if (player->move.y > 0 && (player->state == JUMPING || \
+    player->state == RUNNING))
         update_game_object_state(player, FALLING);
     if (player->move.y == 0 && player->state == FALLING) {
         update_game_object_state(player, RUNNING);

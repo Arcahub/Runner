@@ -13,9 +13,11 @@ bool update_text_button(game_object_t *button, scene_t *scene)
 {
     sfVector2i pos = sfMouse_getPositionRenderWindow(scene->window);
 
-    if (sfIntRect_contains(&button->box, pos.x, pos.y) && button->state != SELECTED)
+    if (sfIntRect_contains(&button->box, pos.x, pos.y) && \
+    button->state != SELECTED)
         update_game_object_state(button, SELECTED);
-    else if (!sfIntRect_contains(&button->box, pos.x, pos.y) && button->state != UNSELECTED)
+    else if (!sfIntRect_contains(&button->box, pos.x, pos.y) && \
+    button->state != UNSELECTED)
         update_game_object_state(button, UNSELECTED);
     else
         update_game_object_frame(button);
@@ -39,12 +41,14 @@ anim_t *create_text_button_anim(void)
     anims[SELECTED].loop = true;
     anims[SELECTED].frame_id = 0;
     anims[SELECTED].restart_id = 11;
-    anims[SELECTED].sound_buffer = sfSoundBuffer_createFromFile(BUTTON_SOUND_PATH);
+    anims[SELECTED].sound_buffer = \
+    sfSoundBuffer_createFromFile(BUTTON_SOUND_PATH);
     anims[SELECTED].sound_loop = false;
     return (anims);
 }
 
-game_object_t *create_text_button(game_object_t *last, char *path, sfVector2f pos)
+game_object_t *create_text_button(game_object_t *last, char *path, \
+sfVector2f pos)
 {
     game_object_t *object = create_game_object(last, path, pos, BUTTON);
 
@@ -52,8 +56,9 @@ game_object_t *create_text_button(game_object_t *last, char *path, sfVector2f po
     object->sound_effect = sfSound_create();
     object->update = &update_text_button;
     object->state = UNSELECTED;
-    object->anim[object->state].frame_id = object->anim[object->state].restart_id;
+    object->anim[object->state].frame_id = \
+    object->anim[object->state].restart_id;
     init_game_object_frame(object);
-    return(object);
+    return (object);
 }
 

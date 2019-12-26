@@ -18,7 +18,8 @@ const char *ENV_DISPLAY = "DISPLAY";
 
 // USAGE
 
-const char *USAGE = "DESCRIPTION:\n\t./my_runner MAP\n\nUSAGE:\n\tMAP : path to the map in tile mapping\n";
+const char *USAGE = "DESCRIPTION:\n\t./my_runner \
+MAP\n\nUSAGE:\n\tMAP : path to the map in tile mapping\n";
 
 // WINDOW
 
@@ -32,7 +33,8 @@ const sfColor GAME_BACKGROUND_COLOR = {66, 98, 116, 0};
 
 // MUSIC
 
-const char *MENU_MUSIC_PATH = "templates/sounds/Hollow_Knight_Ambience_Main_Menu_Theme.ogg";
+const char *MENU_MUSIC_PATH = \
+"templates/sounds/Hollow_Knight_Ambience_Main_Menu_Theme.ogg";
 
 // SCORE
 
@@ -51,7 +53,8 @@ const unsigned int PLAYER_START_Y = 800;
 const unsigned char PLAYER_SPEED_X = 0;
 const unsigned char PLAYER_MAX_SPEED_X = 2;
 const unsigned char PLAYER_SPEED_Y = 0;
-const char *PLAYER_SPRITE_PATH = "templates/mobs/player/knight_sprite_sheets.png";
+const char *PLAYER_SPRITE_PATH = \
+"templates/mobs/player/knight_sprite_sheets.png";
 const sfIntRect *PLAYER_RUNNING_FRAME_KEYS[] = {
     &(sfIntRect){0, 0, 75, 130},
     &(sfIntRect){0, 0, 75, 130},
@@ -66,7 +69,8 @@ const sfIntRect *PLAYER_RUNNING_FRAME_KEYS[] = {
     &(sfIntRect){375, 0, 75, 130},
     &(sfIntRect){375, 0, 75, 130},
     NULL};
-const char *PLAYER_RUNNING_SOUND_PATH = "templates/sounds/hero_run_footsteps_stone.ogg";
+const char *PLAYER_RUNNING_SOUND_PATH = \
+"templates/sounds/hero_run_footsteps_stone.ogg";
 const sfIntRect *PLAYER_JUMPING_FRAME_KEYS[] = {
     &(sfIntRect){0, 130, 75, 130},
     NULL};
@@ -177,7 +181,8 @@ const sfIntRect *PLAYER_DOUBLE_JUMPING_FRAME_KEYS[] = {
     &(sfIntRect){260, 910, 130, 130},
     &(sfIntRect){260, 910, 130, 130},
     NULL};
-const char *PLAYER_DOUBLE_JUMPING_SOUND_PATH = "templates/sounds/hero_wings.ogg";
+const char *PLAYER_DOUBLE_JUMPING_SOUND_PATH = \
+"templates/sounds/hero_wings.ogg";
 
 // MAIN MENU
 
@@ -260,7 +265,7 @@ const unsigned short INDICATOR_WIDTH = 107;
 const unsigned short INDICATOR_X = VOLUME_BAR_X;
 const unsigned short INDICATOR_Y = 400 - 25;
 
-const char *FONT_PATH= "templates/font/arial.ttf";
+const char *FONT_PATH = "templates/font/arial.ttf";
 const char *CURSOR_PATH = "templates/menu/Cursor.png";
 
 // LEVEL DESIGN

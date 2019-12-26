@@ -43,7 +43,7 @@ static void player_input_x(game_t *game, sfEvent event)
         game->player->pos.x -= PLAYER_ATTACKING_DOWN_OFFSET;
         sfSprite_setPosition(game->player->sprite, game->player->pos);
         update_game_object_state(game->player, ATTACKING_DOWN);
-    } else if(sfJoystick_getAxisPosition(event.joystickMove.joystickId, \
+    } else if (sfJoystick_getAxisPosition(event.joystickMove.joystickId, \
     sfJoystickY) < - 90) {
         game->player->pos.x -= PLAYER_ATTACKING_TOP_OFFSET;
         sfSprite_setPosition(game->player->sprite, game->player->pos);
