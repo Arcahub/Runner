@@ -36,6 +36,10 @@ void update_player_state(game_object_t *player, scene_t *scene)
         player_dash_update(player);
     if(player->state == ATTACKING_RIGHT)
         player_attacking_update(player, ATTACKING_RIGHT, scene);
+    if(player->state == ATTACKING_TOP)
+        player_attacking_update(player, ATTACKING_TOP, scene);
+    if(player->state == ATTACKING_DOWN)
+        player_attacking_update(player, ATTACKING_DOWN, scene);
     if (player->state == DOUBLE_JUMPING)
         player_double_jump_update(player);
 }

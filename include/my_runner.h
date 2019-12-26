@@ -32,7 +32,9 @@ typedef enum {
     FALLING,
     DASHING,
     ATTACKING_RIGHT,
-    DOUBLE_JUMPING
+    DOUBLE_JUMPING,
+    ATTACKING_TOP,
+    ATTACKING_DOWN
 } player_state;
 
 typedef enum {

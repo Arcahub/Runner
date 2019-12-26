@@ -22,6 +22,10 @@ void init_player_anim_sound_effect(anim_t *anims)
     anims[ATTACKING_RIGHT].sound_buffer = sfSoundBuffer_createFromFile(PLAYER_ATTACKING_SOUND_PATH);
     anims[DOUBLE_JUMPING].sound_loop = false;
     anims[DOUBLE_JUMPING].sound_buffer = sfSoundBuffer_createFromFile(PLAYER_DOUBLE_JUMPING_SOUND_PATH);
+    anims[ATTACKING_TOP].sound_loop = false;
+    anims[ATTACKING_TOP].sound_buffer = sfSoundBuffer_createFromFile(PLAYER_ATTACKING_SOUND_PATH);
+    anims[ATTACKING_DOWN].sound_loop = false;
+    anims[ATTACKING_DOWN].sound_buffer = sfSoundBuffer_createFromFile(PLAYER_ATTACKING_SOUND_PATH);
 }
 
 void init_player_other_anim(anim_t *anims)
@@ -38,15 +42,23 @@ void init_player_other_anim(anim_t *anims)
     anims[DOUBLE_JUMPING].loop = false;
     anims[DOUBLE_JUMPING].frame_id = 0;
     anims[DOUBLE_JUMPING].restart_id = 0;
+    anims[ATTACKING_TOP].frames_key = (sfIntRect **)PLAYER_ATTACKING_TOP_FRAME_KEYS;
+    anims[ATTACKING_TOP].loop = false;
+    anims[ATTACKING_TOP].frame_id = 0;
+    anims[ATTACKING_TOP].restart_id = 0;
+    anims[ATTACKING_DOWN].frames_key = (sfIntRect **)PLAYER_ATTACKING_DOWN_FRAME_KEYS;
+    anims[ATTACKING_DOWN].loop = false;
+    anims[ATTACKING_DOWN].frame_id = 0;
+    anims[ATTACKING_DOWN].restart_id = 0;
 }
 
 anim_t *init_player_anim(void)
 {
-    anim_t *anims = malloc(sizeof(anim_t) * 7);
+    anim_t *anims = malloc(sizeof(anim_t) * 9);
 
     if (anims == NULL)
         return (NULL);
-    anims[6].sound_buffer = NULL;
+    anims[8].sound_buffer = NULL;
     anims[RUNNING].frames_key = (sfIntRect **)PLAYER_RUNNING_FRAME_KEYS;
     anims[RUNNING].loop = true;
     anims[RUNNING].frame_id = 0;

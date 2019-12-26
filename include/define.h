@@ -51,7 +51,7 @@ const unsigned int PLAYER_START_Y = 800;
 const unsigned char PLAYER_SPEED_X = 0;
 const unsigned char PLAYER_MAX_SPEED_X = 2;
 const unsigned char PLAYER_SPEED_Y = 0;
-const char *PLAYER_SPRITE_PATH = "templates/mobs/player/knight_sprite_sheets.png";
+const char *PLAYER_SPRITE_PATH = "templates/mobs/player/knight_sprite_sheets_test.png";
 const sfIntRect *PLAYER_RUNNING_FRAME_KEYS[] = {
     &(sfIntRect){0, 0, 75, 130},
     &(sfIntRect){0, 0, 75, 130},
@@ -94,8 +94,9 @@ const sfIntRect *PLAYER_DASHING_FRAME_KEYS[] = {
     NULL
 };
 
-const unsigned char PLAYER_ATTACKING_RIGHT_OFFSET = 55;
 const char *PLAYER_ATTACKING_SOUND_PATH = "templates/sounds/sword_1.ogg";
+
+const unsigned char PLAYER_ATTACKING_RIGHT_OFFSET = 55;
 const sfIntRect *PLAYER_ATTACKING_RIGHT_FRAME_KEYS[] = {
     &(sfIntRect){0, 390, 130, 130},
     &(sfIntRect){0, 390, 130, 130},
@@ -107,27 +108,74 @@ const sfIntRect *PLAYER_ATTACKING_RIGHT_FRAME_KEYS[] = {
     &(sfIntRect){390, 390, 130, 130},
     NULL
 };
-const char *RIGHT_ATTACK_EFFECT_PATH = "templates/effects/attack.png";
+
+const unsigned char PLAYER_ATTACKING_TOP_OFFSET = 25;
+const sfIntRect *PLAYER_ATTACKING_TOP_FRAME_KEYS[] = {
+    &(sfIntRect){0, 650, 100, 130},
+    &(sfIntRect){0, 650, 100, 130},
+    &(sfIntRect){100, 650, 100, 130},
+    &(sfIntRect){100, 650, 100, 130},
+    &(sfIntRect){200, 650, 100, 130},
+    &(sfIntRect){200, 650, 100, 130},
+    &(sfIntRect){300, 650, 100, 130},
+    &(sfIntRect){300, 650, 100, 130},
+    &(sfIntRect){400, 650, 100, 130},
+    &(sfIntRect){400, 650, 100, 130},
+    NULL
+};
+
+const unsigned char PLAYER_ATTACKING_DOWN_OFFSET = 55;
+const sfIntRect *PLAYER_ATTACKING_DOWN_FRAME_KEYS[] = {
+    &(sfIntRect){0, 780, 130, 130},
+    &(sfIntRect){0, 780, 130, 130},
+    &(sfIntRect){130, 780, 130, 130},
+    &(sfIntRect){130, 780, 130, 130},
+    &(sfIntRect){260, 780, 130, 130},
+    &(sfIntRect){260, 780, 130, 130},
+    &(sfIntRect){390, 780, 130, 130},
+    &(sfIntRect){390, 780, 130, 130},
+    &(sfIntRect){520, 780, 130, 130},
+    &(sfIntRect){520, 780, 130, 130},
+    NULL
+};
+
+const char *ATTACK_EFFECT_PATH = "templates/effects/attack.png";
 const sfIntRect *RIGHT_ATTACK_EFFECT_FRAME_KEYS[] = {
     &(sfIntRect){0, 0, 245, 130},
     &(sfIntRect){0, 0, 245, 130},
     &(sfIntRect){245, 0, 245, 130},
     &(sfIntRect){245, 0, 245, 130},
     NULL
+};
 
+const sfIntRect *DOWN_ATTACK_EFFECT_FRAME_KEYS[] = {
+    &(sfIntRect){0, 310, 180, 220},
+    &(sfIntRect){0, 310, 180, 220},
+    &(sfIntRect){180, 310, 180, 220},
+    &(sfIntRect){180, 310, 180, 220},
+    NULL
+};
+
+const unsigned char TOP_ATTACK_EFFECT_OFFSET = 50;
+const sfIntRect *TOP_ATTACK_EFFECT_FRAME_KEYS[] = {
+    &(sfIntRect){0, 130, 160, 180},
+    &(sfIntRect){0, 130, 160, 180},
+    &(sfIntRect){160, 130, 160, 180},
+    &(sfIntRect){160, 130, 160, 180},
+    NULL
 };
 
 const unsigned char PLAYER_DOUBLE_JUMPING_OFFSET = 55;
 const sfIntRect *PLAYER_DOUBLE_JUMPING_FRAME_KEYS[] = {
-    &(sfIntRect){0, 650, 130, 130},
-    &(sfIntRect){0, 650, 130, 130},
-    &(sfIntRect){0, 650, 130, 130},
-    &(sfIntRect){130, 650, 130, 130},
-    &(sfIntRect){130, 650, 130, 130},
-    &(sfIntRect){130, 650, 130, 130},
-    &(sfIntRect){260, 650, 130, 130},
-    &(sfIntRect){260, 650, 130, 130},
-    &(sfIntRect){260, 650, 130, 130},
+    &(sfIntRect){0, 910, 130, 130},
+    &(sfIntRect){0, 910, 130, 130},
+    &(sfIntRect){0, 910, 130, 130},
+    &(sfIntRect){130, 910, 130, 130},
+    &(sfIntRect){130, 910, 130, 130},
+    &(sfIntRect){130, 910, 130, 130},
+    &(sfIntRect){260, 910, 130, 130},
+    &(sfIntRect){260, 910, 130, 130},
+    &(sfIntRect){260, 910, 130, 130},
     NULL};
 const char *PLAYER_DOUBLE_JUMPING_SOUND_PATH = "templates/sounds/hero_wings.ogg";
 

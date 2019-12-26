@@ -44,5 +44,5 @@ void handle_joystick_main_menu(sfEvent event, game_t *game, scene_t *scene)
 void handle_joystick_game(sfEvent event, game_t *game)
 {
     if (event.type == sfEvtJoystickButtonPressed)
-        player_input_joystick(game, event.joystickButton.button);
+        player_input_joystick(game, event.joystickButton.button, event);
 }

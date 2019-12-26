@@ -2,7 +2,7 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_runner_2019
 ** File description:
-** player_input
+** player_input_joystick
 */
 
 #include "my_runner.h"
@@ -23,27 +23,28 @@ static void player_input_space(game_t *game)
 
 static void player_input_a(game_t *game)
 {
-    printf("%f\n", game->player->pos.x);
     if (game->player->pos.x <= PLAYER_START_X && game->player->state != \
-    DOUBLE_JUMPING) {
+    DOUBLE_JUMPING ) {
         game->player->move.x += 50;
         game->player->pos.x += PLAYER_DASH_OFFSET;
         update_game_object_state(game->player, DASHING);
     }
 }
 
-static void player_input_x(game_t *game)
+static void player_input_x(game_t *game, sfEvent event)
 {
     if (game->player->state == ATTACKING_RIGHT \
     || game->player->state == DOUBLE_JUMPING\
     || game->player->state == ATTACKING_TOP\
     || game->player->state == ATTACKING_DOWN)
         return;
-    if (sfKeyboard_isKeyPressed(sfKeyDown) && game->player->state != RUNNING) {
+    if (sfJoystick_getAxisPosition(event.joystickMove.joystickId, \
+    sfJoystickY) > 90 && game->player->state != RUNNING) {
         game->player->pos.x -= PLAYER_ATTACKING_DOWN_OFFSET;
         sfSprite_setPosition(game->player->sprite, game->player->pos);
         update_game_object_state(game->player, ATTACKING_DOWN);
-    } else if(sfKeyboard_isKeyPressed(sfKeyUp)) {
+    } else if(sfJoystick_getAxisPosition(event.joystickMove.joystickId, \
+    sfJoystickY) < - 90) {
         game->player->pos.x -= PLAYER_ATTACKING_TOP_OFFSET;
         sfSprite_setPosition(game->player->sprite, game->player->pos);
         update_game_object_state(game->player, ATTACKING_TOP);
@@ -54,17 +55,17 @@ static void player_input_x(game_t *game)
     }
 }
 
-void player_input_keyboard(game_t *game, int key)
+void player_input_joystick(game_t *game, int button, sfEvent event)
 {
-    switch (key) {
-    case sfKeySpace:
+    switch (button) {
+    case 0:
         player_input_space(game);
         break;
-    case sfKeyA:
+    case 1:
         player_input_a(game);
         break;
-    case sfKeyX:
-        player_input_x(game);
+    case 2:
+        player_input_x(game, event);
         break;
     }
 }
