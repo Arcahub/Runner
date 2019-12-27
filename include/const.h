@@ -16,6 +16,7 @@ extern const char *ENV_DISPLAY;
 
 // USAGE
 
+extern const char *USAGE_FLAG;
 extern const char *USAGE;
 
 // WINDOW
@@ -58,6 +59,7 @@ extern const sfIntRect *PLAYER_FALLING_FRAME_KEYS[];
 extern const char *PLAYER_FALLING_SOUND_PATH;
 
 extern const unsigned char PLAYER_DASH_OFFSET;
+extern const unsigned char PLAYER_DASH_SPEED;
 extern const char *PLAYER_DASHING_SOUND_PATH;
 extern const sfIntRect *PLAYER_DASHING_FRAME_KEYS[];
 
@@ -137,4 +139,5 @@ extern const char *CURSOR_PATH;
 // LEVEL DESIGN
 
 extern const char *GROUND_PATH;
+extern const char *SPIKES_PATH;
 #endif

@@ -9,6 +9,18 @@
 #include <stdlib.h>
 #include <stdbool.h>
 
+void init_game_object(game_object_t *object)
+{
+    object->update = NULL;
+    object->callback = NULL;
+    object->anim = NULL;
+    object->sound_effect = NULL;
+    object->move = (sfVector2f) {0, 0};
+    object->state = 0;
+    object->z_index = 0;
+    object->box = (sfIntRect) {0, 0, 0, 0};
+}
+
 game_object_t *create_game_object(game_object_t *last, char *sprite_path, \
 sfVector2f pos, object_type type)
 {
@@ -18,18 +30,13 @@ sfVector2f pos, object_type type)
         return (NULL);
     object->sprite = sfSprite_create();
     object->texture = sfTexture_createFromFile(sprite_path, NULL);
+    if (object->sprite == NULL || object->texture == NULL)
+        return (NULL);
     sfSprite_setTexture(object->sprite, object->texture, sfTrue);
     object->pos = pos;
-    object->box = (sfIntRect) {0, 0, 0, 0};
     object->type = type;
-    object->update = NULL;
-    object->callback = NULL;
-    object->anim = NULL;
-    object->sound_effect = NULL;
-    object->move = (sfVector2f) {0, 0};
-    object->state = 0;
-    object->z_index = 0;
     object->next = last;
+    init_game_object(object);
     sfSprite_setPosition(object->sprite, object->pos);
     return (object);
 }
@@ -80,21 +87,5 @@ int z_index_max)
             object = tmp;
             i--;
         }
-    }
-}
-
-void is_click_on_object(scene_t *scene, sfMouseButtonEvent mouse_button, \
-game_t *game, object_type type)
-{
-    game_object_t *object = scene->objects_list;
-    sfVector2i pos = sfMouse_getPositionRenderWindow(game->window->window);
-    int x = pos.x;
-    int y = pos.y;
-
-    if (mouse_button.button != sfMouseLeft)
-        return;
-    for (; object; object = object->next) {
-        if (object->type == type && sfIntRect_contains(&object->box, x, y))
-            object->callback(object, scene);
     }
 }

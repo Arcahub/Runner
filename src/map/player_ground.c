@@ -8,7 +8,7 @@
 #include "my_runner.h"
 #include <SFML/Graphics.h>
 
-bool update_ground(game_object_t *object, scene_t *scene)
+bool update_tile(game_object_t *object, scene_t *scene)
 {
     move_object(object);
     if (object->pos.x < - (float)object->box.width)
@@ -21,12 +21,14 @@ game_object_t *create_ground(game_object_t *last, sfVector2f pos)
     sfFloatRect rect;
 
     last = create_game_object(last, (char *)GROUND_PATH, pos, SOLID);
+    if (last == NULL)
+        return (NULL);
     last->move = (sfVector2f) {-15, 0};
     rect = sfSprite_getLocalBounds(last->sprite);
     last->box = (sfIntRect) {(int)rect.left, (int)rect.top, (int)rect.width, \
     (int)rect.height};
     last->z_index = PLAYER_GROUND;
-    last->update = &update_ground;
+    last->update = &update_tile;
     return (last);
 }
 
@@ -36,6 +38,8 @@ game_object_t *compute_tile(game_object_t *last, char id, sfVector2f pos)
         case '1':
             return (create_ground(last, pos));
             break;
+        case '2':
+            return (create_spike(last, pos));
     }
     return (last);
 }

@@ -38,7 +38,8 @@ void init_player_anim_sound_effect(anim_t *anims)
     anims[DOUBLE_JUMPING].sound_loop = false;
     anims[DOUBLE_JUMPING].sound_buffer = \
     sfSoundBuffer_createFromFile(PLAYER_DOUBLE_JUMPING_SOUND_PATH);
-
+    anims[DEAD].sound_loop = false;
+    anims[DEAD].sound_buffer = NULL;
 }
 
 game_object_t *init_player(game_object_t *last)
@@ -47,6 +48,8 @@ game_object_t *init_player(game_object_t *last)
     sfVector2f pos = {PLAYER_START_X, PLAYER_START_Y};
 
     player = create_game_object(last, (char *)PLAYER_SPRITE_PATH, pos, PLAYER);
+    if (player == NULL)
+        return (NULL);
     player->update = &player_update;
     player->move = (sfVector2f){PLAYER_SPEED_X, PLAYER_SPEED_Y};
     player->state = RUNNING;
@@ -54,7 +57,7 @@ game_object_t *init_player(game_object_t *last)
     player->anim = init_player_anim();
     player->delta_t = NULL;
     player->sound_effect = sfSound_create();
-    if (player->anim == NULL)
+    if (player->anim == NULL || player->sound_effect == NULL)
         return (NULL);
     init_game_object_frame(player);
     return (player);

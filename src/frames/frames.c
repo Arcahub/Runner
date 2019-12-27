@@ -58,6 +58,8 @@ void update_game_object_frame(game_object_t *game_object)
     if (anim[state].frames_key[anim[state].frame_id] == NULL) {
         if (anim[state].loop == true)
             anim[state].frame_id = anim[state].restart_id;
+        else
+            anim[state].frame_id -= 1;
     }
     sfSprite_setTextureRect(game_object->sprite, \
     *anim[state].frames_key[anim[state].frame_id]);

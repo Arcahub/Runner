@@ -25,7 +25,7 @@ static void player_input_a(game_t *game)
 {
     if (game->player->pos.x <= PLAYER_START_X && game->player->state != \
     DOUBLE_JUMPING) {
-        game->player->move.x += 50;
+        game->player->move.x += PLAYER_DASH_SPEED;
         game->player->pos.x += PLAYER_DASH_OFFSET;
         update_game_object_state(game->player, DASHING);
     }

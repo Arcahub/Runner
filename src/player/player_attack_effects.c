@@ -13,6 +13,7 @@ game_object_t *create_right_attack_effect(game_object_t *last, sfVector2f pos)
     pos, (sfIntRect **)RIGHT_ATTACK_EFFECT_FRAME_KEYS);
 
     object->z_index = PLAYER_DISPLAY;
+    object->update = &attack_effect_update;
     return (object);
 }
 
@@ -24,6 +25,7 @@ game_object_t *create_top_attack_effect(game_object_t *last, sfVector2f pos)
     object = create_effect(last, (char *)ATTACK_EFFECT_PATH, pos, \
     (sfIntRect **)TOP_ATTACK_EFFECT_FRAME_KEYS);
     object->z_index = PLAYER_DISPLAY;
+    object->update = &attack_effect_update;
     return (object);
 }
 
@@ -34,5 +36,6 @@ game_object_t *create_down_attack_effect(game_object_t *last, sfVector2f pos)
     object = create_effect(last, (char *)ATTACK_EFFECT_PATH, pos, \
     (sfIntRect **)DOWN_ATTACK_EFFECT_FRAME_KEYS);
     object->z_index = PLAYER_DISPLAY;
+    object->update = &attack_effect_update;
     return (object);
 }

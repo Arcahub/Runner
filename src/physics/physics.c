@@ -7,7 +7,7 @@
 
 #include "my_runner.h"
 
-void collision_objects(game_object_t *actual, game_object_t *object)
+void do_solid_collision_objects(game_object_t *actual, game_object_t *object)
 {
     if (sfIntRect_intersects(&actual->box, &object->box, NULL)) {
         if (actual->pos.y + actual->box.height <= object->pos.y) {
@@ -39,7 +39,7 @@ void update_physics(game_object_t *actual, scene_t *scene)
     for (game_object_t *object = scene->objects_list; object; \
     object = object->next) {
         if (object->type == SOLID)
-            collision_objects(actual, object);
+            do_solid_collision_objects(actual, object);
     }
     actual->box = tmp;
 }

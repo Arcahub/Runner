@@ -27,17 +27,6 @@ typedef enum {
 } event;
 
 typedef enum {
-    RUNNING,
-    JUMPING,
-    FALLING,
-    DASHING,
-    ATTACKING_RIGHT,
-    DOUBLE_JUMPING,
-    ATTACKING_TOP,
-    ATTACKING_DOWN
-} player_state;
-
-typedef enum {
     SELECTED,
     UNSELECTED
 } button_state;
@@ -124,4 +113,6 @@ void draw_options(scene_t *, game_t *, sfRenderWindow *);
 void draw_game(scene_t *, game_t *, sfRenderWindow *);
 void handle_framerate(sfClock *, scene_t *, game_t *);
 game_object_t *create_effect(game_object_t *, char *, sfVector2f, sfIntRect **);
+bool update_tile(game_object_t *, scene_t *);
+bool update_effect(game_object_t *, scene_t *);
 #endif /* !MY_RUNNER_H_ */

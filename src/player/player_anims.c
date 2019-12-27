@@ -38,15 +38,19 @@ void init_player_other_anim(anim_t *anims)
     anims[DOUBLE_JUMPING].loop = false;
     anims[DOUBLE_JUMPING].frame_id = 0;
     anims[DOUBLE_JUMPING].restart_id = 0;
+    anims[DEAD].frames_key = (sfIntRect **)PLAYER_RUNNING_FRAME_KEYS;
+    anims[DEAD].loop = false;
+    anims[DEAD].frame_id = 0;
+    anims[DEAD].restart_id = 0;
 }
 
 anim_t *init_player_anim(void)
 {
-    anim_t *anims = malloc(sizeof(anim_t) * 9);
+    anim_t *anims = malloc(sizeof(anim_t) * 10);
 
     if (anims == NULL)
         return (NULL);
-    anims[8].sound_buffer = NULL;
+    anims[9].sound_buffer = NULL;
     anims[RUNNING].frames_key = (sfIntRect **)PLAYER_RUNNING_FRAME_KEYS;
     anims[RUNNING].loop = true;
     anims[RUNNING].frame_id = 0;

@@ -9,6 +9,19 @@
 
 #ifndef PLAYER_H_
 #define PLAYER_H_
+
+typedef enum {
+    RUNNING,
+    JUMPING,
+    FALLING,
+    DASHING,
+    ATTACKING_RIGHT,
+    DOUBLE_JUMPING,
+    ATTACKING_TOP,
+    ATTACKING_DOWN,
+    DEAD
+} player_state;
+
 struct game_object;
 struct scene;
 struct game;
@@ -31,4 +44,5 @@ sfVector2f);
 struct anim *init_player_anim(void);
 void init_player_anim_sound_effect(struct anim *);
 void init_player_attack_sound_effect(struct anim *);
+bool attack_effect_update(struct game_object *, struct scene *);
 #endif /* !PLAYER_H_ */

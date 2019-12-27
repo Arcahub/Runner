@@ -28,7 +28,7 @@ void player_attacking_update(game_object_t *player, int state, scene_t *scene)
             player->pos.x += PLAYER_ATTACKING_RIGHT_OFFSET;
         sfSprite_setPosition(player->sprite, player->pos);
         update_game_object_state(player, RUNNING);
-    } else if (player->anim[state].frame_id == 2) {
+    } else if (player->anim[state].frame_id == 1) {
         if (state == ATTACKING_DOWN)
             scene->objects_list = \
             create_down_attack_effect(scene->objects_list, player->pos);

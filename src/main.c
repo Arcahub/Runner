@@ -52,15 +52,27 @@ int my_runner(int argc, char **argv)
     return (0);
 }
 
+int check_params(int argc, char **argv)
+{
+    if (argc < 2)
+        return (0);
+    else if (my_strcmp(argv[1], USAGE_FLAG))
+        return (1);
+    else
+        return (0);
+}
+
 int main(int argc, char **argv, char **env)
 {
     bool has_display = false;
+    int param = 0;
 
     for (int i = 0; env[i] != NULL; i++)
         if (my_strcmp(env[i], (char *)ENV_DISPLAY))
             has_display = true;
     if (has_display == false)
         return (84);
+    param = check_params(argc, argv);
     if (argc > 1 && argv[1][0] == '-' && argv[1][1] == 'h') {
         write(1, USAGE, my_strlen(USAGE));
         return (0);

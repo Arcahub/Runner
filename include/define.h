@@ -18,6 +18,7 @@ const char *ENV_DISPLAY = "DISPLAY";
 
 // USAGE
 
+const char *USAGE_FLAG = "-h";
 const char *USAGE = "DESCRIPTION:\n\t./my_runner \
 MAP\n\nUSAGE:\n\tMAP : path to the map in tile mapping\n";
 
@@ -89,6 +90,7 @@ const sfIntRect *PLAYER_FALLING_FRAME_KEYS[] = {
 const char *PLAYER_FALLING_SOUND_PATH = "templates/sounds/hero_falling.ogg";
 
 const unsigned char PLAYER_DASH_OFFSET = 95;
+const unsigned char PLAYER_DASH_SPEED = 50;
 const char *PLAYER_DASHING_SOUND_PATH = "templates/sounds/hero_dash.ogg";
 const sfIntRect *PLAYER_DASHING_FRAME_KEYS[] = {
     &(sfIntRect){0, 520, 170, 130},
@@ -103,12 +105,8 @@ const char *PLAYER_ATTACKING_SOUND_PATH = "templates/sounds/sword_1.ogg";
 const unsigned char PLAYER_ATTACKING_RIGHT_OFFSET = 55;
 const sfIntRect *PLAYER_ATTACKING_RIGHT_FRAME_KEYS[] = {
     &(sfIntRect){0, 390, 130, 130},
-    &(sfIntRect){0, 390, 130, 130},
-    &(sfIntRect){130, 390, 130, 130},
     &(sfIntRect){130, 390, 130, 130},
     &(sfIntRect){260, 390, 130, 130},
-    &(sfIntRect){260, 390, 130, 130},
-    &(sfIntRect){390, 390, 130, 130},
     &(sfIntRect){390, 390, 130, 130},
     NULL
 };
@@ -116,14 +114,9 @@ const sfIntRect *PLAYER_ATTACKING_RIGHT_FRAME_KEYS[] = {
 const unsigned char PLAYER_ATTACKING_TOP_OFFSET = 25;
 const sfIntRect *PLAYER_ATTACKING_TOP_FRAME_KEYS[] = {
     &(sfIntRect){0, 650, 100, 130},
-    &(sfIntRect){0, 650, 100, 130},
-    &(sfIntRect){100, 650, 100, 130},
     &(sfIntRect){100, 650, 100, 130},
     &(sfIntRect){200, 650, 100, 130},
-    &(sfIntRect){200, 650, 100, 130},
     &(sfIntRect){300, 650, 100, 130},
-    &(sfIntRect){300, 650, 100, 130},
-    &(sfIntRect){400, 650, 100, 130},
     &(sfIntRect){400, 650, 100, 130},
     NULL
 };
@@ -131,14 +124,9 @@ const sfIntRect *PLAYER_ATTACKING_TOP_FRAME_KEYS[] = {
 const unsigned char PLAYER_ATTACKING_DOWN_OFFSET = 55;
 const sfIntRect *PLAYER_ATTACKING_DOWN_FRAME_KEYS[] = {
     &(sfIntRect){0, 780, 130, 130},
-    &(sfIntRect){0, 780, 130, 130},
-    &(sfIntRect){130, 780, 130, 130},
     &(sfIntRect){130, 780, 130, 130},
     &(sfIntRect){260, 780, 130, 130},
-    &(sfIntRect){260, 780, 130, 130},
     &(sfIntRect){390, 780, 130, 130},
-    &(sfIntRect){390, 780, 130, 130},
-    &(sfIntRect){520, 780, 130, 130},
     &(sfIntRect){520, 780, 130, 130},
     NULL
 };
@@ -271,5 +259,6 @@ const char *CURSOR_PATH = "templates/menu/Cursor.png";
 // LEVEL DESIGN
 
 const char *GROUND_PATH = "templates/env/white_palace/ground/_0037_white.png";
+const char *SPIKES_PATH = "templates/env/white_palace/white_spikes0000.png";
 
 #endif /* !DEFINE_H_ */

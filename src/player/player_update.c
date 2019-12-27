@@ -12,6 +12,10 @@ void check_player_pos_x(game_object_t *player)
 {
     float tmp = 0.0;
 
+    if (player->pos.x < - player->box.width || player->pos.y > WINDOW_HEIGHT) {
+        update_game_object_state(player, DEAD);
+        return;
+    }
     if (player->pos.x != PLAYER_START_X)
         player->move.x = PLAYER_START_X - player->pos.x;
     else
@@ -44,12 +48,8 @@ void update_player_state(game_object_t *player, scene_t *scene)
         player_double_jump_update(player);
 }
 
-bool player_update(game_object_t *player, scene_t *scene)
+void update_falling(game_object_t *player)
 {
-    update_game_object_frame(player);
-    update_player_state(player, scene);
-    move_object(player);
-    update_physics(player, scene);
     if (player->move.y > 0 && (player->state == JUMPING || \
     player->state == RUNNING))
         update_game_object_state(player, FALLING);
@@ -60,6 +60,18 @@ bool player_update(game_object_t *player, scene_t *scene)
             player->delta_t = NULL;
         }
     }
+}
+
+bool player_update(game_object_t *player, scene_t *scene)
+{
+    update_game_object_frame(player);
+    update_player_state(player, scene);
+    move_object(player);
+    update_physics(player, scene);
+    update_falling(player);
     check_player_pos_x(player);
+    check_player_env(player, scene);
+    if (player->state == DEAD)
+        scene->display = MAIN_MENU_SCENE;
     return (true);
 }
