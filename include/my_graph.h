@@ -36,6 +36,7 @@ typedef struct framebuffer_s {
 } framebuffer_t;
 
 sfRenderWindow *make_window(window_t *, sfUint32);
+window_t *init_window(void);
 framebuffer_t *framebuffer_create(unsigned int, unsigned int, int, int);
 void framebuffer_destroy(framebuffer_t *);
 void my_put_pixels(framebuffer_t *, unsigned int, unsigned int, sfColor);

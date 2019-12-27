@@ -22,8 +22,8 @@ typedef enum {
     DEAD
 } player_state;
 
-struct game_object;
-struct scene;
+typedef struct game_object game_object_t;
+typedef struct scene scene_t;
 struct game;
 struct anim;
 
@@ -44,5 +44,10 @@ sfVector2f);
 struct anim *init_player_anim(void);
 void init_player_anim_sound_effect(struct anim *);
 void init_player_attack_sound_effect(struct anim *);
+void check_player_env(game_object_t *, scene_t *);
+game_object_t *find_player(scene_t *);
+
 bool attack_effect_update(struct game_object *, struct scene *);
+game_object_t *create_effect(game_object_t *, char *, sfVector2f, sfIntRect **);
+bool update_effect(game_object_t *, scene_t *);
 #endif /* !PLAYER_H_ */
