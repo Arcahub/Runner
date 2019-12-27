@@ -20,7 +20,7 @@ game_object_t *effect, game_object_t *object, scene_t *scene) {
             (*player)->move.y = 25;
         else if ((*player)->state == ATTACKING_RIGHT) {
             (*player)->pos.x += - 85;
-            sfSprite_setPosition(*player, (*player)->pos);
+            sfSprite_setPosition((*player)->sprite, (*player)->pos);
         }
         effect->update = &update_effect;
     }

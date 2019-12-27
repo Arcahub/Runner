@@ -56,7 +56,7 @@ int check_params(int argc, char **argv)
 {
     if (argc < 2)
         return (0);
-    else if (my_strcmp(argv[1], USAGE_FLAG))
+    else if (my_strcmp(argv[1], (char *)USAGE_FLAG))
         return (1);
     else
         return (0);
@@ -73,7 +73,7 @@ int main(int argc, char **argv, char **env)
     if (has_display == false)
         return (84);
     param = check_params(argc, argv);
-    if (argc > 1 && argv[1][0] == '-' && argv[1][1] == 'h') {
+    if (param == 1) {
         write(1, USAGE, my_strlen(USAGE));
         return (0);
     }
