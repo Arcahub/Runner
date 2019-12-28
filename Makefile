@@ -7,56 +7,81 @@
 
 CC = gcc
 
-SRC = 	$(shell find ./src/ -iname "*.c")
+FILES = $(shell find ./src/ -iname "*.c")
 
-OBJ = $(SRC:.c=.o)
+SRC = $(FILES:./src/%=src/%)
+
+LIBS_DIR = $(shell find ./lib/ -type d -name "my*")
+
+LIB_NAME = $(LIB:./lib/%=%)
+
+BUILD_DIR = build/
+
+OBJ = $(addprefix $(BUILD_DIR), $(SRC:.c=.o))
 
 RMD_FILES = $(OBJ) vgcore.* lib/my_graph/*.o lib/my/*.o
 
 NAME = my_runner
 
-CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wno-unused-parameter -Wextra -pedantic
+CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wno-unused-parameter -Wextra -pedantic $(DEBUG)
 
-LDFLAGS = -L./lib -lmy_graph -lmy -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
+LDFLAGS = -L./lib -lmy_graph -lmy $(CSFML)
+
+CSFML = -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
 
 HEADER = -I./include
+
+REDDARK	=	\033[31;1m
+RED	=	\033[31;1m
+GREEN	=	\033[32;1m
+YEL	=	\033[33;1m
+BLUE	=	\033[34;1m
+PINK	=	\033[35;1m
+CYAN	=	\033[36;1m
+WHITE	=	\033[0m
 
 all : $(NAME)
 
 debug:
-	$(CFLAGS += -g3)
-	@printf "[DEBUG]\n"
-	@make -s fclean $(NAME)
+	$(eval CFLAGS += -g3)
+	@printf "$(PINK)[DEBUG]$(WHITE)\n"
+	@make BLUE='\033[35;1m' DEBUG='-g3' -s fclean $(NAME)
 
-%.o:%.c
-	@$(CC) $(CFLAGS) $< -c  -o $@
-	@printf "[compiled] % 50s\n" $(notdir $<) | tr ' ' '.'
+$(BUILD_DIR)%.o:%.c
+	@mkdir -p `dirname  $@`
+	@printf "$(GREEN)[$(WHITE)MY_RUNNER$(GREEN)] — $(BLUE)%-70s" $@
+	@printf "$(GREEN)[$(WHITE)√$(GREEN)]\n$(WHITE)"
+	@gcc $(CFLAGS) -o $@ -c $<
 
-$(NAME) : start_compil make_lib $(OBJ)
+$(NAME) : make_lib start_compil $(OBJ)
 	@$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
-	@printf "[END compil]\n"
+	@printf "\n$(GREEN) → Successfully build.  "
+	@printf "$(BLUE) Binary :$(CYAN) $(NAME)\n\n$(WHITE)"
 
 start_compil:
-	@printf "[START compil]\n"
+	@printf "\n$(GREEN)[$(WHITE)MY_RUNNER$(GREEN)] — START BUILD\n\n"
 
 make_lib :
-	@printf "[START libs compil]\n"
-	@make -sC ./lib/my_graph
-	@printf "[compiled] % 50s\n" "libmy_graph.a" | tr ' ' '.'
-	@make -sC ./lib/my
-	@printf "[compiled] % 50s\n" "libmy.a" | tr ' ' '.'
-	@printf "[END libs compil]\n"
+	@printf "\n$(GREEN)[$(WHITE)LIB$(GREEN)] — $(YEL)BUILDING LIBS\n\n"
+	@$(foreach LIB, $(LIBS_DIR), \
+	printf "$(GREEN)[$(WHITE)LIB$(GREEN)] — $(YEL)BUILDING %-67s" $(LIB_NAME) \
+	&& make -sC $(LIB) \
+	&& printf "$(YEL)[$(WHITE)√$(YEL)]\n$(WHITE)";)
+	@printf "\n"
 
 clean :
-	@printf "[START clean]\n"
+	@printf "$(REDDARK)\nCleaning building files of \
+	$(GREEN)[$(WHITE)MY_RUNNER$(GREEN)]\n\n"
+	@printf "$(GREEN)[$(WHITE)MY_RUNNER$(GREEN)] — $(RED)%-45s\n" $(OBJ)
+	@printf "$(GREEN) → $(RED) Build clean.\n\n$(WHITE)"
 	@rm -f $(RMD_FILES)
-	@printf "[removed] % 50s\n" $(notdir $(OBJ)) | tr ' ' '.'
-	@printf "[END clean]\n"
 
-fclean : clean
-	@printf "[START fclean]\n"
+fclean :
+	@printf "$(REDDARK)\nCleaning Repository \
+	$(GREEN)[$(WHITE)MY_RUNNER$(GREEN)] \n"
+	@make -s clean
+	@rm -rf $(BUILD_DIR)
 	@rm -f $(NAME) lib/libmy_graph.a lib/libmy.a
-	@printf "[removed] % 50s\n" $(notdir $(NAME)) | tr ' ' '.'
-	@printf "[END fclean]\n"
+	@printf "$(GREEN) → $(REDDARK) Repository clean.\n$(WHITE)"
 
 re : fclean all
