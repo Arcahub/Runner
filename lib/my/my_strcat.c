@@ -23,5 +23,6 @@ char *my_strcat(char *dest, char *src)
         str[j] = dest[j];
     for (int i = 0; i < length; i++)
         str[length_dest  + i] = src[i];
+    free(src);
     return (str);
 }
