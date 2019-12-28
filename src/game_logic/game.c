@@ -13,7 +13,7 @@ game_t *init_game(char *map)
 {
     game_t *game = malloc(sizeof(game_t));
 
-    if (game == NULL || map == NULL)
+    if (game == NULL)
         return (NULL);
     game->window = init_window();
     game->map = map;
@@ -34,6 +34,7 @@ void destroy_game(game_t *game)
     free(game->map);
     sfFont_destroy((sfFont *)sfText_getFont(game->score->text));
     sfText_destroy(game->score->text);
+    free(game->score->score_text);
     free(game->score);
     sfSprite_destroy(game->cursor.sprite);
     sfTexture_destroy(game->cursor.texture);

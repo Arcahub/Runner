@@ -33,7 +33,8 @@ typedef enum {
     BAR,
     DECOR,
     EFFECT,
-    SPIKES
+    TRAP,
+    CHUNK
 } object_type;
 
 typedef struct game_object {

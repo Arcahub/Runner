@@ -223,9 +223,9 @@ const char *EXIT_BUTTON_PATH = "templates/menu/exit.png";
 
 
 const sfVector2i MAIN_MENU_COORDS[] = {
-    {960, 718},
-    {960, 818},
-    {960, 918}
+    {960, 701},
+    {960, 801},
+    {960, 901}
 };
 
 // PHYSICS
@@ -256,7 +256,27 @@ const unsigned short INDICATOR_Y = 400 - 25;
 const char *FONT_PATH = "templates/font/arial.ttf";
 const char *CURSOR_PATH = "templates/menu/Cursor.png";
 
+// PARALLAX SPEED
+
+const char PARALLAX_SPEED_2 = - 2;
+const char PARALLAX_SPEED_3 = - 1;
+const char PARALLAX_SPEED_4 = - 5;
+const char PARALLAX_SPEED_5 = - 7;
+const char PARALLAX_SPEED_6 = - 10;
+const char PARALLAX_SPEED_8 = - 20;
+const char PLAYER_GROUND_SPEED = - 15;
+
 // LEVEL DESIGN
+
+const unsigned char TILE_WIDTH = 100;
+const unsigned char TILE_HEIGHT = 50;
+const unsigned char TILES_PER_CHUNK = 18;
+const unsigned short TILE_MAX_HEIGHT = 950;
+
+const unsigned char MAX_FLOOR_WIDTH = 7;
+
+const unsigned short CHUNK_WIDTH = 1980;
+const unsigned short CHUNK_HEIGHT = 1000;
 
 const char *GROUND_PATH = "templates/env/white_palace/ground/_0037_white.png";
 const char *SPIKES_PATH = "templates/env/white_palace/white_spikes0000.png";

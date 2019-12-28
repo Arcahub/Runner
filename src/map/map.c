@@ -12,11 +12,14 @@
 
 char *read_map(char *path)
 {
-    int fs = open(path, O_RDONLY);
+    int fs = -1;
     char *map = NULL;
     struct stat size;
 
-    stat(path, &size);
+    if (path != NULL) {
+        fs = open(path, O_RDONLY);
+        stat(path, &size);
+    }
     if (fs == -1)
         return (NULL);
     map = malloc(sizeof(char) * (size.st_size + 1));

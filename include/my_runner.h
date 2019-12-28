@@ -32,6 +32,7 @@ typedef enum {
 typedef struct score {
     unsigned long long int score;
     sfText *text;
+    char *score_text;
 } score_t;
 
 typedef struct game {

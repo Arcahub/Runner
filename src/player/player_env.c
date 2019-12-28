@@ -18,7 +18,7 @@ void check_player_env(game_object_t *player, scene_t *scene)
 {
     for (game_object_t *object = scene->objects_list; object; \
     object = object->next) {
-        if (object->type == SPIKES)
+        if (object->type == TRAP)
             compute_player_collide_spike(player, object);
     }
 }

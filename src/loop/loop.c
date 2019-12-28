@@ -11,9 +11,12 @@ int main_menu_loop(game_t *game, sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();
     scene_t *scene = create_main_menu();
-    scene->display = MAIN_MENU_SCENE;
     scene_index display = MAIN_MENU_SCENE;
 
+    if (scene == NULL)
+        scene->display = -1;
+    else
+        scene->display = MAIN_MENU_SCENE;
     scene->window = window;
     while (sfRenderWindow_isOpen(window) && scene->display == MAIN_MENU_SCENE) {
         scene->handle_event(scene, game, window);
@@ -30,8 +33,10 @@ int options_loop(game_t *game, sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();
     scene_t *scene = init_options_scene(game);
-    int display = GAME_SCENE;
+    int display = OPTION_SCENE;
 
+    if (scene == NULL)
+        scene->display = -1;
     while (sfRenderWindow_isOpen(window) && scene->display == OPTION_SCENE) {
         scene->handle_event(scene, game, window);
         handle_framerate(clock, scene, game);
@@ -47,9 +52,12 @@ int game_loop(game_t *game, sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();
     scene_t *scene = init_game_scene(game, game->map);
-    scene->display = GAME_SCENE;
     int display = GAME_SCENE;
 
+    if (scene == NULL)
+        scene->display = -1;
+    else
+        scene->display = GAME_SCENE;
     while (sfRenderWindow_isOpen(window) && scene->display == GAME_SCENE) {
         scene->handle_event(scene, game, window);
         handle_framerate(clock, scene, game);

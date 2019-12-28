@@ -33,7 +33,7 @@ bool attack_effect_update(game_object_t *effect, scene_t *scene)
 
     for (game_object_t *object = scene->objects_list; object && \
     effect->update == &attack_effect_update; object = object->next) {
-        if (object->type == SPIKES ) {
+        if (object->type == TRAP ) {
             compute_effect_collide_spike(&player, effect, object, scene);
         }
     }

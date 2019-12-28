@@ -15,6 +15,7 @@ void init_game_object(game_object_t *object)
     object->callback = NULL;
     object->anim = NULL;
     object->sound_effect = NULL;
+    object->delta_t = NULL;
     object->move = (sfVector2f) {0, 0};
     object->state = 0;
     object->z_index = 0;
@@ -80,7 +81,7 @@ int z_index_max)
     game_object_t *tmp = object;
 
     for (int i = z_index_max; i >= 0;) {
-        if (object->z_index == i)
+        if (object->texture != NULL && object->z_index == i)
             sfRenderWindow_drawSprite(window, object->sprite, NULL);
         object = object->next;
         if (object == NULL) {

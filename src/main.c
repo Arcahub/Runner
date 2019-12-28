@@ -43,7 +43,7 @@ int my_runner(int argc, char **argv)
     sfMusic_play(music);
     window  = game->window->window;
     sfRenderWindow_setMouseCursorVisible(window, sfFalse);
-    while (sfRenderWindow_isOpen(window)) {
+    while (sfRenderWindow_isOpen(window) && display >= 0) {
         display = game->scene_loop[display](game, window);
     }
     destroy_game(game);
@@ -56,7 +56,7 @@ int check_params(int argc, char **argv)
 {
     if (argc < 2)
         return (0);
-    else if (my_strcmp(argv[1], (char *)USAGE_FLAG))
+    else if (!my_strcmp(argv[1], (char *)USAGE_FLAG))
         return (1);
     else
         return (0);

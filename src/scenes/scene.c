@@ -10,8 +10,10 @@
 
 void destroy_scene(scene_t *scene)
 {
-    destroy_object_list(scene);
-    free(scene);
+    if (scene != NULL) {
+        destroy_object_list(scene);
+        free(scene);
+    }
 }
 
 void display_scene(scene_t *scene, sfRenderWindow *window)

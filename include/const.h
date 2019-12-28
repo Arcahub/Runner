@@ -136,7 +136,27 @@ extern const unsigned short INDICATOR_Y;
 extern const char *FONT_PATH;
 extern const char *CURSOR_PATH;
 
+// PARALLAX SPEED
+
+extern const char PARALLAX_SPEED_2;
+extern const char PARALLAX_SPEED_3;
+extern const char PARALLAX_SPEED_4;
+extern const char PARALLAX_SPEED_5;
+extern const char PARALLAX_SPEED_6;
+extern const char PARALLAX_SPEED_8;
+extern const char PLAYER_GROUND_SPEED;
+
 // LEVEL DESIGN
+
+extern const unsigned char TILE_WIDTH;
+extern const unsigned char TILE_HEIGHT;
+extern const unsigned char TILES_PER_CHUNK;
+extern const unsigned short TILE_MAX_HEIGHT;
+
+extern const unsigned char MAX_FLOOR_WIDTH;
+
+extern const unsigned short CHUNK_WIDTH;
+extern const unsigned short CHUNK_HEIGHT;
 
 extern const char *GROUND_PATH;
 extern const char *SPIKES_PATH;

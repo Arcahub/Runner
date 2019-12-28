@@ -19,6 +19,8 @@ scene_t *init_game_scene(game_t * game, char *map)
 {
     scene_t *scene = malloc(sizeof(scene_t));
 
+    if (scene == NULL)
+        return (NULL);
     scene->background_color = GAME_BACKGROUND_COLOR;
     scene->handle_event = &handle_event_game;
     scene->objects_list = init_player(NULL);

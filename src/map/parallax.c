@@ -31,25 +31,73 @@ int speed)
     return (object);
 }
 
+game_object_t *init_background3(game_object_t *last)
+{
+    last = init_paralax(last, PARALLAX2, "templates/parallax/5.png", \
+    PARALLAX_SPEED_5);
+    if (last == NULL)
+        return (NULL);
+    last = init_paralax(last, PARALLAX2, "templates/parallax/5.png", \
+    PARALLAX_SPEED_5);
+    if (last == NULL)
+        return (NULL);
+    last->pos.x += last->box.width;
+    last = init_paralax(last, PARALLAX3, "templates/parallax/4.png", \
+    PARALLAX_SPEED_4);
+    if (last == NULL)
+        return (NULL);
+    last = init_paralax(last, PARALLAX3, "templates/parallax/4.png", \
+    PARALLAX_SPEED_4);
+    if (last == NULL)
+        return (NULL);
+    last->pos.x += last->box.width;
+    return (last);
+}
+
+game_object_t *init_background2(game_object_t *last)
+{
+    last = init_paralax(last, PARALLAX4, "templates/parallax/2.png", \
+    PARALLAX_SPEED_2);
+    if (last == NULL)
+        return (NULL);
+    last = init_paralax(last, PARALLAX4, "templates/parallax/2.png", \
+    PARALLAX_SPEED_2);
+    if (last == NULL)
+        return (NULL);
+    last->pos.x += last->box.width;
+    last = init_paralax(last, PARALLAX5, "templates/parallax/3.png", \
+    PARALLAX_SPEED_3);
+    if (last == NULL)
+        return (NULL);
+    last = init_paralax(last, PARALLAX5, "templates/parallax/3.png", \
+    PARALLAX_SPEED_3);
+    if (last == NULL)
+        return (NULL);
+    last->pos.x += last->box.width;
+    return (last);
+}
+
 game_object_t *init_background(game_object_t *last)
 {
-    last = init_paralax(last, FRONT, "templates/parallax/8.png", - 20);
-    last = init_paralax(last, FRONT, "templates/parallax/8.png", - 20);
+    last = init_paralax(last, FRONT, "templates/parallax/8.png", \
+    PARALLAX_SPEED_8);
+    if (last == NULL)
+        return (NULL);
+    last = init_paralax(last, FRONT, "templates/parallax/8.png", \
+    PARALLAX_SPEED_8);
+    if (last == NULL)
+        return (NULL);
     last->pos.x += last->box.width;
-    last = init_paralax(last, PARALLAX1, "templates/parallax/6.png", - 10);
-    last = init_paralax(last, PARALLAX1, "templates/parallax/6.png", - 10);
+    last = init_paralax(last, PARALLAX1, "templates/parallax/6.png", \
+    PARALLAX_SPEED_6);
+    if (last == NULL)
+        return (NULL);
+    last = init_paralax(last, PARALLAX1, "templates/parallax/6.png", \
+    PARALLAX_SPEED_6);
+    if (last == NULL)
+        return (NULL);
     last->pos.x += last->box.width;
-    last = init_paralax(last, PARALLAX2, "templates/parallax/5.png", - 7);
-    last = init_paralax(last, PARALLAX2, "templates/parallax/5.png", - 7);
-    last->pos.x += last->box.width;
-    last = init_paralax(last, PARALLAX3, "templates/parallax/4.png", - 5);
-    last = init_paralax(last, PARALLAX3, "templates/parallax/4.png", - 5);
-    last->pos.x += last->box.width;
-    last = init_paralax(last, PARALLAX4, "templates/parallax/2.png", - 2);
-    last = init_paralax(last, PARALLAX4, "templates/parallax/2.png", - 2);
-    last->pos.x += last->box.width;
-    last = init_paralax(last, PARALLAX5, "templates/parallax/3.png", - 1);
-    last = init_paralax(last, PARALLAX5, "templates/parallax/3.png", - 1);
-    last->pos.x += last->box.width;
+    last = init_background2(last);
+    last = init_background3(last);
     return (last);
 }

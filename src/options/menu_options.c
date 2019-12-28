@@ -8,7 +8,7 @@
 #include "my_runner.h"
 #include <stdlib.h>
 
-static game_object_t *create_game_object_list(void)
+static game_object_t *create_option_object_list(void)
 {
     game_object_t *object = NULL;
 
@@ -40,7 +40,9 @@ scene_t *init_options_scene(game_t *game)
     scene->display = OPTION_SCENE;
     scene->handle_event = &handle_event_options;
     scene->z_index_deepth = 0;
-    scene->objects_list = create_game_object_list();
+    scene->objects_list = create_option_object_list();
+    if (scene->objects_list == NULL)
+        return (NULL);
     scene->window = game->window->window;
     return (scene);
 }
