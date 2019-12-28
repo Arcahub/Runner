@@ -59,6 +59,7 @@ void update_game_object_state(struct game_object *, int);
 void init_game_object_frame(struct game_object *);
 struct game_object *create_game_object(struct game_object *, char *, \
 sfVector2f, object_type);
+void init_game_object(game_object_t *);
 void update_game_object_frame(struct game_object *);
 void move_object(game_object_t *);
 void draw_objects(game_object_t *, sfRenderWindow *, int);

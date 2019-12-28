@@ -59,14 +59,11 @@ game_object_t *create_chunk(game_object_t *last, unsigned int x)
 
     if (chunk == NULL)
         return (NULL);
+    init_game_object(chunk);
     chunk->update = &update_chunk;
-    chunk->texture = NULL;
     chunk->sprite = sfSprite_create();
     chunk->delta_t = sfClock_create();
-    chunk->state = 0;
-    chunk->sound_effect = NULL;
     chunk->next = last;
-    chunk->anim = NULL;
     chunk->type = CHUNK;
     chunk->pos = (sfVector2f) {(float)x, 0};
     chunk->move = (sfVector2f) {PLAYER_GROUND_SPEED, 0};

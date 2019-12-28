@@ -11,6 +11,8 @@
 
 void init_game_object(game_object_t *object)
 {
+    object->sprite = NULL;
+    object->texture = NULL;
     object->update = NULL;
     object->callback = NULL;
     object->anim = NULL;
@@ -20,6 +22,10 @@ void init_game_object(game_object_t *object)
     object->state = 0;
     object->z_index = 0;
     object->box = (sfIntRect) {0, 0, 0, 0};
+    object->pos = (sfVector2f) {0, 0};
+    object->last_pos = object->pos;
+    object->next = NULL;
+    object->type = DECOR;
 }
 
 game_object_t *create_game_object(game_object_t *last, char *sprite_path, \
@@ -29,6 +35,7 @@ sfVector2f pos, object_type type)
 
     if (object == NULL)
         return (NULL);
+    init_game_object(object);
     object->sprite = sfSprite_create();
     object->texture = sfTexture_createFromFile(sprite_path, NULL);
     if (object->sprite == NULL || object->texture == NULL)
@@ -37,7 +44,6 @@ sfVector2f pos, object_type type)
     object->pos = pos;
     object->type = type;
     object->next = last;
-    init_game_object(object);
     sfSprite_setPosition(object->sprite, object->pos);
     return (object);
 }
