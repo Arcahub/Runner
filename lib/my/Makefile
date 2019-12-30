@@ -29,6 +29,7 @@ $(NAME) : $(OBJ)
 	cp my.h ../../include/
 	ar rc libmy.a $(OBJ)
 	mv $(NAME) ../
+	rm -f $(OBJ)
 
 clean :
 	rm -f src/*.gc*

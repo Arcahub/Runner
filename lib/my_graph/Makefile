@@ -26,6 +26,7 @@ $(NAME) : $(OBJ)
 	mv $(NAME) ../
 	mkdir -p ../../include
 	cp $(HEADER) ../../include
+	rm -f $(OBJ)
 
 clean :
 	rm -f $(OBJ)
