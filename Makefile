@@ -70,10 +70,10 @@ make_lib :
 	@printf "\n"
 
 clean :
-	@printf "$(REDDARK)\nCleaning building files of \
+	@printf "$(REDDARK)\nCleaning build files of \
 	$(GREEN)[$(WHITE)MY_RUNNER$(GREEN)]\n\n"
 	@printf "$(GREEN)[$(WHITE)MY_RUNNER$(GREEN)] — $(RED)%-45s\n" $(OBJ)
-	@printf "$(GREEN) → $(RED) Build clean.\n\n$(WHITE)"
+	@printf "\n$(GREEN) → $(RED) Build clean.\n\n$(WHITE)"
 	@rm -f $(RMD_FILES)
 
 fclean :
@@ -81,7 +81,13 @@ fclean :
 	$(GREEN)[$(WHITE)MY_RUNNER$(GREEN)] \n"
 	@make -s clean
 	@rm -rf $(BUILD_DIR)
-	@rm -f $(NAME) lib/libmy_graph.a lib/libmy.a
-	@printf "$(GREEN) → $(REDDARK) Repository clean.\n$(WHITE)"
+	@printf "$(GREEN)[$(WHITE)MY_RUNNER$(GREEN)] — $(RED)%-45s\n" $(BUILD_DIR)
+	@rm -f $(NAME)
+	@$(foreach LIB, $(LIBS_DIR), \
+	rm -f $(addsuffix .a, $(addprefix lib/lib, $(LIB_NAME))) && \
+	printf "$(GREEN)[$(WHITE)MY_RUNNER$(GREEN)] — $(RED)%-45s\n" \
+	$(addsuffix .a, $(addprefix lib/lib, $(LIB_NAME)));)
+	@printf "$(GREEN)[$(WHITE)MY_RUNNER$(GREEN)] — $(RED)%-45s\n" $(NAME)
+	@printf "\n$(GREEN) → $(REDDARK) Repository clean.\n\n$(WHITE)"
 
 re : fclean all
