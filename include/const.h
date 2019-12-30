@@ -159,5 +159,10 @@ extern const unsigned short CHUNK_WIDTH;
 extern const unsigned short CHUNK_HEIGHT;
 
 extern const char *GROUND_PATH;
+extern const unsigned char GROUND_WIDTH;
+extern const unsigned char GROUND_HEIGHT;
+
 extern const char *SPIKES_PATH;
+extern const unsigned char SPIKE_WIDTH;
+extern const unsigned char SPIKE_HEIGHT;
 #endif

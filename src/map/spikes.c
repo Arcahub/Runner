@@ -9,15 +9,12 @@
 
 game_object_t *create_spike(game_object_t *last, sfVector2f pos)
 {
-    sfFloatRect rect;
-
     last = create_game_object(last, (char *)SPIKES_PATH, pos, TRAP);
     if (last == NULL)
         return (NULL);
     last->move = (sfVector2f) {PLAYER_GROUND_SPEED, 0};
-    rect = sfSprite_getLocalBounds(last->sprite);
-    last->box = (sfIntRect) {(int)rect.left, (int)rect.top, (int)rect.width, \
-    (int)rect.height};
+    last->box = (sfIntRect) {(int) pos.x, (int) pos.y, SPIKE_WIDTH, \
+    SPIKE_HEIGHT};
     last->z_index = PLAYER_GROUND;
     last->update = &update_tile;
     return (last);

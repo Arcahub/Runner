@@ -275,10 +275,15 @@ const unsigned short TILE_MAX_HEIGHT = 950;
 
 const unsigned char MAX_FLOOR_WIDTH = 7;
 
-const unsigned short CHUNK_WIDTH = 1980;
+const unsigned short CHUNK_WIDTH = 1900;
 const unsigned short CHUNK_HEIGHT = 1000;
 
 const char *GROUND_PATH = "templates/env/white_palace/ground/_0037_white.png";
+const unsigned char GROUND_WIDTH = 100;
+const unsigned char GROUND_HEIGHT = 34;
+
 const char *SPIKES_PATH = "templates/env/white_palace/white_spikes0000.png";
+const unsigned char SPIKE_WIDTH = 100;
+const unsigned char SPIKE_HEIGHT = 102;
 
 #endif /* !DEFINE_H_ */

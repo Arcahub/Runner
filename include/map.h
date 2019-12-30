@@ -46,10 +46,11 @@ game_object_t *start_chunks(game_object_t *);
 game_object_t *create_spike(game_object_t *, sfVector2f);
 game_object_t *create_ground(game_object_t *, sfVector2f);
 
-game_object_t *generate_trap(game_object_t *);
+game_object_t *generate_trap(game_object_t *, game_object_t *);
 game_object_t *generate_mobs(game_object_t *);
-game_object_t *generate_layer(game_object_t *);
+game_object_t *generate_layer(game_object_t *, game_object_t *);
 game_object_t *generate_ground(game_object_t *, game_object_t *);
-game_object_t *generate_floor(game_object_t *, float, int);
+game_object_t *generate_floor(game_object_t *, float, int, int);
+game_object_t *create_layer(game_object_t *, int, int, int);
 
 #endif /* !MAP_H_ */

@@ -17,10 +17,10 @@ game_object_t *generate_chunk(game_object_t *chunk, game_object_t *list)
             list = generate_ground(list, chunk);
             break;
         case LAYER_GENERATION:
-            list = generate_layer(list);
+            list = generate_layer(list, chunk);
             break;
         case TRAP_GENERATION:
-            list = generate_trap(list);
+            list = generate_trap(list, chunk);
             break;
         case MOBS_GENERATION:
             list = generate_mobs(list);

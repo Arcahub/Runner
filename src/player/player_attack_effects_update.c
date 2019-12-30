@@ -37,5 +37,6 @@ bool attack_effect_update(game_object_t *effect, scene_t *scene)
             compute_effect_collide_spike(&player, effect, object, scene);
         }
     }
+    move_object(effect);
     return (update_effect(effect, scene));
 }

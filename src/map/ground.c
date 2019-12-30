@@ -6,27 +6,34 @@
 */
 
 #include "my_runner.h"
+#include <stdlib.h>
 
 game_object_t *create_ground(game_object_t *last, sfVector2f pos)
 {
-    sfFloatRect rect;
-
     last = create_game_object(last, (char *)GROUND_PATH, pos, SOLID);
     if (last == NULL)
         return (NULL);
     last->move = (sfVector2f) {PLAYER_GROUND_SPEED, 0};
-    rect = sfSprite_getLocalBounds(last->sprite);
-    last->box = (sfIntRect) {(int)rect.left, (int)rect.top, (int)rect.width, \
-    (int)rect.height};
+    last->box = (sfIntRect) {(int) pos.x, (int) pos.y, GROUND_WIDTH, \
+    GROUND_HEIGHT};
     last->z_index = PLAYER_GROUND;
     last->update = &update_tile;
     return (last);
 }
 
-game_object_t *generate_floor(game_object_t *last, float start_x, int width)
+game_object_t *generate_floor(game_object_t *last, float start_x, int width, \
+int height)
 {
-    int height = TILE_MAX_HEIGHT;
+    int sign = rand() % 2;
 
+    if (sign == 0)
+        height -= (rand() % 5) * TILE_HEIGHT;
+    else
+        height += (rand() % 5) * TILE_HEIGHT ;
+    if (height / TILE_HEIGHT < 2)
+        height = TILE_HEIGHT * 2;
+    else if (height > TILE_MAX_HEIGHT)
+        height = TILE_MAX_HEIGHT;
     for (int i = 0; i < width; i++) {
         last = create_ground(last, (sfVector2f) \
         {(float) (start_x + i * TILE_WIDTH), (float) height});
