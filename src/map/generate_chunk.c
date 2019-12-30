@@ -54,7 +54,6 @@ game_object_t *generate_layer(game_object_t *last, game_object_t *chunk)
 {
     int width = 0;
     int height = TILE_MAX_HEIGHT;
-    int offset = 0;
 
     srand(time(NULL));
     for (game_object_t *object = last; object; object = object->next) {

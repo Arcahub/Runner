@@ -14,6 +14,8 @@ game_object_t *create_main_menu_buttons(void)
 
     object = create_game_object(object, (char *)TITLE_PATH, \
     (sfVector2f) {TITLE_X, TITLE_Y}, DECOR);
+    init_appearing_object(object);
+    object->update = &update_appearing_object;
     object = create_text_button(object, (char *)PLAY_BUTTON_PATH, \
     (sfVector2f) {PLAY_BUTTON_X, PLAY_BUTTON_Y});
     object->callback = &play_button_function;

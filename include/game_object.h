@@ -40,6 +40,7 @@ typedef enum {
 typedef struct game_object {
     sfTexture *texture;
     sfSprite *sprite;
+    sfColor sprite_color;
     sfSound *sound_effect;
     sfVector2f pos;
     sfVector2f last_pos;
@@ -67,5 +68,9 @@ void update_objects(scene_t *, game_object_t *, game_t *);
 void destroy_object_list(scene_t *);
 void destroy_game_object(scene_t *, game_object_t *, game_object_t *);
 void is_click_on_object(scene_t *, sfMouseButtonEvent, game_t *, object_type);
+
+void init_appearing_object(game_object_t *);
+bool update_appearing_object(game_object_t *, scene_t *);
+void update_disappearing_object(game_object_t *);
 
 #endif /* !GAME_OBJECT_H_ */

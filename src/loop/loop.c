@@ -23,6 +23,7 @@ int main_menu_loop(game_t *game, sfRenderWindow *window)
         handle_framerate(clock, scene, game);
         draw_main_menu(scene, game, window);
     }
+    close_scene(scene, window, clock, game);
     sfClock_destroy(clock);
     display = scene->display;
     destroy_scene(scene);

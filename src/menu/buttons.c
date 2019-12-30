@@ -21,6 +21,7 @@ bool update_text_button(game_object_t *button, scene_t *scene)
         update_game_object_state(button, UNSELECTED);
     else
         update_game_object_frame(button);
+    update_appearing_object(button, scene);
     return (true);
 }
 
@@ -58,6 +59,7 @@ sfVector2f pos)
     object->state = UNSELECTED;
     object->anim[object->state].frame_id = \
     object->anim[object->state].restart_id;
+    init_appearing_object(object);
     init_game_object_frame(object);
     return (object);
 }

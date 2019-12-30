@@ -37,5 +37,6 @@ void handle_framerate(sfClock *, scene_t *, game_t *);
 scene_t *create_main_menu(void);
 void destroy_scene(scene_t *);
 scene_t *init_options_scene(game_t *);
+void close_scene(scene_t *, sfRenderWindow *, sfClock *, game_t *);
 
 #endif /* !SCENE_H_ */
