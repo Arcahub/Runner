@@ -73,4 +73,6 @@ void init_appearing_object(game_object_t *);
 bool update_appearing_object(game_object_t *, scene_t *);
 void update_disappearing_object(game_object_t *);
 
+game_object_t *create_animated_object(game_object_t *, char *, sfVector2f, \
+sfIntRect **);
 #endif /* !GAME_OBJECT_H_ */

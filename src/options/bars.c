@@ -27,6 +27,7 @@ bool update_bar(game_object_t *bar, scene_t *scene)
     rect.width = bar_width * vol;
     sfListener_setGlobalVolume(vol * VOLUME_UNIT);
     sfSprite_setTextureRect(bar->sprite, rect);
+    update_appearing_object(bar, scene);
     return (true);
 }
 
@@ -42,5 +43,6 @@ game_object_t *create_bar(game_object_t *last, char *path, sfVector2f pos)
     object->state = UNSELECTED;
     object->callback = &bar_function;
     object->update = &update_bar;
+    init_appearing_object(object);
     return (object);
 }

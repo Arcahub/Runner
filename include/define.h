@@ -178,6 +178,19 @@ const unsigned short TITLE_X = (WINDOW_WIDTH - 1274) / 2;
 const unsigned short TITLE_Y = 0;
 const char *TITLE_PATH = "templates/menu/title.png";
 
+const char *TITLE_UNDERLINE_PATH = "templates/menu/title_underline.png";
+const sfIntRect *TITLE_UNDERLINE_FRAME_KEYS[] = {
+    &(sfIntRect){0, 0, 959, 80},
+    &(sfIntRect){0, 80, 959, 80},
+    &(sfIntRect){0, 160, 959, 80},
+    &(sfIntRect){0, 240, 959, 80},
+    &(sfIntRect){0, 320, 959, 80},
+    &(sfIntRect){0, 400, 959, 80},
+    &(sfIntRect){0, 480, 959, 80},
+    &(sfIntRect){0, 560, 959, 80},
+    &(sfIntRect){0, 640, 959, 80},
+    NULL
+};
 
 const sfIntRect *BUTTON_UNSELECTED_FRAME_KEYS[] = {
     &(sfIntRect){0, 396, 267, 36},
@@ -212,17 +225,21 @@ const sfIntRect *BUTTON_SELECTED_FRAME_KEYS[] = {
 const char *BUTTON_SOUND_PATH = "templates/sounds/ui_change_selection.ogg";
 
 const unsigned short PLAY_BUTTON_X = (WINDOW_WIDTH - 206) / 2;
-const unsigned short PLAY_BUTTON_Y = 700;
+const unsigned short PLAY_BUTTON_Y = 600;
 const char *PLAY_BUTTON_PATH = "templates/menu/play.png";
 const unsigned short OPTION_BUTTON_X = (WINDOW_WIDTH - 267) / 2;
-const unsigned short OPTION_BUTTON_Y = 800;
+const unsigned short OPTION_BUTTON_Y = 700;
 const char *OPTION_BUTTON_PATH = "templates/menu/option.png";
+const unsigned short INFOS_BUTTON_X = (WINDOW_WIDTH - 224) / 2;
+const unsigned short INFOS_BUTTON_Y = 800;
+const char *INFOS_BUTTON_PATH = "templates/menu/infos.png";
 const unsigned short EXIT_BUTTON_X = (WINDOW_WIDTH - 196) / 2;
 const unsigned short EXIT_BUTTON_Y = 900;
 const char *EXIT_BUTTON_PATH = "templates/menu/exit.png";
 
 
 const sfVector2i MAIN_MENU_COORDS[] = {
+    {960, 601},
     {960, 701},
     {960, 801},
     {960, 901}

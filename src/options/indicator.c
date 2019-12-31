@@ -14,6 +14,7 @@ bool update_indicator(game_object_t *object, scene_t *scene)
 
     object->pos.x = (float)INDICATOR_X + (BAR_WIDTH / VOLUME_UNIT) * (vol - 1);
     sfSprite_setPosition(object->sprite, object->pos);
+    update_appearing_object(object, scene);
     return (true);
 }
 
@@ -25,5 +26,6 @@ game_object_t *create_indicator(game_object_t *last, char *path, sfVector2f pos)
     object->type = DECOR;
     object->callback = NULL;
     object->z_index = 0;
+    init_appearing_object(object);
     return (object);
 }

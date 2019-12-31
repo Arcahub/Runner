@@ -27,14 +27,16 @@ typedef enum {
     GAME_SCENE,
     MAIN_MENU_SCENE,
     OPTION_SCENE,
+    IN_GAME_MENU_SCENE,
     NULL_SCENE,
 } scene_index;
 
 void display_scene(scene_t *, sfRenderWindow *);
 void init_scenes(game_t *, char *);
 scene_t *init_game_scene(game_t *, char *);
-void handle_framerate(sfClock *, scene_t *, game_t *);
 scene_t *create_main_menu(void);
+scene_t *create_in_game_menu(void);
+void handle_framerate(sfClock *, scene_t *, game_t *);
 void destroy_scene(scene_t *);
 scene_t *init_options_scene(game_t *);
 void close_scene(scene_t *, sfRenderWindow *, sfClock *, game_t *);

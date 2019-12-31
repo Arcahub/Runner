@@ -12,6 +12,11 @@ static game_object_t *create_option_object_list(void)
 {
     game_object_t *object = NULL;
 
+    object = create_game_object(object, "templates/menu/options_title.png", (sfVector2f) {816, 100}, DECOR);
+    init_appearing_object(object);
+    object->update = &update_appearing_object;
+    object = create_animated_object(object, (char *)TITLE_UNDERLINE_PATH, \
+    (sfVector2f) {480.5, 200}, (sfIntRect **)TITLE_UNDERLINE_FRAME_KEYS);
     object = create_indicator(object, (char *)INDICATOR_PATH, \
     (sfVector2f) {INDICATOR_X, INDICATOR_Y});
     object = create_bar(object, (char *) BAR_PATH, \

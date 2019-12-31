@@ -7,6 +7,32 @@
 
 #include "my_runner.h"
 
+int in_game_menu_loop(game_t *game, sfRenderWindow *window, \
+scene_t *last_scene)
+{
+    sfClock *clock = sfClock_create();
+    scene_t *scene = create_in_game_menu();
+    scene_index display = IN_GAME_MENU_SCENE;
+
+    if (scene == NULL)
+        scene->display = -1;
+    else
+        scene->display = IN_GAME_MENU_SCENE;
+    scene->window = window;
+    while (sfRenderWindow_isOpen(window) && scene->display == \
+    IN_GAME_MENU_SCENE) {
+        scene->handle_event(scene, game, window);
+        handle_framerate(clock, scene, game);
+        display_scene(last_scene, window);
+        draw_objects(scene->objects_list, window, 0);
+        sfRenderWindow_display(window);
+    }
+    sfClock_destroy(clock);
+    display = scene->display;
+    destroy_scene(scene);
+    return (display);
+}
+
 int main_menu_loop(game_t *game, sfRenderWindow *window)
 {
     sfClock *clock = sfClock_create();

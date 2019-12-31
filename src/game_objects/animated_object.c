@@ -2,34 +2,32 @@
 ** EPITECH PROJECT, 2019
 ** MUL_my_runner_2019
 ** File description:
-** effect
+** animated_object
 */
 
 #include "my_runner.h"
 #include <stdlib.h>
 
-bool update_effect(game_object_t *object, scene_t *scene)
+bool update_animated_object(game_object_t *object, scene_t *scene)
 {
-    int frame_id = object->anim[object->state].frame_id + 1;
-
     update_game_object_frame(object);
-    if (object->anim[object->state].frames_key[frame_id] == NULL)
-        return (false);
     return (true);
 }
 
-game_object_t *create_effect(game_object_t *last, char *path, sfVector2f pos, \
-sfIntRect **frame_keys)
+game_object_t *create_animated_object(game_object_t *last, char *path, sfVector2f pos, sfIntRect **frame_keys)
 {
     game_object_t *object = create_game_object(last, path, pos, EFFECT);
 
     object->anim = malloc(sizeof(anim_t) * 1);
+    if (object->anim == NULL)
+        return (NULL);
     object->anim[0].frames_key = frame_keys;
     object->anim[0].loop = false;
     object->anim[0].frame_id = 0;
-    object->anim[0].restart_id = 0;
+    for (int i = 0; object->anim[0].frames_key[i] != NULL; i++)
+        object->anim[0].restart_id = i;
     object->state = 0;
-    object->update = &update_effect;
+    object->update = &update_animated_object;
     init_game_object_frame(object);
     return (object);
 }

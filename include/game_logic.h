@@ -17,9 +17,10 @@ typedef struct game game_t;
 void handle_event_game(scene_t *, game_t *, sfRenderWindow *);
 void handle_event_main_menu(scene_t *, game_t *, sfRenderWindow *);
 void handle_event_options(scene_t *, game_t *, sfRenderWindow *);
+void handle_event_in_game_menu(scene_t *, game_t *, sfRenderWindow *);
 sfBool check_joystick_button_pressed(int);
 void handle_joystick_game(sfEvent, game_t *);
 void handle_joystick_main_menu(sfEvent, game_t *, scene_t *);
-void handle_key_pressed_game(game_t *, sfKeyCode);
+void handle_key_pressed_game(game_t *, sfKeyCode, scene_t *);
 
 #endif /* !GAME_LOGIC_H_ */

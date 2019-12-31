@@ -69,8 +69,8 @@ bool player_update(game_object_t *player, scene_t *scene)
     move_object(player);
     update_physics(player, scene);
     update_falling(player);
-    check_player_pos_x(player);
     check_player_env(player, scene);
+    check_player_pos_x(player);
     if (player->state == DEAD)
         scene->display = MAIN_MENU_SCENE;
     return (true);

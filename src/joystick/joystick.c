@@ -20,10 +20,7 @@ void handle_joystick_main_menu(sfEvent event, game_t *game, scene_t *scene)
 {
     static int id = 0;
 
-    if (event.type == sfEvtMouseMoved)
-        game->cursor.displayed = sfTrue;
     if (event.type == sfEvtJoystickMoved) {
-        game->cursor.displayed = sfFalse;
         if (event.joystickMove.axis == sfJoystickY && \
         sfJoystick_getAxisPosition(event.joystickMove.joystickId, \
         sfJoystickY) > 98 && id < 2) {

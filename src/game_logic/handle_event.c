@@ -8,6 +8,23 @@
 #include "my_runner.h"
 #include <SFML/Graphics.h>
 
+void handle_event_in_game_menu(scene_t *scene, game_t *game, \
+sfRenderWindow *window)
+{
+    sfEvent event;
+
+    while (sfRenderWindow_pollEvent(window, &event)) {
+        if (event.type == sfEvtClosed) {
+            sfRenderWindow_close(window);
+            scene->display = -1;
+        }
+        if (event.type == sfEvtMouseButtonPressed)
+            is_click_on_object(scene, event.mouseButton, game, BUTTON);
+        if (event.type == sfEvtKeyPressed && event.key.code == sfKeyEscape)
+            scene->display = GAME_SCENE;
+    }
+}
+
 void handle_event_main_menu(scene_t *scene, game_t *game, \
 sfRenderWindow *window)
 {
@@ -49,7 +66,7 @@ void handle_event_game(scene_t *scene, game_t *game, sfRenderWindow *window)
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
         if (event.type == sfEvtKeyPressed)
-            handle_key_pressed_game(game, event.key.code);
+            handle_key_pressed_game(game, event.key.code, scene);
         else if (event.type == sfEvtKeyReleased &&  event.key.code == \
         sfKeySpace && game->player->state == JUMPING) {
             if (game->player->move.y < JUMP_SPEED_MIN)

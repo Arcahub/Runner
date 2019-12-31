@@ -91,6 +91,9 @@ extern const unsigned short TITLE_X;
 extern const unsigned short TITLE_Y;
 extern const char *TITLE_PATH;
 
+extern const char *TITLE_UNDERLINE_PATH;
+extern const sfIntRect *TITLE_UNDERLINE_FRAME_KEYS[];
+
 extern const sfIntRect *BUTTON_UNSELECTED_FRAME_KEYS[];
 extern const sfIntRect *BUTTON_SELECTED_FRAME_KEYS[];
 
@@ -102,6 +105,9 @@ extern const char *PLAY_BUTTON_PATH;
 extern const unsigned short OPTION_BUTTON_X;
 extern const unsigned short OPTION_BUTTON_Y;
 extern const char *OPTION_BUTTON_PATH;
+extern const unsigned short INFOS_BUTTON_X;
+extern const unsigned short INFOS_BUTTON_Y;
+extern const char *INFOS_BUTTON_PATH;
 extern const unsigned short EXIT_BUTTON_X;
 extern const unsigned short EXIT_BUTTON_Y;
 extern const char *EXIT_BUTTON_PATH;
