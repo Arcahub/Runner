@@ -24,6 +24,8 @@ game_t *init_game(char *map)
     game->scene_loop[MAIN_MENU_SCENE] = &main_menu_loop;
     game->scene_loop[GAME_SCENE] = &game_loop;
     game->scene_loop[OPTION_SCENE] = &options_loop;
+    game->scene_loop[INFOS_SCENE] = &infos_loop;
+    game->scene_loop[END_SCENE] = &end_loop;
     return (game);
 }
 

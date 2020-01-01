@@ -24,7 +24,7 @@ game_object_t *create_main_menu_buttons(void)
     object->callback = &options_button_function;
     object = create_text_button(object, (char *)INFOS_BUTTON_PATH, \
     (sfVector2f) {INFOS_BUTTON_X, INFOS_BUTTON_Y});
-    object->callback = &options_button_function;
+    object->callback = &infos_button_function;
     object = create_text_button(object, (char *)EXIT_BUTTON_PATH, \
     (sfVector2f) {EXIT_BUTTON_X, EXIT_BUTTON_Y});
     object->callback = &exit_button_function;

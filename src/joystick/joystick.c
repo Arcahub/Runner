@@ -35,7 +35,7 @@ void handle_joystick_main_menu(sfEvent event, game_t *game, scene_t *scene)
     }
     if (event.type == sfEvtJoystickButtonPressed && \
     event.joystickButton.button == 0)
-        is_click_on_object(scene, event.mouseButton, game, BUTTON);
+        is_click_on_object(scene, event.mouseButton, game);
 }
 
 void handle_joystick_game(sfEvent event, game_t *game)

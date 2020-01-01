@@ -21,10 +21,24 @@ void options_button_function(game_object_t *object, void *pt)
     scene->display = OPTION_SCENE;
 }
 
+void infos_button_function(game_object_t *object, void *pt)
+{
+    scene_t *scene = (scene_t *)pt;
+
+    scene->display = INFOS_SCENE;
+}
+
 void exit_button_function(game_object_t *object, void *pt)
 {
     scene_t *scene = (scene_t *)pt;
 
     scene->display = -1;
     sfRenderWindow_close(scene->window);
+}
+
+void return_button_function(game_object_t *object, void *pt)
+{
+    scene_t *scene = (scene_t *)pt;
+
+    scene->display = MAIN_MENU_SCENE;
 }

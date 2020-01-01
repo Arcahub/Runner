@@ -33,23 +33,6 @@ game_object_t *generate_ground(game_object_t *last, game_object_t *chunk)
     return (last);
 }
 
-//game_object_t *generate_layer(game_object_t *last, game_object_t *chunk)
-//{
-//    int width = 0;
-//    int height = TILE_MAX_HEIGHT;
-//    game_object_t *tmp = last;
-//
-//    srand(time(NULL));
-//    for (int i = 0; i <= CHUNK_WIDTH; i += TILE_WIDTH) {
-//        if (rand() % 3 == 0) {
-//            width = (rand() % MAX_FLOOR_WIDTH);
-//            height = compute_layer_height(tmp, chunk->pos.x, chunk->pos.x + i);
-//            last = create_layer(last, i + chunk->pos.x, width, height);
-//        }
-//    }
-//    return (last);
-//}
-
 game_object_t *generate_layer(game_object_t *last, game_object_t *chunk)
 {
     int width = 0;
@@ -78,7 +61,6 @@ game_object_t *generate_trap(game_object_t *last, game_object_t *chunk)
     }
     return (last);
 }
-
 
 game_object_t *generate_mobs(game_object_t *last)
 {

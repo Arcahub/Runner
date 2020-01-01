@@ -18,7 +18,7 @@ bool update_appearing_object(game_object_t *object, scene_t *scene)
 {
     int alpha = object->sprite_color.a;
 
-    alpha += 10;
+    alpha += 20;
     if (alpha > 255)
         object->sprite_color.a = 255;
     else
@@ -31,7 +31,7 @@ void update_disappearing_object(game_object_t *object)
 {
     int alpha = object->sprite_color.a;
 
-    alpha -= 10;
+    alpha -= 20;
     if (alpha < 0)
         object->sprite_color.a = 0;
     else

@@ -8,7 +8,7 @@
 #include "my_runner.h"
 
 void is_click_on_object(scene_t *scene, sfMouseButtonEvent mouse_button, \
-game_t *game, object_type type)
+game_t *game)
 {
     game_object_t *object = scene->objects_list;
     sfVector2i pos = sfMouse_getPositionRenderWindow(game->window->window);
@@ -18,7 +18,7 @@ game_t *game, object_type type)
     if (mouse_button.button != sfMouseLeft)
         return;
     for (; object; object = object->next) {
-        if (object->type == type && sfIntRect_contains(&object->box, x, y))
+        if (object->callback != NULL && sfIntRect_contains(&object->box, x, y))
             object->callback(object, scene);
     }
 }

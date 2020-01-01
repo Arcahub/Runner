@@ -8,6 +8,20 @@
 #include "my_runner.h"
 #include <SFML/Graphics.h>
 
+void handle_event_infos(scene_t *scene, game_t *game, sfRenderWindow *window)
+{
+    sfEvent event;
+
+    while (sfRenderWindow_pollEvent(window, &event)) {
+        if (event.type == sfEvtClosed)
+            sfRenderWindow_close(window);
+        if (event.type == sfEvtMouseButtonPressed)
+            is_click_on_object(scene, event.mouseButton, game);
+        if (event.type == sfEvtKeyPressed && event.key.code == sfKeyEscape)
+            scene->display = MAIN_MENU_SCENE;
+    }
+}
+
 void handle_event_in_game_menu(scene_t *scene, game_t *game, \
 sfRenderWindow *window)
 {
@@ -19,7 +33,7 @@ sfRenderWindow *window)
             scene->display = -1;
         }
         if (event.type == sfEvtMouseButtonPressed)
-            is_click_on_object(scene, event.mouseButton, game, BUTTON);
+            is_click_on_object(scene, event.mouseButton, game);
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyEscape)
             scene->display = GAME_SCENE;
     }
@@ -35,7 +49,7 @@ sfRenderWindow *window)
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
         if (event.type == sfEvtMouseButtonPressed)
-            is_click_on_object(scene, event.mouseButton, game, BUTTON);
+            is_click_on_object(scene, event.mouseButton, game);
         else if (event.type == sfEvtJoystickMoved)
             joymoved = true;
         if ((event.type == sfEvtMouseMoved && joymoved == false) || \
@@ -52,7 +66,7 @@ void handle_event_options(scene_t *scene, game_t *game, sfRenderWindow *window)
         if (event.type == sfEvtClosed)
             sfRenderWindow_close(window);
         if (event.type == sfEvtMouseButtonPressed)
-            is_click_on_object(scene, event.mouseButton, game, BAR);
+            is_click_on_object(scene, event.mouseButton, game);
         if (event.type == sfEvtKeyPressed && event.key.code == sfKeyEscape)
             scene->display = MAIN_MENU_SCENE;
     }

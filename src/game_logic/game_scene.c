@@ -21,6 +21,7 @@ scene_t *init_game_scene(game_t * game, char *map)
 
     if (scene == NULL)
         return (NULL);
+    update_text(game->score->text, sfWhite, (sfVector2f) {0, 0}, 32);
     scene->background_color = GAME_BACKGROUND_COLOR;
     scene->handle_event = &handle_event_game;
     scene->objects_list = init_player(NULL);

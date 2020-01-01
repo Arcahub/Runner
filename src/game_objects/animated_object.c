@@ -14,7 +14,8 @@ bool update_animated_object(game_object_t *object, scene_t *scene)
     return (true);
 }
 
-game_object_t *create_animated_object(game_object_t *last, char *path, sfVector2f pos, sfIntRect **frame_keys)
+game_object_t *create_animated_object(game_object_t *last, char *path, \
+sfVector2f pos, sfIntRect **frame_keys)
 {
     game_object_t *object = create_game_object(last, path, pos, EFFECT);
 

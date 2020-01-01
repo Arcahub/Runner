@@ -54,7 +54,11 @@ game_object_t *init_player(game_object_t *last)
     player->move = (sfVector2f){PLAYER_SPEED_X, PLAYER_SPEED_Y};
     player->state = RUNNING;
     player->z_index = PLAYER_DISPLAY;
-    player->anim = init_player_anim();
+    player->anim = malloc(sizeof(anim_t) * 10);
+    if (player->anim == NULL)
+        return (NULL);
+    else
+        init_player_anim(player->anim);
     player->delta_t = NULL;
     player->sound_effect = sfSound_create();
     if (player->anim == NULL || player->sound_effect == NULL)

@@ -44,12 +44,8 @@ void init_player_other_anim(anim_t *anims)
     anims[DEAD].restart_id = 0;
 }
 
-anim_t *init_player_anim(void)
+void init_player_anim(anim_t *anims)
 {
-    anim_t *anims = malloc(sizeof(anim_t) * 10);
-
-    if (anims == NULL)
-        return (NULL);
     anims[9].sound_buffer = NULL;
     anims[RUNNING].frames_key = (sfIntRect **)PLAYER_RUNNING_FRAME_KEYS;
     anims[RUNNING].loop = true;
@@ -67,5 +63,4 @@ anim_t *init_player_anim(void)
     init_player_attack_anim(anims);
     init_player_anim_sound_effect(anims);
     init_player_attack_sound_effect(anims);
-    return (anims);
 }
