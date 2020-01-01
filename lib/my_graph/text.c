@@ -8,6 +8,22 @@
 #include "my_graph.h"
 #include <stdlib.h>
 
+void center_text(sfText *text, int window_width)
+{
+    int width = sfText_getGlobalBounds(text).width;
+    sfVector2f pos = sfText_getPosition(text);
+
+    pos.x = (window_width - width) / 2;
+    sfText_setPosition(text, pos);
+}
+
+void update_text(sfText *text, sfColor color, sfVector2f pos, int size)
+{
+    sfText_setColor(text, color);
+    sfText_setCharacterSize(text, size);
+    sfText_setPosition(text, pos);
+}
+
 sfText *init_text(char *str, int x, int y, char *font_path)
 {
     sfVector2f vector = {x, y};

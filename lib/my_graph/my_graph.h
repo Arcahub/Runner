@@ -49,4 +49,6 @@ cursor_t init_cursor(char *);
 void draw_cursor(cursor_t, sfRenderWindow *);
 sfIntRect update_rect(int, int, int, int);
 sfText *init_text(char *, int, int, char *);
+void update_text(sfText *, sfColor, sfVector2f, int);
+void center_text(sfText *, int);
 #endif /* !MY_GRAPH_H_ */
