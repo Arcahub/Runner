@@ -30,11 +30,14 @@ typedef enum {
     PARALLAX,
     SOLID,
     BUTTON,
+    TEXT_BUTTON,
     BAR,
     DECOR,
     EFFECT,
     TRAP,
-    CHUNK
+    CHUNK,
+    FlEUR,
+    INFO
 } object_type;
 
 typedef struct game_object {
@@ -62,12 +65,13 @@ struct game_object *create_game_object(struct game_object *, char *, \
 sfVector2f, object_type);
 void init_game_object(game_object_t *);
 void update_game_object_frame(struct game_object *);
+void update_game_object_frame_reversed(struct game_object *);
 void move_object(game_object_t *);
 void draw_objects(game_object_t *, sfRenderWindow *, int);
 void update_objects(scene_t *, game_object_t *, game_t *);
 void destroy_object_list(scene_t *);
 void destroy_game_object(scene_t *, game_object_t *, game_object_t *);
-void is_click_on_object(scene_t *, sfMouseButtonEvent, game_t *, object_type);
+void is_click_on_object(scene_t *, sfMouseButtonEvent, game_t *);
 
 void init_appearing_object(game_object_t *);
 bool update_appearing_object(game_object_t *, scene_t *);

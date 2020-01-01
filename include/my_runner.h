@@ -38,7 +38,7 @@ typedef struct score {
 typedef struct game {
     window_t *window;
     char *map;
-    int (*scene_loop[3]) (game_t *, sfRenderWindow *);
+    int (*scene_loop[5]) (game_t *, sfRenderWindow *);
     game_object_t *player;
     score_t *score;
     cursor_t cursor;

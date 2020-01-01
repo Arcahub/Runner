@@ -41,7 +41,7 @@ struct game_object *create_top_attack_effect(struct game_object *, \
 sfVector2f);
 struct game_object *create_down_attack_effect(struct game_object *, \
 sfVector2f);
-struct anim *init_player_anim(void);
+void init_player_anim(struct anim *);
 void init_player_anim_sound_effect(struct anim *);
 void init_player_attack_sound_effect(struct anim *);
 void check_player_env(game_object_t *, scene_t *);

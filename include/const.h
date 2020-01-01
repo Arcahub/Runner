@@ -92,12 +92,22 @@ extern const unsigned short TITLE_Y;
 extern const char *TITLE_PATH;
 
 extern const char *TITLE_UNDERLINE_PATH;
+extern const unsigned short TITLE_UNDERLINE_X;
+extern const unsigned short TITLE_UNDERLINE_Y;
 extern const sfIntRect *TITLE_UNDERLINE_FRAME_KEYS[];
+
+extern const char *ARROW_PATH;
+extern const sfIntRect *ARROW_LEFT_FRAME_KEYS[];
+extern const sfIntRect *ARROW_RIGHT_FRAME_KEYS[];
 
 extern const sfIntRect *BUTTON_UNSELECTED_FRAME_KEYS[];
 extern const sfIntRect *BUTTON_SELECTED_FRAME_KEYS[];
 
 extern const char *BUTTON_SOUND_PATH;
+
+extern const char *RETURN_BUTTON_PATH;
+extern const unsigned short RETURN_BUTTON_X;
+extern const unsigned short RETURN_BUTTON_Y;
 
 extern const unsigned short PLAY_BUTTON_X;
 extern const unsigned short PLAY_BUTTON_Y;
@@ -114,6 +124,28 @@ extern const char *EXIT_BUTTON_PATH;
 
 extern const sfVector2i MAIN_MENU_COORDS[];
 
+// IN-GAME_MENU
+
+extern const char *IN_GAME_MENU_BACKGROUND;
+
+extern const unsigned short CONTINUE_BUTTON_X;
+extern const unsigned short CONTINUE_BUTTON_Y;
+extern const char *CONTINUE_BUTTON_PATH;
+extern const unsigned short OPTION_BUTTON_Y_IN_GAME;
+extern const unsigned short MAIN_MENU_BUTTON_X;
+extern const unsigned short MAIN_MENU_BUTTON_Y;
+extern const char *MAIN_MENU_BUTTON_PATH;
+
+extern const unsigned short TOP_FLEUR_X;
+extern const unsigned short TOP_FLEUR_Y;
+extern const char *TOP_FLEUR_PATH;
+extern const sfIntRect *TOP_FLEUR_FRAME_KEYS[];
+
+extern const unsigned short BOTTOM_FLEUR_X;
+extern const unsigned short BOTTOM_FLEUR_Y;
+extern const char *BOTTOM_FLEUR_PATH;
+extern const sfIntRect *BOTTOM_FLEUR_FRAME_KEYS[];
+
 // PHYSICS
 
 extern const float JUMP_SPEED;
@@ -122,6 +154,13 @@ extern const float FALLING_MAX_SPEED;
 extern const float GRAVITY;
 
 // OPTIONS
+
+extern const char *OPTION_TITLE;
+extern const unsigned short OPTION_TITLE_X;
+extern const unsigned short OPTION_TITLE_Y;
+
+extern const char *GLOBAL_VOLUME_TEXT;
+
 extern const char *BAR_PATH;
 extern const char *BAR_BACKGROUND_PATH;
 extern const unsigned short BAR_WIDTH;
@@ -141,6 +180,37 @@ extern const unsigned short INDICATOR_Y;
 
 extern const char *FONT_PATH;
 extern const char *CURSOR_PATH;
+
+// INFOS
+
+extern const char *INFOS_TITLE;
+extern const unsigned short INFOS_TITLE_X;
+extern const unsigned short INFOS_TITLE_Y;
+
+extern const unsigned short INFOS_ARROW_Y;
+extern const unsigned short INFOS_ARROW_LEFT_X;
+extern const unsigned short INFOS_ARROW_RIGHT_X;
+
+extern const char *INFOS_CONTENT_PATH;
+extern const sfIntRect *INFOS_CONTENT_FRAME_KEYS[];
+
+// GG MENU
+
+extern const char *RESTART_PATH;
+extern const unsigned short RESTART_X;
+extern const unsigned short RESTART_Y;
+
+extern const char *GG_TOP_PATH;
+extern const unsigned short GG_TOP_X;
+extern const unsigned short GG_TOP_Y;
+extern const sfIntRect *GG_TOP_FRAME_KEYS[];
+
+extern const char *GG_BOT_PATH;
+extern const unsigned short GG_BOT_X;
+extern const unsigned short GG_BOT_Y;
+extern const sfIntRect *GG_BOT_FRAME_KEYS[];
+
+extern const unsigned short GG_MAIN_MENU_BUTTON_Y;
 
 // PARALLAX SPEED
 

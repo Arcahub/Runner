@@ -179,6 +179,8 @@ const unsigned short TITLE_Y = 0;
 const char *TITLE_PATH = "templates/menu/title.png";
 
 const char *TITLE_UNDERLINE_PATH = "templates/menu/title_underline.png";
+const unsigned short TITLE_UNDERLINE_X = 480;
+const unsigned short TITLE_UNDERLINE_Y = 200;
 const sfIntRect *TITLE_UNDERLINE_FRAME_KEYS[] = {
     &(sfIntRect){0, 0, 959, 80},
     &(sfIntRect){0, 80, 959, 80},
@@ -192,37 +194,69 @@ const sfIntRect *TITLE_UNDERLINE_FRAME_KEYS[] = {
     NULL
 };
 
+const char *ARROW_PATH = "templates/menu/arrow.png";
+const sfIntRect *ARROW_LEFT_FRAME_KEYS[] = {
+    &(sfIntRect){0, 0, 100, 72},
+    &(sfIntRect){0, 72, 100, 72},
+    &(sfIntRect){0, 144, 100, 72},
+    &(sfIntRect){0, 216, 100, 72},
+    &(sfIntRect){0, 288, 100, 72},
+    &(sfIntRect){0, 360, 100, 72},
+    &(sfIntRect){0, 432, 100, 72},
+    &(sfIntRect){0, 504, 100, 72},
+    &(sfIntRect){0, 576, 100, 72},
+    &(sfIntRect){0, 648, 100, 72},
+    &(sfIntRect){0, 720, 100, 72},
+    NULL};
+const sfIntRect *ARROW_RIGHT_FRAME_KEYS[] = {
+    &(sfIntRect){100, 0, 100, 72},
+    &(sfIntRect){100, 72, 100, 72},
+    &(sfIntRect){100, 144, 100, 72},
+    &(sfIntRect){100, 216, 100, 72},
+    &(sfIntRect){100, 288, 100, 72},
+    &(sfIntRect){100, 360, 100, 72},
+    &(sfIntRect){100, 432, 100, 72},
+    &(sfIntRect){100, 504, 100, 72},
+    &(sfIntRect){100, 576, 100, 72},
+    &(sfIntRect){100, 648, 100, 72},
+    &(sfIntRect){100, 720, 100, 72},
+    NULL};
+
 const sfIntRect *BUTTON_UNSELECTED_FRAME_KEYS[] = {
-    &(sfIntRect){0, 396, 267, 36},
-    &(sfIntRect){0, 360, 267, 36},
-    &(sfIntRect){0, 324, 267, 36},
-    &(sfIntRect){0, 288, 267, 36},
-    &(sfIntRect){0, 252, 267, 36},
-    &(sfIntRect){0, 216, 267, 36},
-    &(sfIntRect){0, 180, 267, 36},
-    &(sfIntRect){0, 144, 267, 36},
-    &(sfIntRect){0, 108, 267, 36},
-    &(sfIntRect){0, 72, 267, 36},
-    &(sfIntRect){0, 36, 267, 36},
-    &(sfIntRect){0, 0, 267, 36},
+    &(sfIntRect){0, 396, 304, 36},
+    &(sfIntRect){0, 360, 304, 36},
+    &(sfIntRect){0, 324, 304, 36},
+    &(sfIntRect){0, 288, 304, 36},
+    &(sfIntRect){0, 252, 304, 36},
+    &(sfIntRect){0, 216, 304, 36},
+    &(sfIntRect){0, 180, 304, 36},
+    &(sfIntRect){0, 144, 304, 36},
+    &(sfIntRect){0, 108, 304, 36},
+    &(sfIntRect){0, 72, 304, 36},
+    &(sfIntRect){0, 36, 304, 36},
+    &(sfIntRect){0, 0, 304, 36},
     NULL};
 
 const sfIntRect *BUTTON_SELECTED_FRAME_KEYS[] = {
-    &(sfIntRect){0, 0, 267, 36},
-    &(sfIntRect){0, 36, 267, 36},
-    &(sfIntRect){0, 72, 267, 36},
-    &(sfIntRect){0, 108, 267, 36},
-    &(sfIntRect){0, 144, 267, 36},
-    &(sfIntRect){0, 180, 267, 36},
-    &(sfIntRect){0, 216, 267, 36},
-    &(sfIntRect){0, 252, 267, 36},
-    &(sfIntRect){0, 288, 267, 36},
-    &(sfIntRect){0, 324, 267, 36},
-    &(sfIntRect){0, 360, 267, 36},
-    &(sfIntRect){0, 396, 267, 36},
+    &(sfIntRect){0, 0, 304, 36},
+    &(sfIntRect){0, 36, 304, 36},
+    &(sfIntRect){0, 72, 304, 36},
+    &(sfIntRect){0, 108, 304, 36},
+    &(sfIntRect){0, 144, 304, 36},
+    &(sfIntRect){0, 180, 304, 36},
+    &(sfIntRect){0, 216, 304, 36},
+    &(sfIntRect){0, 252, 304, 36},
+    &(sfIntRect){0, 288, 304, 36},
+    &(sfIntRect){0, 324, 304, 36},
+    &(sfIntRect){0, 360, 304, 36},
+    &(sfIntRect){0, 396, 304, 36},
     NULL};
 
 const char *BUTTON_SOUND_PATH = "templates/sounds/ui_change_selection.ogg";
+
+const char *RETURN_BUTTON_PATH = "templates/menu/return.png";
+const unsigned short RETURN_BUTTON_X = (WINDOW_WIDTH - 264) / 2;
+const unsigned short RETURN_BUTTON_Y = 900;
 
 const unsigned short PLAY_BUTTON_X = (WINDOW_WIDTH - 206) / 2;
 const unsigned short PLAY_BUTTON_Y = 600;
@@ -237,8 +271,58 @@ const unsigned short EXIT_BUTTON_X = (WINDOW_WIDTH - 196) / 2;
 const unsigned short EXIT_BUTTON_Y = 900;
 const char *EXIT_BUTTON_PATH = "templates/menu/exit.png";
 
-
 const sfVector2i MAIN_MENU_COORDS[] = {
+    {960, 601},
+    {960, 701},
+    {960, 801},
+    {960, 901}
+};
+
+// IN-GAME MENU
+
+const char *IN_GAME_MENU_BACKGROUND = "templates/menu/\
+in_game_menu_background.png";
+
+const unsigned short CONTINUE_BUTTON_X = (WINDOW_WIDTH - 290) / 2;
+const unsigned short CONTINUE_BUTTON_Y = 400;
+const char *CONTINUE_BUTTON_PATH = "templates/menu/continue.png";
+const unsigned short OPTION_BUTTON_Y_IN_GAME = 500;
+const unsigned short MAIN_MENU_BUTTON_X = (WINDOW_WIDTH - 304) / 2;
+const unsigned short MAIN_MENU_BUTTON_Y = 600;
+const char *MAIN_MENU_BUTTON_PATH = "templates/menu/main_menu.png";
+
+const unsigned short TOP_FLEUR_X = (WINDOW_WIDTH - 426) / 2;
+const unsigned short TOP_FLEUR_Y = 200;
+const char *TOP_FLEUR_PATH = "templates/menu/top_fleur.png";
+const sfIntRect *TOP_FLEUR_FRAME_KEYS[] = {
+    &(sfIntRect) {0, 0, 426, 123},
+    &(sfIntRect) {0, 123, 426, 123},
+    &(sfIntRect) {0, 246, 426, 123},
+    &(sfIntRect) {0, 369, 426, 123},
+    &(sfIntRect) {0, 492, 426, 123},
+    &(sfIntRect) {0, 615, 426, 123},
+    &(sfIntRect) {0, 738, 426, 123},
+    &(sfIntRect) {0, 861, 426, 123},
+    NULL
+};
+
+const unsigned short BOTTOM_FLEUR_X = (WINDOW_WIDTH - 303) / 2;
+const unsigned short BOTTOM_FLEUR_Y = 700;
+const char *BOTTOM_FLEUR_PATH = "templates/menu/bottom_fleur.png";
+const sfIntRect *BOTTOM_FLEUR_FRAME_KEYS[] = {
+    &(sfIntRect) {0, 0, 303, 66},
+    &(sfIntRect) {0, 66, 303, 66},
+    &(sfIntRect) {0, 132, 303, 66},
+    &(sfIntRect) {0, 198, 303, 66},
+    &(sfIntRect) {0, 264, 303, 66},
+    &(sfIntRect) {0, 330, 303, 66},
+    &(sfIntRect) {0, 396, 303, 66},
+    &(sfIntRect) {0, 462, 303, 66},
+    &(sfIntRect) {0, 528, 303, 66},
+    NULL
+};
+
+const sfVector2i IN_GAME_MENU_COORDS[] = {
     {960, 601},
     {960, 701},
     {960, 801},
@@ -253,6 +337,13 @@ const float FALLING_MAX_SPEED = 25.0;
 const float GRAVITY = 2.0;
 
 // OPTIONS
+
+const char *OPTION_TITLE = "templates/menu/options_title.png";
+const unsigned short OPTION_TITLE_X = 816;
+const unsigned short OPTION_TITLE_Y = 100;
+
+const char *GLOBAL_VOLUME_TEXT = "Global Volume :";
+
 const char *BAR_PATH = "templates/menu/bar.png";
 const char *BAR_BACKGROUND_PATH = "templates/menu/bar_background.png";
 const unsigned short BAR_WIDTH = 500;
@@ -272,6 +363,59 @@ const unsigned short INDICATOR_Y = 400 - 25;
 
 const char *FONT_PATH = "templates/font/arial.ttf";
 const char *CURSOR_PATH = "templates/menu/Cursor.png";
+
+// INFO
+
+const char *INFOS_TITLE = "templates/menu/infos_title.png";
+const unsigned short INFOS_TITLE_X = 852;
+const unsigned short INFOS_TITLE_Y = 100;
+
+const unsigned short INFOS_ARROW_Y = 464;
+const unsigned short INFOS_ARROW_LEFT_X = 10;
+const unsigned short INFOS_ARROW_RIGHT_X = WINDOW_WIDTH - 110;
+
+const char *INFOS_CONTENT_PATH = "templates/menu/infos_content.png";
+const sfIntRect *INFOS_CONTENT_FRAME_KEYS[] = {
+    &(sfIntRect) {0, 0, 1920, 1080},
+    &(sfIntRect) {0, 1080, 1920, 1080},
+    &(sfIntRect) {0, 2160, 1920, 1080},
+    NULL
+};
+
+// GG MENU
+
+const char *RESTART_PATH = "templates/menu/restart.png";
+const unsigned short RESTART_X = (WINDOW_WIDTH - 272) / 2;
+const unsigned short RESTART_Y = 575;
+
+const char *GG_TOP_PATH = "templates/GG/GG_top.png";
+const unsigned short GG_TOP_X = (WINDOW_WIDTH - 515) / 2;
+const unsigned short GG_TOP_Y = 0;
+const sfIntRect *GG_TOP_FRAME_KEYS[] = {
+    &(sfIntRect) {0, 0, 515, 495},
+    &(sfIntRect) {0, 495, 515, 495},
+    &(sfIntRect) {0, 990, 515, 495},
+    &(sfIntRect) {0, 1485, 515, 495},
+    &(sfIntRect) {0, 1980, 515, 495},
+    &(sfIntRect) {0, 2475, 515, 495},
+    &(sfIntRect) {0, 2970, 515, 495},
+    &(sfIntRect) {0, 3465, 515, 495},
+    NULL
+};
+
+const char *GG_BOT_PATH = "templates/GG/GG_bot.png";
+const unsigned short GG_BOT_X = (WINDOW_WIDTH - 515) / 2;
+const unsigned short GG_BOT_Y = WINDOW_HEIGHT - 270;
+const sfIntRect *GG_BOT_FRAME_KEYS[] = {
+    &(sfIntRect) {0, 0, 515, 360},
+    &(sfIntRect) {0, 360, 515, 360},
+    &(sfIntRect) {0, 720, 515, 360},
+    &(sfIntRect) {0, 1080, 515, 360},
+    &(sfIntRect) {0, 1440, 515, 360},
+    NULL
+};
+
+const unsigned short GG_MAIN_MENU_BUTTON_Y = 675;
 
 // PARALLAX SPEED
 
