@@ -20,6 +20,7 @@
 #include "scene.h"
 #include "const.h"
 #include "my_graph.h"
+#include "my_mysql.h"
 
 typedef struct game_object game_object_t;
 
@@ -41,6 +42,8 @@ typedef struct game {
     int (*scene_loop[5]) (game_t *, sfRenderWindow *);
     game_object_t *player;
     score_t *score;
+    score_t *highscore;
+    void *mysql;
     cursor_t cursor;
 }game_t;
 
@@ -52,4 +55,5 @@ void draw_game(scene_t *, game_t *, sfRenderWindow *);
 void update_physics(game_object_t *, scene_t *);
 void increase_score(game_t *);
 void init_score(game_t *);
+void init_high_score(game_t *);
 #endif /* !MY_RUNNER_H_ */

@@ -38,6 +38,7 @@ void draw_end_menu(scene_t *scene, game_t *game, sfRenderWindow *window)
 {
     display_scene(scene, window);
     sfRenderWindow_drawText(window, game->score->text, NULL);
+    sfRenderWindow_drawText(window, game->highscore->text, NULL);
     draw_cursor(game->cursor, scene->window);
     sfRenderWindow_display(window);
 }

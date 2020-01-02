@@ -25,9 +25,13 @@ NAME = my_runner
 
 CFLAGS = $(LDFLAGS) $(HEADER) -W -Wall -Wno-unused-parameter -Wextra -pedantic $(DEBUG)
 
-LDFLAGS = -L./lib -lmy_graph -lmy $(CSFML)
+LDFLAGS = -L./lib $(LIBS) $(CSFML) $(MYSQLFLAGS)
+
+LIBS = $(foreach LIB, $(LIBS_DIR), $(addprefix -l, $(LIB_NAME)))
 
 CSFML = -lcsfml-graphics -lcsfml-audio -lcsfml-window -lcsfml-system
+
+MYSQLFLAGS = `mysql_config --cflags --libs`
 
 HEADER = -I./include
 

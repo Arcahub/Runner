@@ -37,6 +37,7 @@ extern const char *MENU_MUSIC_PATH;
 // SCORE
 
 extern const char *BASE_SCORE;
+extern const char *BASE_HIGHSCORE;
 
 // FRAMERATE
 

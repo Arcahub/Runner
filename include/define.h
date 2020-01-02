@@ -41,6 +41,7 @@ const char *MENU_MUSIC_PATH = \
 // SCORE
 
 const char *BASE_SCORE = "Score :";
+const char *BASE_HIGHSCORE = "Highscore :";
 
 // FRAMERATE
 
