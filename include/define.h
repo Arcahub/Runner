@@ -5,8 +5,6 @@
 ** define
 */
 
-
-
 #ifndef DEFINE_H_
 #define DEFINE_H_
 
@@ -224,38 +222,6 @@ const sfIntRect *ARROW_RIGHT_FRAME_KEYS[] = {
     &(sfIntRect){100, 720, 100, 72},
     NULL};
 
-const sfIntRect *BUTTON_UNSELECTED_FRAME_KEYS[] = {
-    &(sfIntRect){0, 396, 304, 36},
-    &(sfIntRect){0, 360, 304, 36},
-    &(sfIntRect){0, 324, 304, 36},
-    &(sfIntRect){0, 288, 304, 36},
-    &(sfIntRect){0, 252, 304, 36},
-    &(sfIntRect){0, 216, 304, 36},
-    &(sfIntRect){0, 180, 304, 36},
-    &(sfIntRect){0, 144, 304, 36},
-    &(sfIntRect){0, 108, 304, 36},
-    &(sfIntRect){0, 72, 304, 36},
-    &(sfIntRect){0, 36, 304, 36},
-    &(sfIntRect){0, 0, 304, 36},
-    NULL};
-
-const sfIntRect *BUTTON_SELECTED_FRAME_KEYS[] = {
-    &(sfIntRect){0, 0, 304, 36},
-    &(sfIntRect){0, 36, 304, 36},
-    &(sfIntRect){0, 72, 304, 36},
-    &(sfIntRect){0, 108, 304, 36},
-    &(sfIntRect){0, 144, 304, 36},
-    &(sfIntRect){0, 180, 304, 36},
-    &(sfIntRect){0, 216, 304, 36},
-    &(sfIntRect){0, 252, 304, 36},
-    &(sfIntRect){0, 288, 304, 36},
-    &(sfIntRect){0, 324, 304, 36},
-    &(sfIntRect){0, 360, 304, 36},
-    &(sfIntRect){0, 396, 304, 36},
-    NULL};
-
-const char *BUTTON_SOUND_PATH = "templates/sounds/ui_change_selection.ogg";
-
 const char *RETURN_BUTTON_PATH = "templates/menu/return.png";
 const unsigned short RETURN_BUTTON_X = (WINDOW_WIDTH - 264) / 2;
 const unsigned short RETURN_BUTTON_Y = 900;
@@ -336,7 +302,6 @@ const sfVector2i IN_GAME_MENU_COORDS[] = {
 const float JUMP_SPEED = 35.0;
 const float JUMP_SPEED_MIN = 5.0;
 const float FALLING_MAX_SPEED = 25.0;
-const float GRAVITY = 2.0;
 
 // OPTIONS
 

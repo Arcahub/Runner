@@ -102,11 +102,6 @@ extern const char *ARROW_PATH;
 extern const sfIntRect *ARROW_LEFT_FRAME_KEYS[];
 extern const sfIntRect *ARROW_RIGHT_FRAME_KEYS[];
 
-extern const sfIntRect *BUTTON_UNSELECTED_FRAME_KEYS[];
-extern const sfIntRect *BUTTON_SELECTED_FRAME_KEYS[];
-
-extern const char *BUTTON_SOUND_PATH;
-
 extern const char *RETURN_BUTTON_PATH;
 extern const unsigned short RETURN_BUTTON_X;
 extern const unsigned short RETURN_BUTTON_Y;
@@ -153,7 +148,6 @@ extern const sfIntRect *BOTTOM_FLEUR_FRAME_KEYS[];
 extern const float JUMP_SPEED;
 extern const float JUMP_SPEED_MIN;
 extern const float FALLING_MAX_SPEED;
-extern const float GRAVITY;
 
 // OPTIONS
 
