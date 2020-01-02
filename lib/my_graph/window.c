@@ -22,3 +22,16 @@ sfRenderWindow *make_window(window_t *window, sfUint32 style)
     sfRenderWindow_setFramerateLimit(window_render, window->framerate);
     return (window_render);
 }
+
+void set_window_icon(sfRenderWindow *window, char *path)
+{
+    sfImage *img = sfImage_createFromFile(path);
+    sfVector2u size = {0, 0};
+    sfUint8 *pixels = NULL;
+
+    if (img == NULL)
+        return;
+    size = sfImage_getSize(img);
+    pixels = (sfUint8 *) sfImage_getPixelsPtr(img);
+    sfRenderWindow_setIcon(window, size.x, size.y, pixels);
+}
