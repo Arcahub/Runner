@@ -11,24 +11,32 @@
 #include <SFML/Graphics.h>
 #include <stdlib.h>
 
+void save_score(game_t *game)
+{
+    if (game->score->score < game->highscore->score || game->mysql == NULL)
+        return;
+    make_insert_query(game->mysql, "scores", 3, "player", \
+    my_nbr_to_str(game->highscore->score), "0");
+}
+
 void get_highscore(game_t *game, score_t *score)
 {
-    char **res = NULL;
+    char ***res = NULL;
+    int nbr = 0;
 
     if (game->mysql == NULL) {
         score->score = 0;
         return;
     }
     res = make_select_query(game->mysql, "scores", 1, "*");
-    if (res != NULL) {
-        score->score = 0;
+    score->score = 0;
+    if (res == NULL)
         return;
-    }
     for (int i = 0; res[i]; i++) {
-        for (int j = 0; res[i][j]; j++)
-            printf("%d\n", my_nbr_to_str(res[i][j]));
+        nbr = my_getnbr(res[i][1]);
+        if (score->score < nbr)
+            score->score = nbr;
     }
-
 }
 
 void init_highscore(game_t *game)
@@ -66,7 +74,7 @@ void increase_score(game_t *game)
     game->score->score_text = \
     my_strcat((char *)BASE_SCORE, my_nbr_to_str(game->score->score));
     sfText_setString(game->score->text, game->score->score_text);
-    if (game->score > game->highscore->score) {
+    if (game->score->score > game->highscore->score) {
         game->highscore->score = game->score->score;
         free (game->highscore->score_text);
         game->highscore->score_text = \

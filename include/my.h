@@ -15,4 +15,5 @@ char *my_nbr_to_str(long long int);
 int my_strlen(const char *);
 char *my_strcat(char *, char *);
 int my_strcmp(char *, char *);
+int my_getnbr(char const *);
 #endif /* !MY_H_ */

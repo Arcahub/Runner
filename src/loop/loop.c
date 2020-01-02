@@ -114,6 +114,7 @@ int game_loop(game_t *game, sfRenderWindow *window)
         handle_framerate(clock, scene, game);
         draw_game(scene, game, window);
     }
+    save_score(game);
     sfClock_destroy(clock);
     display = scene->display;
     destroy_scene(scene);
