@@ -26,6 +26,7 @@ window_t *init_window(void)
     window->framerate = WINDOW_FRAMERATE;
     window->name = (char *)WINDOW_NAME;
     window->window = make_window(window, sfClose);
+    set_window_icon(window->window, (char *) ICON_PATH);
     return (window);
 }
 

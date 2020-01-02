@@ -29,6 +29,7 @@ const unsigned short int WINDOW_HEIGHT = 1000;
 const unsigned char WINDOW_BITS_PER_PIXEL = 32;
 const unsigned char WINDOW_FRAMERATE = 60;
 const char *WINDOW_NAME = "My Runner";
+const char *ICON_PATH = "templates/icon.png";
 
 const sfColor GAME_BACKGROUND_COLOR = {66, 98, 116, 0};
 

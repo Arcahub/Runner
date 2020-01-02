@@ -26,6 +26,7 @@ extern const unsigned short int WINDOW_HEIGHT;
 extern const unsigned char WINDOW_BITS_PER_PIXEL;
 extern const unsigned char WINDOW_FRAMERATE;
 extern const char *WINDOW_NAME;
+extern const char *ICON_PATH;
 
 extern const sfColor GAME_BACKGROUND_COLOR;
 
