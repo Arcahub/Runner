@@ -9,25 +9,25 @@ Welcome to my Runner, a running game where your goal is to dodge pit and spike t
 Instal mysql ...
 Install CSFML
 
-  git clone https://github.com/Arcahub/Runner.git
+    git clone https://github.com/Arcahub/Runner.git
   
 To compil:
   
-  make
+    make
   
 Update :
  
-  git pull && make re
+    git pull && make re
   
 ## How to
  
 If you want to play on your own map:
  
-  ./my_runner [MAP]
+    ./my_runner [MAP]
   
 Else to play with the automatic generation
 
-  ./my_runner
+    ./my_runner
   
 ## Player Input
  
