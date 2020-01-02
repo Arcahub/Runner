@@ -7,12 +7,13 @@
 
 #include <mysql/mysql.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 MYSQL *make_mysql(char * host, char *user, char *passws, char *db)
 {
     MYSQL *mysql = mysql_init(NULL);
 
-    if (mysql_real_connect(mysql, "arcarox.online", "runner", "passrunner", "runner", 3306, NULL, 0) == NULL) {
+    if (mysql_real_connect(mysql, host, user, passws, db, 3306, NULL, 0) == NULL) {
         printf("%s\n", mysql_error(mysql));
         return (NULL);
     }

@@ -16,7 +16,7 @@ char ***transform_res_to_array(MYSQL_RES *res)
     MYSQL_ROW row;
 
     if (nbr_row == 0 || nbr_col == 0)
-        return;
+        return (NULL);
     res_array = malloc(sizeof(char **) * (nbr_row + 1));
     res_array[nbr_row] = NULL;
     for (int i = 0; i < nbr_row; i++) {

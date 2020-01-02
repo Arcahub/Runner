@@ -5,9 +5,10 @@
 ** query
 */
 
-#include <mysql/mysql.h>
+#include "my_mysql.h"
 #include <stdarg.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 static int my_strlen(const char *str)
 {
@@ -54,7 +55,7 @@ char *make_select_query_str(char *table, unsigned int items, va_list list)
     char *query = my_strdup("SELECT ");
     char *arg = 0;
 
-    for (int i = 0; i < items; i++) {
+    for (unsigned int i = 0; i < items; i++) {
         arg = va_arg(list, char *);
         query = my_strcat(query, arg);
         if (i < items - 1)
@@ -76,7 +77,7 @@ char ***make_select_query(void *pt, char *table, unsigned int items, ...)
     if (items > 0)
         va_start(list, items);
     query = make_select_query_str(table, items, list);
-    if (mysql_query(con, "SELECT * FROM scores"))
+    if (mysql_query(con, query))
         printf("%s\n", mysql_error(con));
     else
         res = mysql_store_result(con);
@@ -92,7 +93,7 @@ char *make_insert_query_str(char *table, unsigned int items, va_list list)
 
     query = my_strcat(query, table);
     query = my_strcat(query, " VALUES (");
-    for (int i = 0; i < items; i++) {
+    for (unsigned int i = 0; i < items; i++) {
         arg = va_arg(list, char *);
         query = my_strcat(query, "'");
         query = my_strcat(query, arg);

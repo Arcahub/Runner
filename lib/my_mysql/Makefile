@@ -11,7 +11,7 @@ SRC	=	src/my_query.c	\
 
 OBJ = $(SRC:.c=.o)
 
-CFLAGS = -W -Wall -pedantic $(MYSQLFLAGS) -g3
+CFLAGS = -W -Wall -pedantic $(MYSQLFLAGS) -g3 -I./
 
 MYSQLFLAGS = `mysql_config --cflags --libs`
 
