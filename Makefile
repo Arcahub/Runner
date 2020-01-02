@@ -73,6 +73,10 @@ make_lib :
 	&& printf "$(YEL)[$(WHITE)√$(YEL)]\n$(WHITE)";)
 	@printf "\n"
 
+doc :
+	@doxygen doxyconf
+	@printf "\n$(GREEN)[$(WHITE)LIB$(GREEN)] — $(PURPLE)CREATE DOC$(WHITE)\n\n"
+
 clean :
 	@printf "$(REDDARK)\nCleaning build files of \
 	$(GREEN)[$(WHITE)MY_RUNNER$(GREEN)]\n\n"

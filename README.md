@@ -65,6 +65,7 @@ Dash : will dashing you can't be hitted by spike but you can't dash until the pl
 ## Credits
 
 Dev :
+
 Guillaume Mailhol
 
-Big thanks to [@TeamCherryGames](https://twitter.com/teamcherrygames?lang=fr) for the sprites from the beautiful game [Hollow Knight](https://store.steampowered.com/app/367520/Hollow_Knight/)
+Big thanks to [TeamCherryGames](https://twitter.com/teamcherrygames?lang=fr) for the sprites from the beautiful game [Hollow Knight](https://store.steampowered.com/app/367520/Hollow_Knight/)
