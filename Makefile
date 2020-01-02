@@ -55,7 +55,7 @@ $(BUILD_DIR)%.o:%.c
 	@mkdir -p `dirname  $@`
 	@printf "$(GREEN)[$(WHITE)MY_RUNNER$(GREEN)] — $(BLUE)%-70s" $@
 	@printf "$(GREEN)[$(WHITE)√$(GREEN)]\n$(WHITE)"
-	@gcc $(CFLAGS) -o $@ -c $<
+	@$(CC) $(CFLAGS) -o $@ -c $<
 
 $(NAME) : make_lib start_compil $(OBJ)
 	@$(CC) -o $(NAME) $(OBJ) $(CFLAGS)
