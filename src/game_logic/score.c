@@ -22,7 +22,7 @@ void save_score(game_t *game)
 void get_highscore(game_t *game, score_t *score)
 {
     char ***res = NULL;
-    int nbr = 0;
+    long long unsigned int nbr = 0;
 
     if (game->mysql == NULL) {
         score->score = 0;

@@ -5,7 +5,7 @@
 ** free_objects
 */
 
-#include "my_runner.h"
+#include "my_game.h"
 #include <stdlib.h>
 
 void free_anim(game_object_t *object)

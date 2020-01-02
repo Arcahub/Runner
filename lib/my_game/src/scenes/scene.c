@@ -5,8 +5,12 @@
 ** scene
 */
 
-#include "my_runner.h"
+#include "my_game.h"
 #include <stdlib.h>
+
+static const float MAX_FRAME_RANGE = 0.25;
+static const float DELAY_BETWEEN_UPDATE = 1 / 30.0;
+static const float SECOND_IN_MICRO = 1000000.0;
 
 void destroy_scene(scene_t *scene)
 {

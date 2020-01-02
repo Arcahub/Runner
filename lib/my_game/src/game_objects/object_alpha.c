@@ -5,7 +5,7 @@
 ** object_alpha
 */
 
-#include "my_runner.h"
+#include "my_game.h"
 
 void init_appearing_object(game_object_t *object)
 {

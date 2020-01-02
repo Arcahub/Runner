@@ -5,7 +5,7 @@
 ** animated_object
 */
 
-#include "my_runner.h"
+#include "my_game.h"
 #include <stdlib.h>
 
 bool update_animated_object(game_object_t *object, scene_t *scene)

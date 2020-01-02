@@ -5,7 +5,7 @@
 ** game_object
 */
 
-#include "my_runner.h"
+#include "my_game.h"
 #include <stdlib.h>
 #include <stdbool.h>
 

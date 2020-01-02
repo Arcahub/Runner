@@ -5,9 +5,41 @@
 ** buttons
 */
 
-#include "my_runner.h"
+#include "my_game.h"
 #include <SFML/Graphics.h>
 #include <stdlib.h>
+
+static const sfIntRect *BUTTON_UNSELECTED_FRAME_KEYS[] = {
+    &(sfIntRect){0, 396, 304, 36},
+    &(sfIntRect){0, 360, 304, 36},
+    &(sfIntRect){0, 324, 304, 36},
+    &(sfIntRect){0, 288, 304, 36},
+    &(sfIntRect){0, 252, 304, 36},
+    &(sfIntRect){0, 216, 304, 36},
+    &(sfIntRect){0, 180, 304, 36},
+    &(sfIntRect){0, 144, 304, 36},
+    &(sfIntRect){0, 108, 304, 36},
+    &(sfIntRect){0, 72, 304, 36},
+    &(sfIntRect){0, 36, 304, 36},
+    &(sfIntRect){0, 0, 304, 36},
+    NULL};
+
+static const sfIntRect *BUTTON_SELECTED_FRAME_KEYS[] = {
+    &(sfIntRect){0, 0, 304, 36},
+    &(sfIntRect){0, 36, 304, 36},
+    &(sfIntRect){0, 72, 304, 36},
+    &(sfIntRect){0, 108, 304, 36},
+    &(sfIntRect){0, 144, 304, 36},
+    &(sfIntRect){0, 180, 304, 36},
+    &(sfIntRect){0, 216, 304, 36},
+    &(sfIntRect){0, 252, 304, 36},
+    &(sfIntRect){0, 288, 304, 36},
+    &(sfIntRect){0, 324, 304, 36},
+    &(sfIntRect){0, 360, 304, 36},
+    &(sfIntRect){0, 396, 304, 36},
+    NULL};
+
+static const char *BUTTON_SOUND_PATH = "templates/sounds/ui_change_selection.ogg";
 
 bool update_text_button(game_object_t *button, scene_t *scene)
 {

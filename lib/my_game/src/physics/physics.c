@@ -5,7 +5,9 @@
 ** physics
 */
 
-#include "my_runner.h"
+#include "my_game.h"
+
+static const float GRAVITY = 2.0;
 
 void do_solid_collision_objects(game_object_t *actual, game_object_t *object)
 {

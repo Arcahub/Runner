@@ -5,7 +5,7 @@
 ** button
 */
 
-#include "my_runner.h"
+#include "my_game.h"
 
 bool update_button(game_object_t *object, scene_t *scene)
 {

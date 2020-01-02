@@ -5,7 +5,7 @@
 ** effect
 */
 
-#include "my_runner.h"
+#include "my_game.h"
 #include <stdlib.h>
 
 bool update_effect(game_object_t *object, scene_t *scene)

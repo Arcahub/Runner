@@ -5,7 +5,7 @@
 ** frames
 */
 
-#include "my_runner.h"
+#include "my_game.h"
 
 void update_sound_effect(game_object_t *game_object, int state)
 {
