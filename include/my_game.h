@@ -19,15 +19,18 @@ typedef struct game game_t;
 typedef struct score score_t;
 typedef struct cursor cursor_t;
 
+////////////////////////////////////////////////////////////
+/// \brief Structure containing global variable of the game
+////////////////////////////////////////////////////////////
 typedef struct game {
-    window_t *window;
-    char *map;
-    int (*scene_loop[5]) (game_t *, sfRenderWindow *);
-    game_object_t *player;
-    score_t *score;
-    score_t *highscore;
-    void *mysql;
-    cursor_t cursor;
+    window_t *window;                                       /**< Struct window, from my_graph lib, used to handle the variable of the window*/
+    char *map;                                              /**< String representing the map of the game*/
+    int (*scene_loop[5]) (game_t *, sfRenderWindow *);      /**< Array of function for all scene*/
+    game_object_t *player;                                  /**< Struct game_object reference to the main object of the game*/
+    score_t *score;                                         /**< Struct that handle the text variable for the score*/
+    score_t *highscore;                                     /**< Struct that handle the text variable for the highscore*/
+    void *mysql;                                            /**< Pointeur for mysql connection*/
+    cursor_t cursor;                                        /**< Struct cursor to handle cursor image and pos*/
 }game_t;
 
 #endif /* !MY_GAME_H_ */

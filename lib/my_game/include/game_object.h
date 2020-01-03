@@ -17,7 +17,7 @@ typedef struct scene scene_t;
 typedef struct anim anim_t;
 
 ////////////////////////////////////////////////////////////
-/// \brief Structure used for an animation of sprite.
+/// \brief Struct used for an animation of sprite.
 ////////////////////////////////////////////////////////////
 typedef struct anim
 {
